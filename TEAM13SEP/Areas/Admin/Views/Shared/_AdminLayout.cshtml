@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -35,6 +35,7 @@
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
+                @RenderBody()
                 <ul>
                     <li class="label">Main</li>
                     <li class="active">
@@ -1322,7 +1323,7 @@
             </div>
         </div>
     </div>
-    @RenderBody()
+   
     <div id="search">
         <button type="button" class="close">×</button>
         <form>

@@ -261,7 +261,6 @@
     <Content Include="AdminPlugin\assets\less\vertical-carousel.less" />
     <Content Include="AdminPlugin\assets\less\weather.less" />
     <Content Include="AdminPlugin\assets\less\widget-stat.less" />
-    <None Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="AdminPlugin\assets\css\admin\assets\fonts\themify.svg" />
     <Content Include="AdminPlugin\assets\css\advance-widget.css" />
     <Content Include="AdminPlugin\assets\css\badge.css" />
@@ -585,6 +584,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminPlugin\assets\js\lib\New folder\" />

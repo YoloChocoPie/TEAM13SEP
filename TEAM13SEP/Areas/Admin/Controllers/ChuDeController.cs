@@ -16,5 +16,33 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             var chude = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             return View(chude);
         }
+        public ActionResult Create()
+        {
+            var chude = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "CHUDE_CODE,CHUDE_NAME")]
+                        CHUDE chude)
+        {
+            if (ModelState.IsValid)
+            {
+                var chude1 = new CHUDE();
+                chude1.CHUDE_CODE = chude.CHUDE_CODE;
+                chude1.CHUDE_NAME = chude.CHUDE_NAME;
+                
+
+                model.CHUDEs.Add(chude1);
+                model.SaveChanges();
+
+                Session["Success"] = true;
+                return RedirectToAction("Index");
+            }
+            return View();
+
+
+
+        }
     }
 }

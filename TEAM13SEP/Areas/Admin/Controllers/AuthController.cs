@@ -38,6 +38,33 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             Session["user-not-found"] = true;
             return View();
         }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ADMIN c)
+        {
+            if (ModelState.IsValid)
+            {
+                var account = new ADMIN();
+                account.EMAIL = c.EMAIL;
+                account.PASSWORD = c.PASSWORD;
+                account.FULL_NAME = c.FULL_NAME;
+
+                account.ROLE = c.ROLE;
+
+                model.ADMINs.Add(account);
+                model.SaveChanges();
+
+                Session["Success"] = true;
+                return RedirectToAction("Login");
+            }
+            return View();
+
+        }
         public ActionResult Logout()
         {
             Session["user-fullname"] = null;

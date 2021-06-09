@@ -44,5 +44,43 @@ namespace TEAM13SEP.Areas.Admin.Controllers
 
 
         }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var chude = model.CHUDEs.FirstOrDefault(x => x.ID == id);
+            return View(chude);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CHUDE c)
+        {
+            if (ModelState.IsValid)
+            {
+                var chude = model.CHUDEs.FirstOrDefault(x => x.ID == id);
+                chude.CHUDE_CODE = c.CHUDE_CODE;
+                chude.CHUDE_NAME = c.CHUDE_NAME;
+               
+                model.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var chude = model.CHUDEs.FirstOrDefault(x => x.ID == id);
+            return View(chude);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult ComfirmDelete(int id)
+        {
+            var chude = model.CHUDEs.FirstOrDefault(x => x.ID == id);
+            model.CHUDEs.Remove(chude);
+            model.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

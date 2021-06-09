@@ -73,7 +73,7 @@
 
 
 
-                    <li><a><i class="ti-close"></i> Đăng xuất</a></li>
+                    <li><a href="~/Admin/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>
                 </ul>
             </div>
         </div>
@@ -93,7 +93,7 @@
             <ul>
 
                 <li class="header-icon dib">
-                    <img class="avatar-img" src="@Url.Content("~/AdminPlugin/assets/images/avatar/1.jpg")" alt="" /> <span class="user-avatar">Saifun <i class="ti-angle-down f-s-10"></i></span>
+                    <img class="avatar-img" src="@Url.Content("~/AdminPlugin/assets/images/avatar/1.jpg")" alt="" /> <span class="user-avatar">@Session["user-fullname"] <i class="ti-angle-down f-s-10"></i></span>
 
                 </li>
             </ul>

@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TEAM13SEP.Areas.Admin.Middleware;
 using TEAM13SEP.Models;
 
 namespace TEAM13SEP.Areas.Admin.Controllers
 {
+    [LoginVerification]
     public class ChuDeController : Controller
     {
+        
+
         SEPEntities model = new SEPEntities();
         // GET: Admin/ChuDe
         public ActionResult Index()

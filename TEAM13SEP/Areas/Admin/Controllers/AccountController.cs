@@ -35,7 +35,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 account.PASSWORD = c.PASSWORD;
                 account.FULL_NAME = c.FULL_NAME;
                 
-                account.ROLE = c.ROLE;
+             
 
                 model.ADMINs.Add(account);
                 model.SaveChanges();

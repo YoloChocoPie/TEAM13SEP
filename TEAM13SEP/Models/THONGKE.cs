@@ -14,13 +14,20 @@ namespace TEAM13SEP.Models
     
     public partial class THONGKE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public THONGKE()
+        {
+            this.GOPies = new HashSet<GOPY>();
+        }
+    
         public int ID { get; set; }
-        public Nullable<int> CHUDE_ID { get; set; }
-        public Nullable<int> LIKE_ID { get; set; }
+        public int CHUDE_ID { get; set; }
+        public Nullable<int> SINHVIEN_ID { get; set; }
         public Nullable<int> GOPY_ID { get; set; }
     
         public virtual CHUDE CHUDE { get; set; }
-        public virtual GOPY GOPY { get; set; }
-        public virtual LIKE LIKE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GOPY> GOPies { get; set; }
+        public virtual SINHVIEN SINHVIEN { get; set; }
     }
 }

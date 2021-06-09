@@ -14,28 +14,21 @@ namespace TEAM13SEP.Models
     
     public partial class GOPY
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GOPY()
-        {
-            this.THONGKEs = new HashSet<THONGKE>();
-        }
-    
         public int ID { get; set; }
         public string GOPY_CODE { get; set; }
         public string GOPY_TEN { get; set; }
         public Nullable<int> CHUDE_ID { get; set; }
         public Nullable<int> ADMIN_ID { get; set; }
-        public Nullable<int> LIKE_ID { get; set; }
+        public Nullable<int> nutLIKE { get; set; }
         public Nullable<int> SINHVIEN_ID { get; set; }
         public string NOIDUNG { get; set; }
         public string TRALOI { get; set; }
         public string IMAGE_URL { get; set; }
+        public bool DATE { get; set; }
     
+        public virtual ADMIN ADMIN { get; set; }
         public virtual CHUDE CHUDE { get; set; }
-        public virtual USER USER { get; set; }
-        public virtual LIKE LIKE { get; set; }
         public virtual SINHVIEN SINHVIEN { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THONGKE> THONGKEs { get; set; }
+        public virtual THONGKE THONGKE { get; set; }
     }
 }

@@ -25,12 +25,11 @@ namespace TEAM13SEP.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ADMIN> ADMINs { get; set; }
         public virtual DbSet<CHUDE> CHUDEs { get; set; }
         public virtual DbSet<GOPY> GOPies { get; set; }
-        public virtual DbSet<LIKE> LIKEs { get; set; }
         public virtual DbSet<SINHVIEN> SINHVIENs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THONGKE> THONGKEs { get; set; }
-        public virtual DbSet<USER> USERs { get; set; }
     }
 }

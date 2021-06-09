@@ -18,6 +18,7 @@ namespace TEAM13SEP.Models
         public SINHVIEN()
         {
             this.GOPies = new HashSet<GOPY>();
+            this.THONGKEs = new HashSet<THONGKE>();
         }
     
         public int ID { get; set; }
@@ -28,5 +29,7 @@ namespace TEAM13SEP.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GOPY> GOPies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THONGKE> THONGKEs { get; set; }
     }
 }

@@ -4,21 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d24d224ba5544fcc992fb470316b7e64" Name="Diagram1">
-        <EntityTypeShape EntityType="SEPModel.CHUDE" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.GOPY" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.LIKE" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.SINHVIEN" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.sysdiagram" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.THONGKE" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.USER" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+      <Diagram DiagramId="c9234d7e4ee844ceaa0d4a62ac838a6e" Name="Diagram1">
+        <EntityTypeShape EntityType="SEPModel.ADMIN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEPModel.CHUDE" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEPModel.GOPY" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEPModel.SINHVIEN" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEPModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEPModel.THONGKE" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="SEPModel.FK_GOPY_ADMIN" ManuallyRouted="false" />
         <AssociationConnector Association="SEPModel.FK_GOPY_CHUDE" ManuallyRouted="false" />
         <AssociationConnector Association="SEPModel.FK_THONGKE_CHUDE" ManuallyRouted="false" />
-        <AssociationConnector Association="SEPModel.FK_GOPY_ADMIN" ManuallyRouted="false" />
-        <AssociationConnector Association="SEPModel.FK_GOPY_LIKE" ManuallyRouted="false" />
         <AssociationConnector Association="SEPModel.FK_GOPY_SINHVIEN" ManuallyRouted="false" />
-        <AssociationConnector Association="SEPModel.FK_THONGKE_GOPY" ManuallyRouted="false" />
-        <AssociationConnector Association="SEPModel.FK_THONGKE_LIKE" ManuallyRouted="false" />
+        <AssociationConnector Association="SEPModel.FK_GOPY_THONGKE" ManuallyRouted="false" />
+        <AssociationConnector Association="SEPModel.FK_THONGKE_SINHVIEN" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

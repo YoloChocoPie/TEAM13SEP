@@ -66,6 +66,7 @@ namespace TEAM13SEP.Tests.Controllers
             var Models = result.Model as CHUDE;
             Assert.IsNotNull(result);
             Assert.AreEqual(ChuDe.CHUDE_NAME, Models.CHUDE_NAME);
+            Assert.AreEqual(ChuDe.CHUDE_CODE, Models.CHUDE_CODE);
         }
 
     }

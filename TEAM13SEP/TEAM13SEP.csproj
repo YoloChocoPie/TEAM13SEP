@@ -175,6 +175,10 @@
     <Compile Include="Areas\Admin\Controllers\ChuDeController.cs" />
     <Compile Include="Areas\Admin\Controllers\GopYController.cs" />
     <Compile Include="Areas\Admin\Middleware\LoginVerification.cs" />
+    <Compile Include="Areas\User\Controllers\AuthController.cs" />
+    <Compile Include="Areas\User\Controllers\GopYController.cs" />
+    <Compile Include="Areas\User\Middleware\LoginVerification.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -610,6 +614,13 @@
     <Content Include="Areas\Admin\Views\GopY\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\Auth\Create.cshtml" />
+    <Content Include="Areas\User\Views\Auth\Login.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index2.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Create.cshtml" />
+    <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -623,6 +634,9 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Table\css\dataTables.bootstrap.css" />
     <Content Include="Table\js\jquery.dataTables.js" />
+    <Content Include="UserPlugin\Styles\askme.css" />
+    <Content Include="UserPlugin\Styles\askme.min.css" />
+    <Content Include="UserPlugin\Styles\Images\background.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -658,11 +672,18 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="UserPlugin\Styles\askme.scss" />
+    <Content Include="UserPlugin\Styles\_articles.scss" />
+    <Content Include="UserPlugin\Styles\_forms.scss" />
+    <Content Include="UserPlugin\Styles\_layout.scss" />
+    <Content Include="UserPlugin\Styles\_pager.scss" />
+    <Content Include="UserPlugin\Styles\_vars.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminPlugin\assets\js\lib\New folder\" />
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\User\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

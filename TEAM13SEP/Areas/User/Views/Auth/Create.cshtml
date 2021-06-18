@@ -1,5 +1,7 @@
-﻿@model TEAM13SEP.Models.ADMIN
-@{ Layout = null; }
+﻿﻿@model TEAM13SEP.Models.SINHVIEN
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,19 +41,27 @@
                 <div class="col-lg-6 col-lg-offset-3">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="index.html"><span>Foodmin</span></a>
+                            <a href="index.html"><span>Hộp thư góp ý - Dành cho sinh viên khoa CNTT</span></a>
                         </div>
                         <div class="login-form">
                             @using (Html.BeginForm())
                             {
-                @Html.AntiForgeryToken()
+                                @Html.AntiForgeryToken()
 
                                 <div class="form-horizontal">
-                                    <h4>ADMIN</h4>
+                                    Trang Đăng kí
                                     <hr />
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.EMAIL, "Địa chỉ email", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.MSSV, "Mã số sinh viên", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.MSSV, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.MSSV, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.EMAIL, "Địa chỉ email ", htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
                                             @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
@@ -67,27 +77,20 @@
                                     </div>
 
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.FULL_NAME, "Họ tên", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.LabelFor(model => model.HOTEN_SV, "Họ và tên", htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
-                                            @Html.EditorFor(model => model.FULL_NAME, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.FULL_NAME, "", new { @class = "text-danger" })
+                                            @Html.EditorFor(model => model.HOTEN_SV, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.HOTEN_SV, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-
-                                    @* <div class="form-group">
-                                            @Html.LabelFor(model => model.ROLE, htmlAttributes: new { @class = "control-label col-md-2" })
-                                            <div class="col-md-10">
-                                                @Html.EditorFor(model => model.ROLE, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.ROLE, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>*@
 
                                     <div class="form-group">
                                         <div class="col-md-offset-2 col-md-10">
                                             <input type="submit" value="Create" class="btn btn-default" />
                                         </div>
                                     </div>
-                                </div>}
+                                </div>
+                            }
                             <div class="social-login-content">
                                 <div class="social-button">
                                     <button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10"><i class="ti-facebook"></i>Register with facebook</button>
@@ -95,7 +98,7 @@
                                 </div>
                             </div>
                             <div class="register-link m-t-15 text-center">
-                                <p>Bạn đã có tài khoản? <a href="~/Admin/Auth/Login"> Đăng nhập ngay !</a></p>
+                                <p>Đã có tài khoản ? <a href="~/User/Auth/Login"> Đăng nhập ngay !</a></p>
                             </div>
 
                         </div>
@@ -108,3 +111,7 @@
 </body>
 
 </html>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

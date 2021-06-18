@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Adminity : Creative Admin Dashboard</title>
+    <title>Hộp thư góp ý - Dành cho sinh viên khoa CNTT</title>
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
@@ -42,7 +42,7 @@
                 <ul>
                     <li class="label">Trang chủ</li>
 
-                    <li><a><i class="ti-home"></i> Trang Quản Trị </a></li>
+                    <li><a href="~/Admin/ChuDe"><i class="ti-home"></i> Trang Quản Trị </a></li>
                     @if ((int)Session["user-role"] == 1)
                     {
                         <li class="label">Mục Quản Lý</li>
@@ -50,7 +50,7 @@
                         <li>
                             <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="">Quản lý góp ý</a></li>
+                                <li><a href="~/Admin/GopY">Quản lý góp ý</a></li>
                                 <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
                                 <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>
 
@@ -115,7 +115,7 @@
 
                     @if ((int)Session["user-role"] == 4)
                     {
-                        
+
 
 
                     }
@@ -137,7 +137,7 @@
 
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="index.html"><span>TEAM13</span></a></div>
+            <div class="logo"><a href="~/Admin/Chude"><span>TEAM13</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>

@@ -11,7 +11,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
     [LoginVerification]
     public class ChuDeController : Controller
     {
-        
+
 
         SEPEntities model = new SEPEntities();
         // GET: Admin/ChuDe
@@ -20,6 +20,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             var chude = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             return View(chude);
         }
+        [HttpGet]
         public ActionResult Create()
         {
             var chude = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
@@ -35,7 +36,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 var chude1 = new CHUDE();
                 chude1.CHUDE_CODE = chude.CHUDE_CODE;
                 chude1.CHUDE_NAME = chude.CHUDE_NAME;
-                
+
 
                 model.CHUDEs.Add(chude1);
                 model.SaveChanges();
@@ -63,7 +64,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 var chude = model.CHUDEs.FirstOrDefault(x => x.ID == id);
                 chude.CHUDE_CODE = c.CHUDE_CODE;
                 chude.CHUDE_NAME = c.CHUDE_NAME;
-               
+
                 model.SaveChanges();
                 return RedirectToAction("Index");
             }

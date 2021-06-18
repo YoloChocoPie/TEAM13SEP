@@ -1,0 +1,196 @@
+﻿@model IEnumerable<TEAM13SEP.Models.GOPY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<body>
+
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table m-0" id="mySearchableData">
+                <thead>
+                    <tr>
+                        <th>
+                            Mã Góp Ý
+                        </th>
+                        <th>
+                            Tên Góp Ý
+                        </th>
+                        <th>
+                            Tên chủ đề
+                        </th>
+                        <th>
+                            Tên người trả lời
+                        </th>
+                        <th>
+                            Số lượng Like
+                        </th>
+                        <th>
+                            Tên sinh viên hỏi
+                        </th>
+                        <th>
+                            Nội dung
+                        </th>
+                        <th>
+                            Câu trả lời
+                        </th>
+                   
+                    
+
+                        <th></th>
+                    </tr>
+                </thead>
+
+
+                @foreach (var item in Model)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GOPY_CODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GOPY_TEN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ADMIN.FULL_NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nutLIKE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOIDUNG_GOPY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TRALOI_GOPY)
+                </td>
+                
+               
+
+                <td>
+                    @Html.ActionLink("Create New", "Create") |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+                }
+
+
+
+
+
+            </table>
+        </div>
+        <!-- /.table-responsive -->
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="@Url.Content("~/Table/js/bootstrap.min.js")"></script>
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+@Html.ActionLink("Create New", "Create") |
+
+
+<!-- EVERYTHING BELOW THIS YOU WILL NEED -->
+<script type="text/javascript" language="javascript" src="@Url.Content("~/Table/js/jquery.dataTables.js")"></script>
+
+
+
+<!--searchable table start -->
+<script type="text/javascript" language="javascript" class="init">
+    //	$('#mydata').dataTable();
+    $(document).ready(function () {
+        $('#mySearchableData').DataTable();
+    });
+</script>
+<!--searchable table END -->
+
+<script>
+
+    $(document).ready(function () {
+        $('#filterOptions li').click(function () {
+            // fetch the class of the clicked item
+            var ourClass = $(this).attr('class');
+
+            // reset the active class on all the buttons
+            $('#filterOptions li').removeClass('active');
+            // update the active state on our clicked button
+            $(this).parent().addClass('active');
+
+            if (ourClass == 'all') {
+                // show all our items
+                $('#ourHolder').children('div').show();
+            }
+            else {
+                // hide all elements that don't share ourClass
+                $('#ourHolder').children('div:not(.' + ourClass + ')').hide();
+                // show all elements that do share ourClass
+                $('#ourHolder').children('div.' + ourClass).show();
+            }
+            return false;
+        });
+    });
+
+
+
+
+    function validateForm() {
+        formObj = document.login;
+        if (formObj.eml.value == "") {
+            alert("You have not filled in the User Name field.");
+            formObj.eml.focus();
+            return false;
+        }
+        else if (formObj.pwd.value == "") {
+            alert("You have not filled in the Password field.");
+            formObj.pwd.focus();
+            return false;
+        }
+        formObj.btnLogin.innerHTML = 'Wait..';
+        formObj.btnLogin.disabled = true;
+    }
+
+
+    function Iforgot() {
+        str = "lg.pw.php?eml=" + login.eml.value;
+        document.location = str;
+    }
+
+
+
+    function FilterClear() {
+        ShipmentFilter.txtRefOt.value = "";
+        ShipmentFilter.ddStatus.value = null;
+        ShipmentFilter.ddMode.value = null;
+        ShipmentFilter.ddCountryOrig.value = null;
+        ShipmentFilter.ddCountryDest.value = null;
+        ShipmentFilter.txtCityOrig.value = "";
+        ShipmentFilter.txtCityDest.value = "";
+        ShipmentFilter.txtPortLoad.value = "";
+        ShipmentFilter.txtPortDischarge.value = "";
+        ShipmentFilter.txtClient.value = null;
+        ShipmentFilter.txtShipper.value = null;
+        ShipmentFilter.txtConsignee.value = null;
+
+    }
+
+
+    function FilterReset() {
+        FilterClear();
+        ShipmentFilter.ddStatus.value = 99;
+    }
+</script>

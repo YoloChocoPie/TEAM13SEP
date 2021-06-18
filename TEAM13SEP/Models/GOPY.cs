@@ -17,18 +17,18 @@ namespace TEAM13SEP.Models
         public int ID { get; set; }
         public string GOPY_CODE { get; set; }
         public string GOPY_TEN { get; set; }
-        public Nullable<int> CHUDE_ID { get; set; }
+        public int CHUDE_ID { get; set; }
         public Nullable<int> ADMIN_ID { get; set; }
         public Nullable<int> nutLIKE { get; set; }
         public Nullable<int> SINHVIEN_ID { get; set; }
-        public string NOIDUNG { get; set; }
-        public string TRALOI { get; set; }
-        public string IMAGE_URL { get; set; }
-        public bool DATE { get; set; }
+        public string NOIDUNG_GOPY { get; set; }
+        public string TRALOI_GOPY { get; set; }
+        public Nullable<int> GOPY_STATUS { get; set; }
+        public Nullable<System.DateTime> DATE { get; set; }
     
         public virtual ADMIN ADMIN { get; set; }
         public virtual CHUDE CHUDE { get; set; }
         public virtual SINHVIEN SINHVIEN { get; set; }
-        public virtual THONGKE THONGKE { get; set; }
+        public virtual TRANGTHAI TRANGTHAI { get; set; }
     }
 }

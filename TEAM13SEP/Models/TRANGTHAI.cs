@@ -12,22 +12,18 @@ namespace TEAM13SEP.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class THONGKE
+    public partial class TRANGTHAI
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public THONGKE()
+        public TRANGTHAI()
         {
             this.GOPies = new HashSet<GOPY>();
         }
     
         public int ID { get; set; }
-        public int CHUDE_ID { get; set; }
-        public Nullable<int> SINHVIEN_ID { get; set; }
-        public Nullable<int> GOPY_ID { get; set; }
+        public string TRANGTHAI1 { get; set; }
     
-        public virtual CHUDE CHUDE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GOPY> GOPies { get; set; }
-        public virtual SINHVIEN SINHVIEN { get; set; }
     }
 }

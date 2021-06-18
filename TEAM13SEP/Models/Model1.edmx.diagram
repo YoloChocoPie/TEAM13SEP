@@ -4,19 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c9234d7e4ee844ceaa0d4a62ac838a6e" Name="Diagram1">
-        <EntityTypeShape EntityType="SEPModel.ADMIN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.CHUDE" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.GOPY" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.SINHVIEN" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEPModel.THONGKE" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="SEPModel.FK_GOPY_ADMIN" ManuallyRouted="false" />
-        <AssociationConnector Association="SEPModel.FK_GOPY_CHUDE" ManuallyRouted="false" />
-        <AssociationConnector Association="SEPModel.FK_THONGKE_CHUDE" ManuallyRouted="false" />
-        <AssociationConnector Association="SEPModel.FK_GOPY_SINHVIEN" ManuallyRouted="false" />
-        <AssociationConnector Association="SEPModel.FK_GOPY_THONGKE" ManuallyRouted="false" />
-        <AssociationConnector Association="SEPModel.FK_THONGKE_SINHVIEN" ManuallyRouted="false" />
+      <Diagram DiagramId="684810151963472e9ace824aa016e465" Name="Diagram1">
+        <EntityTypeShape EntityType="TEAM13SEPModel.ADMIN" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEAM13SEPModel.CHUDE" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEAM13SEPModel.GOPY" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEAM13SEPModel.SINHVIEN" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEAM13SEPModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEAM13SEPModel.TRANGTHAI" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_ADMIN" ManuallyRouted="false" />
+        <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_CHUDE" ManuallyRouted="false" />
+        <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_SINHVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_TRANGTHAI" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

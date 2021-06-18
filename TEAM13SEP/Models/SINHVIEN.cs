@@ -18,18 +18,14 @@ namespace TEAM13SEP.Models
         public SINHVIEN()
         {
             this.GOPies = new HashSet<GOPY>();
-            this.THONGKEs = new HashSet<THONGKE>();
         }
     
-        public int ID { get; set; }
+        public int MSSV { get; set; }
         public string EMAIL { get; set; }
         public string PASSWORD { get; set; }
         public string HOTEN_SV { get; set; }
-        public string SODIENTHOAI_SV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GOPY> GOPies { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THONGKE> THONGKEs { get; set; }
     }
 }

@@ -30,6 +30,6 @@ namespace TEAM13SEP.Models
         public virtual DbSet<GOPY> GOPies { get; set; }
         public virtual DbSet<SINHVIEN> SINHVIENs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<THONGKE> THONGKEs { get; set; }
+        public virtual DbSet<TRANGTHAI> TRANGTHAIs { get; set; }
     }
 }

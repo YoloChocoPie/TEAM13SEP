@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TEAM13SEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADMIN">
           <Key>
             <PropertyRef Name="ID" />
@@ -20,7 +20,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CHUDE_CODE" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="CHUDE_CODE" Type="varchar" MaxLength="20" />
           <Property Name="CHUDE_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="GOPY">
@@ -28,26 +28,25 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GOPY_CODE" Type="varchar" MaxLength="8" />
+          <Property Name="GOPY_CODE" Type="varchar" MaxLength="20" />
           <Property Name="GOPY_TEN" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CHUDE_ID" Type="int" />
+          <Property Name="CHUDE_ID" Type="int" Nullable="false" />
           <Property Name="ADMIN_ID" Type="int" />
           <Property Name="nutLIKE" Type="int" />
           <Property Name="SINHVIEN_ID" Type="int" />
-          <Property Name="NOIDUNG" Type="nvarchar" MaxLength="500" />
-          <Property Name="TRALOI" Type="nvarchar" MaxLength="500" />
-          <Property Name="IMAGE_URL" Type="nvarchar(max)" />
-          <Property Name="DATE" Type="bit" Nullable="false" />
+          <Property Name="NOIDUNG_GOPY" Type="nvarchar(max)" />
+          <Property Name="TRALOI_GOPY" Type="nvarchar(max)" />
+          <Property Name="GOPY_STATUS" Type="int" />
+          <Property Name="DATE" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityType Name="SINHVIEN">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="MSSV" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MSSV" Type="int" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
           <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="HOTEN_SV" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SODIENTHOAI_SV" Type="varchar" MaxLength="15" />
+          <Property Name="HOTEN_SV" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -59,14 +58,12 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="THONGKE">
+        <EntityType Name="TRANGTHAI">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CHUDE_ID" Type="int" Nullable="false" />
-          <Property Name="SINHVIEN_ID" Type="int" />
-          <Property Name="GOPY_ID" Type="int" />
+          <Property Name="TRANGTHAI" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_GOPY_ADMIN">
           <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="0..1" />
@@ -81,7 +78,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_GOPY_CHUDE">
-          <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="0..1" />
+          <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="1" />
           <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CHUDE">
@@ -97,56 +94,32 @@
           <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SINHVIEN">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="MSSV" />
             </Principal>
             <Dependent Role="GOPY">
               <PropertyRef Name="SINHVIEN_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GOPY_THONGKE">
-          <End Role="THONGKE" Type="Self.THONGKE" Multiplicity="0..1" />
+        <Association Name="FK_GOPY_TRANGTHAI">
+          <End Role="TRANGTHAI" Type="Self.TRANGTHAI" Multiplicity="0..1" />
           <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="THONGKE">
+            <Principal Role="TRANGTHAI">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="GOPY">
-              <PropertyRef Name="CHUDE_ID" />
+              <PropertyRef Name="GOPY_STATUS" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_THONGKE_CHUDE">
-          <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="1" />
-          <End Role="THONGKE" Type="Self.THONGKE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CHUDE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="THONGKE">
-              <PropertyRef Name="CHUDE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_THONGKE_SINHVIEN">
-          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="0..1" />
-          <End Role="THONGKE" Type="Self.THONGKE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SINHVIEN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="THONGKE">
-              <PropertyRef Name="SINHVIEN_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="SEPModelStoreContainer">
+        <EntityContainer Name="TEAM13SEPModelStoreContainer">
           <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHUDE" EntityType="Self.CHUDE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GOPY" EntityType="Self.GOPY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="THONGKE" EntityType="Self.THONGKE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANGTHAI" EntityType="Self.TRANGTHAI" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_GOPY_ADMIN" Association="Self.FK_GOPY_ADMIN">
             <End Role="ADMIN" EntitySet="ADMIN" />
             <End Role="GOPY" EntitySet="GOPY" />
@@ -159,24 +132,16 @@
             <End Role="SINHVIEN" EntitySet="SINHVIEN" />
             <End Role="GOPY" EntitySet="GOPY" />
           </AssociationSet>
-          <AssociationSet Name="FK_GOPY_THONGKE" Association="Self.FK_GOPY_THONGKE">
-            <End Role="THONGKE" EntitySet="THONGKE" />
+          <AssociationSet Name="FK_GOPY_TRANGTHAI" Association="Self.FK_GOPY_TRANGTHAI">
+            <End Role="TRANGTHAI" EntitySet="TRANGTHAI" />
             <End Role="GOPY" EntitySet="GOPY" />
-          </AssociationSet>
-          <AssociationSet Name="FK_THONGKE_CHUDE" Association="Self.FK_THONGKE_CHUDE">
-            <End Role="CHUDE" EntitySet="CHUDE" />
-            <End Role="THONGKE" EntitySet="THONGKE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_THONGKE_SINHVIEN" Association="Self.FK_THONGKE_SINHVIEN">
-            <End Role="SINHVIEN" EntitySet="SINHVIEN" />
-            <End Role="THONGKE" EntitySet="THONGKE" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SEPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TEAM13SEPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ADMIN">
           <Key>
             <PropertyRef Name="ID" />
@@ -193,42 +158,39 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CHUDE_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CHUDE_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="CHUDE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_CHUDE" FromRole="CHUDE" ToRole="GOPY" />
-          <NavigationProperty Name="THONGKEs" Relationship="Self.FK_THONGKE_CHUDE" FromRole="CHUDE" ToRole="THONGKE" />
         </EntityType>
         <EntityType Name="GOPY">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GOPY_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="GOPY_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="GOPY_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CHUDE_ID" Type="Int32" />
+          <Property Name="CHUDE_ID" Type="Int32" Nullable="false" />
           <Property Name="ADMIN_ID" Type="Int32" />
           <Property Name="nutLIKE" Type="Int32" />
           <Property Name="SINHVIEN_ID" Type="Int32" />
-          <Property Name="NOIDUNG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TRALOI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="IMAGE_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DATE" Type="Boolean" Nullable="false" />
+          <Property Name="NOIDUNG_GOPY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TRALOI_GOPY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GOPY_STATUS" Type="Int32" />
+          <Property Name="DATE" Type="DateTime" Precision="7" />
           <NavigationProperty Name="ADMIN" Relationship="Self.FK_GOPY_ADMIN" FromRole="GOPY" ToRole="ADMIN" />
           <NavigationProperty Name="CHUDE" Relationship="Self.FK_GOPY_CHUDE" FromRole="GOPY" ToRole="CHUDE" />
           <NavigationProperty Name="SINHVIEN" Relationship="Self.FK_GOPY_SINHVIEN" FromRole="GOPY" ToRole="SINHVIEN" />
-          <NavigationProperty Name="THONGKE" Relationship="Self.FK_GOPY_THONGKE" FromRole="GOPY" ToRole="THONGKE" />
+          <NavigationProperty Name="TRANGTHAI" Relationship="Self.FK_GOPY_TRANGTHAI" FromRole="GOPY" ToRole="TRANGTHAI" />
         </EntityType>
         <EntityType Name="SINHVIEN">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="MSSV" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MSSV" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="HOTEN_SV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SODIENTHOAI_SV" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="HOTEN_SV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_SINHVIEN" FromRole="SINHVIEN" ToRole="GOPY" />
-          <NavigationProperty Name="THONGKEs" Relationship="Self.FK_THONGKE_SINHVIEN" FromRole="SINHVIEN" ToRole="THONGKE" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -240,17 +202,13 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="THONGKE">
+        <EntityType Name="TRANGTHAI">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CHUDE_ID" Type="Int32" Nullable="false" />
-          <Property Name="SINHVIEN_ID" Type="Int32" />
-          <Property Name="GOPY_ID" Type="Int32" />
-          <NavigationProperty Name="CHUDE" Relationship="Self.FK_THONGKE_CHUDE" FromRole="THONGKE" ToRole="CHUDE" />
-          <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_THONGKE" FromRole="THONGKE" ToRole="GOPY" />
-          <NavigationProperty Name="SINHVIEN" Relationship="Self.FK_THONGKE_SINHVIEN" FromRole="THONGKE" ToRole="SINHVIEN" />
+          <Property Name="TRANGTHAI1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_TRANGTHAI" FromRole="TRANGTHAI" ToRole="GOPY" />
         </EntityType>
         <Association Name="FK_GOPY_ADMIN">
           <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="0..1" />
@@ -265,25 +223,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_GOPY_CHUDE">
-          <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="0..1" />
+          <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="1" />
           <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CHUDE">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="GOPY">
-              <PropertyRef Name="CHUDE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_THONGKE_CHUDE">
-          <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="1" />
-          <End Role="THONGKE" Type="Self.THONGKE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CHUDE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="THONGKE">
               <PropertyRef Name="CHUDE_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -293,34 +239,22 @@
           <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SINHVIEN">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="MSSV" />
             </Principal>
             <Dependent Role="GOPY">
               <PropertyRef Name="SINHVIEN_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GOPY_THONGKE">
-          <End Role="THONGKE" Type="Self.THONGKE" Multiplicity="0..1" />
+        <Association Name="FK_GOPY_TRANGTHAI">
+          <End Role="TRANGTHAI" Type="Self.TRANGTHAI" Multiplicity="0..1" />
           <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="THONGKE">
+            <Principal Role="TRANGTHAI">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="GOPY">
-              <PropertyRef Name="CHUDE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_THONGKE_SINHVIEN">
-          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="0..1" />
-          <End Role="THONGKE" Type="Self.THONGKE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SINHVIEN">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="THONGKE">
-              <PropertyRef Name="SINHVIEN_ID" />
+              <PropertyRef Name="GOPY_STATUS" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -330,7 +264,7 @@
           <EntitySet Name="GOPies" EntityType="Self.GOPY" />
           <EntitySet Name="SINHVIENs" EntityType="Self.SINHVIEN" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="THONGKEs" EntityType="Self.THONGKE" />
+          <EntitySet Name="TRANGTHAIs" EntityType="Self.TRANGTHAI" />
           <AssociationSet Name="FK_GOPY_ADMIN" Association="Self.FK_GOPY_ADMIN">
             <End Role="ADMIN" EntitySet="ADMINs" />
             <End Role="GOPY" EntitySet="GOPies" />
@@ -339,21 +273,13 @@
             <End Role="CHUDE" EntitySet="CHUDEs" />
             <End Role="GOPY" EntitySet="GOPies" />
           </AssociationSet>
-          <AssociationSet Name="FK_THONGKE_CHUDE" Association="Self.FK_THONGKE_CHUDE">
-            <End Role="CHUDE" EntitySet="CHUDEs" />
-            <End Role="THONGKE" EntitySet="THONGKEs" />
-          </AssociationSet>
           <AssociationSet Name="FK_GOPY_SINHVIEN" Association="Self.FK_GOPY_SINHVIEN">
             <End Role="SINHVIEN" EntitySet="SINHVIENs" />
             <End Role="GOPY" EntitySet="GOPies" />
           </AssociationSet>
-          <AssociationSet Name="FK_GOPY_THONGKE" Association="Self.FK_GOPY_THONGKE">
-            <End Role="THONGKE" EntitySet="THONGKEs" />
+          <AssociationSet Name="FK_GOPY_TRANGTHAI" Association="Self.FK_GOPY_TRANGTHAI">
+            <End Role="TRANGTHAI" EntitySet="TRANGTHAIs" />
             <End Role="GOPY" EntitySet="GOPies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_THONGKE_SINHVIEN" Association="Self.FK_THONGKE_SINHVIEN">
-            <End Role="SINHVIEN" EntitySet="SINHVIENs" />
-            <End Role="THONGKE" EntitySet="THONGKEs" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -361,9 +287,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SEPModelStoreContainer" CdmEntityContainer="SEPEntities">
+        <EntityContainerMapping StorageEntityContainer="TEAM13SEPModelStoreContainer" CdmEntityContainer="SEPEntities">
           <EntitySetMapping Name="ADMINs">
-            <EntityTypeMapping TypeName="SEPModel.ADMIN">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.ADMIN">
               <MappingFragment StoreEntitySet="ADMIN">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
@@ -374,7 +300,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHUDEs">
-            <EntityTypeMapping TypeName="SEPModel.CHUDE">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.CHUDE">
               <MappingFragment StoreEntitySet="CHUDE">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CHUDE_CODE" ColumnName="CHUDE_CODE" />
@@ -383,7 +309,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GOPies">
-            <EntityTypeMapping TypeName="SEPModel.GOPY">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.GOPY">
               <MappingFragment StoreEntitySet="GOPY">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="GOPY_CODE" ColumnName="GOPY_CODE" />
@@ -392,26 +318,25 @@
                 <ScalarProperty Name="ADMIN_ID" ColumnName="ADMIN_ID" />
                 <ScalarProperty Name="nutLIKE" ColumnName="nutLIKE" />
                 <ScalarProperty Name="SINHVIEN_ID" ColumnName="SINHVIEN_ID" />
-                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
-                <ScalarProperty Name="TRALOI" ColumnName="TRALOI" />
-                <ScalarProperty Name="IMAGE_URL" ColumnName="IMAGE_URL" />
+                <ScalarProperty Name="NOIDUNG_GOPY" ColumnName="NOIDUNG_GOPY" />
+                <ScalarProperty Name="TRALOI_GOPY" ColumnName="TRALOI_GOPY" />
+                <ScalarProperty Name="GOPY_STATUS" ColumnName="GOPY_STATUS" />
                 <ScalarProperty Name="DATE" ColumnName="DATE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SINHVIENs">
-            <EntityTypeMapping TypeName="SEPModel.SINHVIEN">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.SINHVIEN">
               <MappingFragment StoreEntitySet="SINHVIEN">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MSSV" ColumnName="MSSV" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
                 <ScalarProperty Name="HOTEN_SV" ColumnName="HOTEN_SV" />
-                <ScalarProperty Name="SODIENTHOAI_SV" ColumnName="SODIENTHOAI_SV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SEPModel.sysdiagram">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -421,13 +346,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="THONGKEs">
-            <EntityTypeMapping TypeName="SEPModel.THONGKE">
-              <MappingFragment StoreEntitySet="THONGKE">
+          <EntitySetMapping Name="TRANGTHAIs">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.TRANGTHAI">
+              <MappingFragment StoreEntitySet="TRANGTHAI">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CHUDE_ID" ColumnName="CHUDE_ID" />
-                <ScalarProperty Name="SINHVIEN_ID" ColumnName="SINHVIEN_ID" />
-                <ScalarProperty Name="GOPY_ID" ColumnName="GOPY_ID" />
+                <ScalarProperty Name="TRANGTHAI1" ColumnName="TRANGTHAI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

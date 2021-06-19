@@ -171,6 +171,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\User\Controllers\GopYController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -595,6 +596,9 @@
     </Content>
     <Content Include="Areas\User\Views\web.config" />
     <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Create.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index2.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -656,7 +660,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Areas\User\Data\" />
     <Folder Include="Data\" />
   </ItemGroup>

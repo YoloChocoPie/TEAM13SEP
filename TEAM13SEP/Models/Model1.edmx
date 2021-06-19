@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TEAM13SEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FULL_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ROLE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHUDE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CHUDE_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="CHUDE_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GOPY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GOPY_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="GOPY_TEN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CHUDE_ID" Type="int" Nullable="false" />
+          <Property Name="ADMIN_ID" Type="int" />
+          <Property Name="nutLIKE" Type="int" />
+          <Property Name="SINHVIEN_ID" Type="int" />
+          <Property Name="NOIDUNG_GOPY" Type="nvarchar(max)" />
+          <Property Name="TRALOI_GOPY" Type="nvarchar(max)" />
+          <Property Name="GOPY_STATUS" Type="int" />
+          <Property Name="DATE" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="SINHVIEN">
+          <Key>
+            <PropertyRef Name="MSSV" />
+          </Key>
+          <Property Name="MSSV" Type="int" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HOTEN_SV" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TRANGTHAI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TRANGTHAI" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_GOPY_ADMIN">
+          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="0..1" />
+          <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADMIN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GOPY">
+              <PropertyRef Name="ADMIN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GOPY_CHUDE">
+          <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="1" />
+          <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUDE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GOPY">
+              <PropertyRef Name="CHUDE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GOPY_SINHVIEN">
+          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="0..1" />
+          <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SINHVIEN">
+              <PropertyRef Name="MSSV" />
+            </Principal>
+            <Dependent Role="GOPY">
+              <PropertyRef Name="SINHVIEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GOPY_TRANGTHAI">
+          <End Role="TRANGTHAI" Type="Self.TRANGTHAI" Multiplicity="0..1" />
+          <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANGTHAI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GOPY">
+              <PropertyRef Name="GOPY_STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TEAM13SEPModelStoreContainer">
+          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHUDE" EntityType="Self.CHUDE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GOPY" EntityType="Self.GOPY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANGTHAI" EntityType="Self.TRANGTHAI" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_GOPY_ADMIN" Association="Self.FK_GOPY_ADMIN">
+            <End Role="ADMIN" EntitySet="ADMIN" />
+            <End Role="GOPY" EntitySet="GOPY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GOPY_CHUDE" Association="Self.FK_GOPY_CHUDE">
+            <End Role="CHUDE" EntitySet="CHUDE" />
+            <End Role="GOPY" EntitySet="GOPY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GOPY_SINHVIEN" Association="Self.FK_GOPY_SINHVIEN">
+            <End Role="SINHVIEN" EntitySet="SINHVIEN" />
+            <End Role="GOPY" EntitySet="GOPY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GOPY_TRANGTHAI" Association="Self.FK_GOPY_TRANGTHAI">
+            <End Role="TRANGTHAI" EntitySet="TRANGTHAI" />
+            <End Role="GOPY" EntitySet="GOPY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TEAM13SEPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FULL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ROLE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_ADMIN" FromRole="ADMIN" ToRole="GOPY" />
+        </EntityType>
+        <EntityType Name="CHUDE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CHUDE_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CHUDE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_CHUDE" FromRole="CHUDE" ToRole="GOPY" />
+        </EntityType>
+        <EntityType Name="GOPY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GOPY_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GOPY_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CHUDE_ID" Type="Int32" Nullable="false" />
+          <Property Name="ADMIN_ID" Type="Int32" />
+          <Property Name="nutLIKE" Type="Int32" />
+          <Property Name="SINHVIEN_ID" Type="Int32" />
+          <Property Name="NOIDUNG_GOPY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TRALOI_GOPY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GOPY_STATUS" Type="Int32" />
+          <Property Name="DATE" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ADMIN" Relationship="Self.FK_GOPY_ADMIN" FromRole="GOPY" ToRole="ADMIN" />
+          <NavigationProperty Name="CHUDE" Relationship="Self.FK_GOPY_CHUDE" FromRole="GOPY" ToRole="CHUDE" />
+          <NavigationProperty Name="SINHVIEN" Relationship="Self.FK_GOPY_SINHVIEN" FromRole="GOPY" ToRole="SINHVIEN" />
+          <NavigationProperty Name="TRANGTHAI" Relationship="Self.FK_GOPY_TRANGTHAI" FromRole="GOPY" ToRole="TRANGTHAI" />
+        </EntityType>
+        <EntityType Name="SINHVIEN">
+          <Key>
+            <PropertyRef Name="MSSV" />
+          </Key>
+          <Property Name="MSSV" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HOTEN_SV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_SINHVIEN" FromRole="SINHVIEN" ToRole="GOPY" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TRANGTHAI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TRANGTHAI1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_TRANGTHAI" FromRole="TRANGTHAI" ToRole="GOPY" />
+        </EntityType>
+        <Association Name="FK_GOPY_ADMIN">
+          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="0..1" />
+          <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADMIN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GOPY">
+              <PropertyRef Name="ADMIN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GOPY_CHUDE">
+          <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="1" />
+          <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUDE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GOPY">
+              <PropertyRef Name="CHUDE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GOPY_SINHVIEN">
+          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="0..1" />
+          <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SINHVIEN">
+              <PropertyRef Name="MSSV" />
+            </Principal>
+            <Dependent Role="GOPY">
+              <PropertyRef Name="SINHVIEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GOPY_TRANGTHAI">
+          <End Role="TRANGTHAI" Type="Self.TRANGTHAI" Multiplicity="0..1" />
+          <End Role="GOPY" Type="Self.GOPY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANGTHAI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GOPY">
+              <PropertyRef Name="GOPY_STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SEPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINs" EntityType="Self.ADMIN" />
+          <EntitySet Name="CHUDEs" EntityType="Self.CHUDE" />
+          <EntitySet Name="GOPies" EntityType="Self.GOPY" />
+          <EntitySet Name="SINHVIENs" EntityType="Self.SINHVIEN" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TRANGTHAIs" EntityType="Self.TRANGTHAI" />
+          <AssociationSet Name="FK_GOPY_ADMIN" Association="Self.FK_GOPY_ADMIN">
+            <End Role="ADMIN" EntitySet="ADMINs" />
+            <End Role="GOPY" EntitySet="GOPies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GOPY_CHUDE" Association="Self.FK_GOPY_CHUDE">
+            <End Role="CHUDE" EntitySet="CHUDEs" />
+            <End Role="GOPY" EntitySet="GOPies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GOPY_SINHVIEN" Association="Self.FK_GOPY_SINHVIEN">
+            <End Role="SINHVIEN" EntitySet="SINHVIENs" />
+            <End Role="GOPY" EntitySet="GOPies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GOPY_TRANGTHAI" Association="Self.FK_GOPY_TRANGTHAI">
+            <End Role="TRANGTHAI" EntitySet="TRANGTHAIs" />
+            <End Role="GOPY" EntitySet="GOPies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TEAM13SEPModelStoreContainer" CdmEntityContainer="SEPEntities">
+          <EntitySetMapping Name="ADMINs">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.ADMIN">
+              <MappingFragment StoreEntitySet="ADMIN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHUDEs">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.CHUDE">
+              <MappingFragment StoreEntitySet="CHUDE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CHUDE_CODE" ColumnName="CHUDE_CODE" />
+                <ScalarProperty Name="CHUDE_NAME" ColumnName="CHUDE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GOPies">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.GOPY">
+              <MappingFragment StoreEntitySet="GOPY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GOPY_CODE" ColumnName="GOPY_CODE" />
+                <ScalarProperty Name="GOPY_TEN" ColumnName="GOPY_TEN" />
+                <ScalarProperty Name="CHUDE_ID" ColumnName="CHUDE_ID" />
+                <ScalarProperty Name="ADMIN_ID" ColumnName="ADMIN_ID" />
+                <ScalarProperty Name="nutLIKE" ColumnName="nutLIKE" />
+                <ScalarProperty Name="SINHVIEN_ID" ColumnName="SINHVIEN_ID" />
+                <ScalarProperty Name="NOIDUNG_GOPY" ColumnName="NOIDUNG_GOPY" />
+                <ScalarProperty Name="TRALOI_GOPY" ColumnName="TRALOI_GOPY" />
+                <ScalarProperty Name="GOPY_STATUS" ColumnName="GOPY_STATUS" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SINHVIENs">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.SINHVIEN">
+              <MappingFragment StoreEntitySet="SINHVIEN">
+                <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="HOTEN_SV" ColumnName="HOTEN_SV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANGTHAIs">
+            <EntityTypeMapping TypeName="TEAM13SEPModel.TRANGTHAI">
+              <MappingFragment StoreEntitySet="TRANGTHAI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TRANGTHAI1" ColumnName="TRANGTHAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

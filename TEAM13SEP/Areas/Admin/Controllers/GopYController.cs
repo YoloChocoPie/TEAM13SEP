@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//using TEAM13SEP.Areas.Admin.Middleware;
+using TEAM13SEP.Areas.Admin.Middleware;
 using TEAM13SEP.Models;
 
 namespace TEAM13SEP.Areas.Admin.Controllers
 {
-    //[LoginVerification]
+    [LoginVerification]
     public class GopYController : Controller
     {
         // GET: Admin/GopY

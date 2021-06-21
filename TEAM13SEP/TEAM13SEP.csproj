@@ -171,7 +171,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
     <Compile Include="Areas\Admin\Controllers\GopYController.cs" />
+    <Compile Include="Areas\Admin\Middleware\LoginVerification.cs" />
     <Compile Include="Areas\User\Controllers\AuthController.cs" />
     <Compile Include="Areas\User\Controllers\GopYController.cs" />
     <Compile Include="Areas\User\Middleware\LoginVerification.cs" />
@@ -605,6 +607,10 @@
     <Content Include="Areas\User\Views\Auth\Login.cshtml" />
     <Content Include="Areas\User\Views\Auth\Create.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

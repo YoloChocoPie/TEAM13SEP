@@ -11,7 +11,7 @@ using TEAM13SEP.Models;
 namespace TEAM13SEP.Areas.User.Controllers
 {
 
-    
+    [LoginVerification]
     public class GopYController : Controller
     {
         // GET: Admin/GopY

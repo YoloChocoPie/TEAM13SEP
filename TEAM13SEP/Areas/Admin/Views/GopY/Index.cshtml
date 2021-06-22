@@ -1,0 +1,88 @@
+﻿@model IEnumerable<TEAM13SEP.Models.GOPY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GOPY_CODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GOPY_TEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nutLIKE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOIDUNG_GOPY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRALOI_GOPY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADMIN.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CHUDE.CHUDE_CODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SINHVIEN.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANGTHAI.TRANGTHAI1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GOPY_CODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GOPY_TEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nutLIKE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOIDUNG_GOPY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRALOI_GOPY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADMIN.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_CODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SINHVIEN.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRANGTHAI.TRANGTHAI1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

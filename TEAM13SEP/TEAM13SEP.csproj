@@ -245,6 +245,12 @@
     <Content Include="AdminPlugin\assets\fonts\weathericons-regular-webfont.ttf" />
     <Content Include="AdminPlugin\assets\fonts\weathericons-regular-webfont.woff" />
     <Content Include="AdminPlugin\assets\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="AdminPlugin\assets\images\sep_logo.png" />
+    <Content Include="AdminPlugin\assets\images\sep_logo_2.png" />
+    <Content Include="AdminPlugin\assets\images\sep_logo_3.png" />
+    <Content Include="AdminPlugin\assets\images\sep_logo_4.png" />
+    <Content Include="AdminPlugin\assets\images\sep_logo_5.png" />
+    <Content Include="AdminPlugin\assets\images\sep_logo_6.png" />
     <Content Include="AdminPlugin\assets\less\advance-widget.less" />
     <Content Include="AdminPlugin\assets\less\badge.less" />
     <Content Include="AdminPlugin\assets\less\booking-system.less" />
@@ -605,6 +611,7 @@
     <Content Include="Areas\User\Views\Auth\Login.cshtml" />
     <Content Include="Areas\User\Views\Auth\Create.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

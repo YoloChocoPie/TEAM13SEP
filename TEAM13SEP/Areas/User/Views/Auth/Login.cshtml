@@ -13,10 +13,10 @@
 
     <title>Feedback for IT students</title>
     <!--icon title-->
-    <link rel="icon" type="image/svg" href="~/AdminPlugin/assets/images/sep_logo_6.png" style="width:500px;height:500px" />
+    <link rel="icon" type="image/svg" href="~/AdminPlugin/assets/images/sep_logo_6a.png" />
+
 
     <!-- ================= Favicon ================== -->
-  
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
     <!-- Retina iPad Touch Icon-->
@@ -26,7 +26,7 @@
     <!-- Standard iPad Touch Icon-->
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">   
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 
     <!-- Styles -->
     <link href="@Url.Content("~/AdminPlugin/assets/css/lib/font-awesome.min.css")" rel="stylesheet">
@@ -34,53 +34,88 @@
     <link href="@Url.Content("~/AdminPlugin/assets/css/lib/bootstrap.min.css")" rel="stylesheet">
     <link href="@Url.Content("~/AdminPlugin/assets/css/lib/unix.css")" rel="stylesheet">
     <link href="@Url.Content("~/AdminPlugin/assets/css/style.css")" rel="stylesheet">
+
+    <!-- FAV Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/fav/favicon-16x16.png">
+    <link rel="manifest" href="images/fav/site.webmanifest">
+    <link rel="mask-icon" href="images/fav/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/fav/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="EventBox">
+    <meta name="application-name" content="EventBox">
+    <meta name="msapplication-TileColor" content="#4243dc">
+    <meta name="msapplication-config" content="images/fav/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:400,500,700" rel="stylesheet">
+    <!-- FONT-AWESOME ICON CSS -->
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/font-awesome.min.css">
+
+    <!--== ALL CSS FILES ==-->
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/style.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/materialize.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/mob.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/animate.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datetimepicker.css">
+
+
+    <!-- Datatables -->
+    <link href="~/AdminPlugin/assets/vendor/DataTables/datatables.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Slick -->
+    <link href="~/AdminPlugin/assets/vendor/slick/slick.css" rel="stylesheet" type="text/css">
+    <link href="~/AdminPlugin/assets/vendor/slick/slick-theme.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body class="bg-primary">
-
-    <div class="unix-login">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-lg-offset-3">
+                <div>
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="index.html"><span>Hộp thư góp ý - Dành cho sinh viên khoa CNTT</span></a>
                         </div>
                         <div class="login-form">
                             <form action="@Url.Action("Login")" method="post">
-                                <h4>Trang Đăng Nhập</h4>
+                                <h3>Trang Đăng Nhập</h3>
 
-                                <div class="form-group">
-                                    <label>Email address</label>
-                                    <input type="email" class="form-control" placeholder="Email của bạn" name="email">
+                                <div class="container">
+                                        <label for="email"><i> Email của bạn </i></label>
+                                        <input type="email" placeholder="Email của bạn" name="email" required>
                                 </div>
+                               
 
                                 @if (Convert.ToBoolean(Session["user-not-found1"]) == true)
-                                {
+                                { 
                                     <p style="color : red"> User Email not found </p>
                                 }
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
+                                <br />
+
+                                <div class="container">
+                                    <label for="pass"><i> Password </i></label>
+                                    <input type="password" placeholder="Mật khẩu của bạn" name="password" required>
                                 </div>
+
                                 @if (Convert.ToBoolean(Session["password-incorrect1"]) == true)
                                 {
                                     <p style="color : red"> User Password not found </p>
                                 }
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Remember Me
-                                    </label>
-                                    <label class="pull-right">
-                                        <a href="#">Forgotten Password?</a>
-                                    </label>
 
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
+                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"> Đăng nhập </button>
+                                <label>
+                                    <input type="checkbox" checked="checked" name="remember"> 
+                                    Click để không cần đăng nhập lần sau
+                                </label>
+
                                 <div class="social-login-content">
                                     <div class="social-button">
                                         <button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10"><i class="ti-facebook"></i> Sign in with facebook </button>
-                                    
+
                                     </div>
                                 </div>
                                 <div class="register-link m-t-15 text-center">
@@ -93,7 +128,51 @@
                 </div>
             </div>
         </div>
-    </div>
+
+    <section>
+        <div class="rows">
+            <div class="footer">
+                <div class="container">
+                    <div class="foot-sec2">
+                        <div>
+                            <div class="row footernoop">
+                                <div class="col-sm-2 foot-spec foot-com">
+                                    <div class="wed-logo2">
+                                        <a href="/">
+                                            <img src="~/AdminPlugin/assets/images/logo_vanlang.png" alt="Feedback webiste for IT student" style="width:100px;height:100px">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 foot-spec foot-com">
+                                    <h4>Địa chỉ</h4>
+                                    <p><a style="color: #fff" href="https://goo.gl/maps/2CcxCxTxQXPDDYwW8" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Trụ sở: <br>45 Nguyễn Khắc Nhu, P.Cô Giang, Q.1, Hồ Chí Minh.</a></p>
+                                    <p><a style="color: #fff" href="https://goo.gl/maps/H4RCpcajjiNjpjZ8A" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Cơ sở 2: <br> 233A Phan Văn Trị, P.11, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
+                                    <p><a style="color: #fff" href="https://goo.gl/maps/UdzN3SB64pcwUyGGA" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Cơ sơ 3: <br> 80/68 Dương Quảng Hàm, P.5, Q.Gò Vấp, Hồ Chí Minh. <br> 69/68 Đặng Thùy Trâm, P.13, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
+                                </div>
+                                <div class="col-sm-3 col-md-3 foot-spec foot-com">
+                                    <h4>Liên hệ</h4>
+                                    <p">
+                                        <a style="color: #fff" href="tel:02871099218,3310"><i class="fa fa-phone" aria-hidden="true"></i> 028 7109 9218 (Ext: 3310)</a><p></p>
+                                        <p><a style="color: #fff" href="tel:02871099218,3311"><i class="fa fa-phone" aria-hidden="true"></i> 028 7109 9218 (Ext: 3311)</a></p>
+                                        <p><a style="color: #fff" href="mailto:t.sv@vanlanguni.edu.vn"><i class="fa fa-envelope-o" aria-hidden="true"></i> Trung tâm hỗ trợ sinh viên </a></p>
+                                    </p">
+                                </div>
+                                <div class="col-sm-3 foot-social foot-spec foot-com">
+                                    <h4>Theo dõi chúng tôi</h4>
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/ctsvvlu" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://www.youtube.com/channel/UCMUwcQecO4jqgoTgBJ3W6bQ" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://www.instagram.com/vanlanguniversity/?r=nametag" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://twitter.com/universityvan?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 

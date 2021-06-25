@@ -11,7 +11,8 @@ namespace TEAM13SEP.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class SINHVIEN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +20,18 @@ namespace TEAM13SEP.Models
         {
             this.GOPies = new HashSet<GOPY>();
         }
-    
+        [Required(AllowEmptyStrings = false, ErrorMessage = "MSSV is requierd")]
         public int MSSV { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Email is requierd")]
         public string EMAIL { get; set; }
+     
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Password is requierd")]
+        [DataType(DataType.Password)]
         public string PASSWORD { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "FullName is requierd")]
         public string HOTEN_SV { get; set; }
+        public Nullable<bool> EmailConfirm { get; set; }
+        public Nullable<System.Guid> ActivetionCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GOPY> GOPies { get; set; }

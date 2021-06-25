@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TEAM13SEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TEAM13SEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADMIN">
           <Key>
             <PropertyRef Name="ID" />
@@ -14,6 +14,8 @@
           <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FULL_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ROLE" Type="int" Nullable="false" />
+          <Property Name="EmailConfirm" Type="bit" />
+          <Property Name="ActivetionCode" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="CHUDE">
           <Key>
@@ -47,6 +49,8 @@
           <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
           <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="HOTEN_SV" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmailConfirm" Type="bit" />
+          <Property Name="ActivetionCode" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -137,8 +141,7 @@
             <End Role="GOPY" EntitySet="GOPY" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TEAM13SEPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -151,6 +154,8 @@
           <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FULL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ROLE" Type="Int32" Nullable="false" />
+          <Property Name="EmailConfirm" Type="Boolean" />
+          <Property Name="ActivetionCode" Type="Guid" />
           <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_ADMIN" FromRole="ADMIN" ToRole="GOPY" />
         </EntityType>
         <EntityType Name="CHUDE">
@@ -191,6 +196,8 @@
           <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HOTEN_SV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="GOPies" Relationship="Self.FK_GOPY_SINHVIEN" FromRole="SINHVIEN" ToRole="GOPY" />
+          <Property Name="EmailConfirm" Type="Boolean" />
+          <Property Name="ActivetionCode" Type="Guid" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -296,6 +303,8 @@
                 <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
                 <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
                 <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+                <ScalarProperty Name="EmailConfirm" ColumnName="EmailConfirm" />
+                <ScalarProperty Name="ActivetionCode" ColumnName="ActivetionCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -328,6 +337,8 @@
           <EntitySetMapping Name="SINHVIENs">
             <EntityTypeMapping TypeName="TEAM13SEPModel.SINHVIEN">
               <MappingFragment StoreEntitySet="SINHVIEN">
+                <ScalarProperty Name="ActivetionCode" ColumnName="ActivetionCode" />
+                <ScalarProperty Name="EmailConfirm" ColumnName="EmailConfirm" />
                 <ScalarProperty Name="MSSV" ColumnName="MSSV" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />

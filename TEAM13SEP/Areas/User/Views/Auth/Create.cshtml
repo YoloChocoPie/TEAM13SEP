@@ -57,6 +57,9 @@
                                         <div class="col-md-10">
                                             @Html.EditorFor(model => model.MSSV, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.MSSV, "", new { @class = "text-danger" })
+                                            @*  kiểm tra xem liệu mssv đã tồn tại*@
+
+                                            @Html.ValidationMessage("codeExists", new { @class = "text-danger" })
                                         </div>
                                     </div>
 
@@ -65,6 +68,9 @@
                                         <div class="col-md-10">
                                             @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                                            @*  kiểm tra xem liệu email đã tồn tại*@
+
+                                            @Html.ValidationMessage("EmailExists", new { @class = "text-danger" })
                                         </div>
                                     </div>
 

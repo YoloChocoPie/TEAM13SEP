@@ -7517,7 +7517,7 @@
      padding: 5px 14px;
      line-height: 30px;
      border-right: 1px solid #e7ebef;
-     font-size: 12px;
+     font-size: 16px;
 }
  .ed-com-t1-right{
      float: right;
@@ -7530,9 +7530,11 @@
 }
  .ed-com-t1-right ul li a{
      color: #fff;
-     padding: 7px 12px;
+     padding: 12px;
+     margin-top: 12px;
      line-height: 30px;
-     font-size: 12px;
+     font-size: 16px;
+
 }
  .ed-com-t1-right ul li:nth-child(1) a{
      background: #f4364f;

@@ -1380,6 +1380,11 @@ a.text-danger:focus {
 /*a.bg-primary:focus {
     background-color: #286090;
 }*/
+/*.backlogin {
+    color: #fff;
+    background-image: (url../images/background_vanlang_1.jpg);
+    background-repeat: repeat-x;
+}*/
 .bg-success {
     background-color: #dff0d8;
 }
@@ -3111,7 +3116,8 @@ select[multiple].input-lg {
     -ms-user-select: none;
     user-select: none;
     background-image: none;
-    border: 1px solid transparent;
+    border: 1px solid;
+    width: 150px;
     border-radius: 4px;
 }
 .btn:focus,
@@ -3211,6 +3217,7 @@ fieldset[disabled] .btn-default.focus {
     color: #fff;
     background-color: #337ab7;
     border-color: #2e6da4;
+/*    width: 200px;*/
 }
 .btn-primary:focus,
 .btn-primary.focus {

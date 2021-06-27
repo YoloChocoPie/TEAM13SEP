@@ -147,7 +147,7 @@ namespace TEAM13SEP.Areas.User.Controllers
             c.ActivetionCode = Guid.NewGuid();
 
             model.SINHVIENs.Add(c);
-            model.SaveChanges();
+                model.SaveChanges();
 
             SendEmailToUser(c.EMAIL, c.ActivetionCode.ToString());
             var Message = "Đăng kí thành công, check ib pls" + c.EMAIL;
@@ -155,7 +155,8 @@ namespace TEAM13SEP.Areas.User.Controllers
 
 
             return View("Login");
-        }
+            }
+            return View();
 
         public bool IsEmailExists(string eMail)
         {

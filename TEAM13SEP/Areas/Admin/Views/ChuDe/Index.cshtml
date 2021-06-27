@@ -1,9 +1,12 @@
-﻿﻿@model IEnumerable<TEAM13SEP.Models.GOPY>
+﻿@model IEnumerable<TEAM13SEP.Models.CHUDE>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+
+
+
 
 
 <body>
@@ -14,31 +17,11 @@
                 <thead>
                     <tr>
                         <th>
-                            Mã Góp Ý
-                        </th>
-                        <th>
-                            Tên Góp Ý
+                            Mã chủ đề
                         </th>
                         <th>
                             Tên chủ đề
                         </th>
-                        <th>
-                            Tên người trả lời
-                        </th>
-                        <th>
-                            Số lượng Like
-                        </th>
-                        <th>
-                            Tên sinh viên hỏi
-                        </th>
-                        <th>
-                            Nội dung
-                        </th>
-                        <th>
-                            Câu trả lời
-                        </th>
-
-
 
                         <th></th>
                     </tr>
@@ -49,31 +32,11 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.GOPY_CODE)
+                            @Html.DisplayFor(modelItem => item.CHUDE_CODE)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.GOPY_TEN)
+                            @Html.DisplayFor(modelItem => item.CHUDE_NAME)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ADMIN.FULL_NAME)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.nutLIKE)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NOIDUNG_GOPY)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TRALOI_GOPY)
-                        </td>
-
-
 
                         <td>
                             @Html.ActionLink("Create New", "Create") |

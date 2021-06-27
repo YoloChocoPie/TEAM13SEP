@@ -171,7 +171,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChuDeController.cs" />
     <Compile Include="Areas\Admin\Controllers\GopYController.cs" />
+    <Compile Include="Areas\Admin\Middleware\LoginVerification.cs" />
     <Compile Include="Areas\User\Controllers\AuthController.cs" />
     <Compile Include="Areas\User\Controllers\GopYController.cs" />
     <Compile Include="Areas\User\Middleware\LoginVerification.cs" />
@@ -620,7 +624,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\Admin\Views\web.config" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -628,16 +631,30 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\User\Views\web.config" />
-    <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
+    <Content Include="AdminPlugin\assets\vendor\slick\fonts\slick.woff" />
+    <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\User\Views\Auth\Create.cshtml" />
+    <Content Include="Areas\User\Views\Auth\Login.cshtml" />
     <Content Include="Areas\User\Views\GopY\Create.cshtml" />
     <Content Include="Areas\User\Views\GopY\Index.cshtml" />
     <Content Include="Areas\User\Views\GopY\Index2.cshtml" />
-    <Content Include="Areas\User\Views\Auth\Login.cshtml" />
-    <Content Include="Areas\User\Views\Auth\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\GopY\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
-    <Content Include="AdminPlugin\assets\vendor\slick\fonts\slick.woff" />
+    <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Areas\User\Views\web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -686,7 +703,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="UserPlugin\Styles\askme.scss" />
     <Content Include="UserPlugin\Styles\_articles.scss" />
     <Content Include="UserPlugin\Styles\_forms.scss" />
@@ -697,8 +713,6 @@
   <ItemGroup>
     <Folder Include="AdminPlugin\assets\js\lib\New folder\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\User\Data\" />
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>

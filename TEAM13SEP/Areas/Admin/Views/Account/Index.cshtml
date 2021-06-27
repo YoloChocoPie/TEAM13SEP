@@ -1,4 +1,4 @@
-﻿﻿@model IEnumerable<TEAM13SEP.Models.GOPY>
+﻿@model IEnumerable<TEAM13SEP.Models.ADMIN>
 
 @{
     ViewBag.Title = "Index";
@@ -14,31 +14,11 @@
                 <thead>
                     <tr>
                         <th>
-                            Mã Góp Ý
+                            Email tài khoản
                         </th>
                         <th>
-                            Tên Góp Ý
+                            Họ và tên
                         </th>
-                        <th>
-                            Tên chủ đề
-                        </th>
-                        <th>
-                            Tên người trả lời
-                        </th>
-                        <th>
-                            Số lượng Like
-                        </th>
-                        <th>
-                            Tên sinh viên hỏi
-                        </th>
-                        <th>
-                            Nội dung
-                        </th>
-                        <th>
-                            Câu trả lời
-                        </th>
-
-
 
                         <th></th>
                     </tr>
@@ -49,34 +29,14 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.GOPY_CODE)
+                            @Html.DisplayFor(modelItem => item.EMAIL)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.GOPY_TEN)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ADMIN.FULL_NAME)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.nutLIKE)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NOIDUNG_GOPY)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TRALOI_GOPY)
+                            @Html.DisplayFor(modelItem => item.FULL_NAME)
                         </td>
 
-
-
                         <td>
-                            @Html.ActionLink("Create New", "Create") |
+                           
                             @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                             @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@|
                             @Html.ActionLink("Delete", "Delete", new { id = item.ID })
@@ -102,7 +62,7 @@
 
 
 
-@Html.ActionLink("Create New", "Create") |
+
 
 
 <!-- EVERYTHING BELOW THIS YOU WILL NEED -->

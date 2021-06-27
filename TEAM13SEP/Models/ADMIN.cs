@@ -25,6 +25,8 @@ namespace TEAM13SEP.Models
         public string PASSWORD { get; set; }
         public string FULL_NAME { get; set; }
         public int ROLE { get; set; }
+        public Nullable<bool> EmailConfirm { get; set; }
+        public Nullable<System.Guid> ActivetionCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GOPY> GOPies { get; set; }

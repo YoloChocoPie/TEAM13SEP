@@ -75,7 +75,6 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            // lay thuoc tinh tu bang chu de, admin, trang thai
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             ViewBag.admin_id = model.ADMINs.OrderByDescending(x => x.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();

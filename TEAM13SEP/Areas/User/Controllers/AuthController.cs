@@ -167,5 +167,8 @@ namespace TEAM13SEP.Areas.User.Controllers
             var IsCheck = model.SINHVIENs.Where(email => email.MSSV == eMail).FirstOrDefault();
             return IsCheck != null;
         }
+
+
+
     }
 }

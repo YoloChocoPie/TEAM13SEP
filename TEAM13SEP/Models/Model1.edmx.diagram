@@ -15,7 +15,7 @@
         <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_CHUDE" ManuallyRouted="false" />
         <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_SINHVIEN" ManuallyRouted="false" />
         <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_TRANGTHAI" ManuallyRouted="false" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

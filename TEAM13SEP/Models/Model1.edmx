@@ -140,7 +140,7 @@
             <End Role="TRANGTHAI" EntitySet="TRANGTHAI" />
             <End Role="GOPY" EntitySet="GOPY" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -288,8 +288,8 @@
             <End Role="TRANGTHAI" EntitySet="TRANGTHAIs" />
             <End Role="GOPY" EntitySet="GOPies" />
           </AssociationSet>
-        </EntityContainer>
-      </Schema>
+          </EntityContainer>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

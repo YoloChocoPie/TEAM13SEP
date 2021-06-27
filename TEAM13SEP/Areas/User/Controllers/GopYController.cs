@@ -106,5 +106,9 @@ namespace TEAM13SEP.Areas.User.Controllers
 
             
         }
+
+
+        // dưới này là controller cho cách like mới
+
     }
 }

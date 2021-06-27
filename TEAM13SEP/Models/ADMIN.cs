@@ -11,8 +11,7 @@ namespace TEAM13SEP.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class ADMIN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,12 +21,8 @@ namespace TEAM13SEP.Models
         }
     
         public int ID { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Email is requierd")]
         public string EMAIL { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Password is requierd")]
-        [DataType(DataType.Password)]
         public string PASSWORD { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Fullname is requierd")]
         public string FULL_NAME { get; set; }
         public int ROLE { get; set; }
         public Nullable<bool> EmailConfirm { get; set; }

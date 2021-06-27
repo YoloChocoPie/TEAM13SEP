@@ -60,6 +60,8 @@ abbr[title] {
 b,
 strong {
     font-weight: bold;
+    font-size: 30px;
+    color: honeydew;
 }
 dfn {
     font-style: italic;
@@ -1096,6 +1098,8 @@ textarea {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    color: black;
+    
 }
 a {
     color: #337ab7;

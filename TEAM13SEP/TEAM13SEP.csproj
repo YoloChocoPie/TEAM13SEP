@@ -655,6 +655,8 @@
     <Content Include="Areas\User\Views\GopY\Index2.cshtml" />
     <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
     <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\Auth\UserVerification.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\UserVerification.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

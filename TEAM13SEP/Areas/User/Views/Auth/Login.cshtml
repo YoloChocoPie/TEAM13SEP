@@ -35,18 +35,19 @@
     <link href="@Url.Content("~/AdminPlugin/assets/css/lib/unix.css")" rel="stylesheet">
     <link href="@Url.Content("~/AdminPlugin/assets/css/style.css")" rel="stylesheet">
 
-    <!-- FAV Icon -->
+
+    <!-- FAV Icon
     <link rel="apple-touch-icon" sizes="180x180" href="images/fav/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/fav/favicon-16x16.png">
     <link rel="manifest" href="images/fav/site.webmanifest">
     <link rel="mask-icon" href="images/fav/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="images/fav/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="EventBox">
-    <meta name="application-name" content="EventBox">
+    <meta name="apple-mobile-web-app-title" content="HTGY">
+    <meta name="application-name" content="HTGY>
     <meta name="msapplication-TileColor" content="#4243dc">
     <meta name="msapplication-config" content="images/fav/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">-->
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:400,500,700" rel="stylesheet">
@@ -133,8 +134,6 @@
                         </div>
                         <div class="ed-com-t1-right">
                             <ul>
-                                <!-- <li>Tên</li> -->
-                                <!-- HTML login -->
                                 <li><a href="~/User/Auth/Login">Đăng nhập</a></li>
                                 <li><a href="~/User/Auth/Create">Đăng kí</a></li>
                             </ul>
@@ -151,14 +150,14 @@
             <div>
                 <div class="login-content">
                     <div class="login-logo">
-                        <span><b> Đăng Nhập </b></span>
+                        <span ><b> Đăng Nhập </b></span>
                     </div>
                     <div class="login-form">
                         <form action="@Url.Action("Login")" method="post">
                             <div class="container">
                                 <label for="email"><i> Email của bạn </i></label>
-                                <br/>
-                                <input type="email" placeholder="Email của bạn" name="email" required>
+                                <br />
+                                <input type="email" placeholder="Email của bạn" name="email" required/>
                             </div>
 
                             @if (Convert.ToBoolean(Session["user-not-found1"]) == true)
@@ -169,8 +168,8 @@
 
                             <div class="container">
                                 <label for="pass"><i> Password </i></label>
-                                <br/>
-                                <input type="password" placeholder="Mật khẩu của bạn" name="password" required>
+                                <br />
+                                <input type="password" placeholder="Mật khẩu của bạn" name="password" required/>
                             </div>
 
                             @if (Convert.ToBoolean(Session["password-incorrect1"]) == true)
@@ -179,11 +178,6 @@
                             }
 
                             <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30"> Đăng nhập </button>
-
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember">
-                                Click để không cần đăng nhập lần sau
-                            </label>
 
                             <div class="register-link m-t-15 text-center">
                                 <p>Bạn chưa có tài khoản ? <a href="~/User/Auth/Create"> Đăng kí tại đây</a></p>

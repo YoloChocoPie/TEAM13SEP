@@ -7532,7 +7532,7 @@
      color: #fff;
      padding: 12px;
      margin-top: 12px;
-     line-height: 30px;
+     line-height: 60px;
      font-size: 16px;
 
 }
@@ -8707,4 +8707,26 @@ hr {
 #login-form a:hover {
      color: #fff;
      background: #ce1212;
+}
+.login-form {
+    background: #ffffff;
+    padding: 30px 30px 20px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    margin-left: 300px;
+    width: 500px;
+}
+.login-form .btn {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 15px;
+    border: 0px;
+    width: 400px;
+    line-height: 10px;
+    margin-left: 15px;
+}
+i {
+    line-height: 30px;
+    font-size: 12px;
 }

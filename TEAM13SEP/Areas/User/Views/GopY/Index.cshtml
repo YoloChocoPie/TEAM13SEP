@@ -46,8 +46,8 @@ Hello @Session["user-fullname1"]
 
 
 
-        @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
-        @Html.ActionLink("Like", "Like", new { id = item.ID })
+                @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
+            @Html.ActionLink("Like", "Like", new { id = item.ID })
 
 
     </article>
@@ -63,36 +63,39 @@ Hello @Session["user-fullname1"]
 
 
 
-    <article class="answer">
-        <section class="question">
-            <header>
-                <span class="fa-stack fa-lg">
-                    <i class="fas fa-square fa-stack-2x"></i>
-                    <i class="fas fa-question fa-stack-1x fa-inverse"></i>
-                </span>
-                <span class="info">
-                    <i class="fas fa-tag">Góp ý đã được duyệt</i> @*@item.CHUDE.CHUDE_NAME*@
-                    @* <i class="fas fa-calendar"></i> <time value=""></time>
-                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                        {
-                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                        }*@
-                </span>
-                @item.GOPY_TEN
-            </header>
-            @item.NOIDUNG_GOPY
-
-        </section>
+<article class="answer">
+    <section class="question">
+        <header>
+            <span class="fa-stack fa-lg">
+                <i class="fas fa-square fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="info">
+                <i class="fas fa-tag">Góp ý đã được duyệt</i> @*@item.CHUDE.CHUDE_NAME*@
+                @* <i class="fas fa-calendar"></i> <time value=""></time>
+                    @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+                    {
+                        <span><i class="fas fa-user"></i> @item.DisplayName</span>
+                    }*@
+            </span>
+            @item.GOPY_TEN
+        </header>
+        @item.NOIDUNG_GOPY
 
 
 
+    </section>
 
+
+    
+    
+
+    
 
         @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
         @Html.ActionLink("Like", "Like", new { id = item.ID })
+    
 
-
-    </article>
+</article>
 }
-
 

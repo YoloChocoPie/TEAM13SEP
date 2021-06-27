@@ -1,8 +1,13 @@
-﻿
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "UserVerification";
 }
+
+<h2>User Verification Process</h2>
+
+<div class="danger alert-danger">
+    <strong>Message..!!</strong>  @ViewBag.Message,  please click here to Login @Html.ActionLink("Login", "Login", "Create")
+</div>
+
 
 <!DOCTYPE html>
 <html lang="en">

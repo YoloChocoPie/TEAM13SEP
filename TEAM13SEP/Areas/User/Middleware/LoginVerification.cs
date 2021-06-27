@@ -1,4 +1,4 @@
-﻿
+
 using System.Web.Mvc;
 
 namespace TEAM13SEP.Areas.User.Middleware

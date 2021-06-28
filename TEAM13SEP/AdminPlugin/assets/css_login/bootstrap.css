@@ -1376,8 +1376,9 @@ a.text-danger:focus {
 }
 .bg-primary {
     color: #fff;
-    background-image: url(../images/background_vanlang_1.jpg);
+    background-image: url(../images/background_vanlang.jpg);
     background-repeat: repeat;
+    background-size: 800px 360px;
 
 }
 /*a.bg-primary:hover,*/
@@ -3217,23 +3218,25 @@ fieldset[disabled] .btn-default.focus {
     color: #fff;
     background-color: #333;
 }
-.btn-primary {
-    color: #fff;
+/*.btn-primary:hover {
+    color: #000;
     background-color: #337ab7;
     border-color: #2e6da4;
-/*    width: 200px;*/
-}
-.btn-primary:focus,
+    width: 200px;
+    background: #fff;
+    box-shadow: 0 0 5px #f4364f, 0 0 25px #f4364f, 0 0 50px #f4364f, 0 0 200px #f4364f;
+}*/
+/*.btn-primary:focus,
 .btn-primary.focus {
     color: #fff;
     background-color: #286090;
     border-color: #122b40;
-}
-.btn-primary:hover {
+}*/
+/*.btn-primary:hover {
     color: #fff;
     background-color: #286090;
     border-color: #204d74;
-}
+}*/
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {

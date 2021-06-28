@@ -264,6 +264,7 @@
     <Content Include="AdminPlugin\assets\fonts\weathericons-regular-webfont.ttf" />
     <Content Include="AdminPlugin\assets\fonts\weathericons-regular-webfont.woff" />
     <Content Include="AdminPlugin\assets\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="AdminPlugin\assets\images\background_istm_2.jpg" />
     <Content Include="AdminPlugin\assets\images\background_vanlang.jpg" />
     <Content Include="AdminPlugin\assets\images\background_vanlang_1.jpg" />
     <Content Include="AdminPlugin\assets\images\footer_vanlang.jpg" />
@@ -653,10 +654,11 @@
     <Content Include="Areas\User\Views\GopY\Create.cshtml" />
     <Content Include="Areas\User\Views\GopY\Index.cshtml" />
     <Content Include="Areas\User\Views\GopY\Index2.cshtml" />
-    <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Areas\User\Views\Shared\_UserLayoutHTGY.cshtml" />
     <Content Include="Areas\User\Views\web.config" />
     <Content Include="Areas\User\Views\Auth\UserVerification.cshtml" />
     <Content Include="Areas\Admin\Views\Account\UserVerification.cshtml" />
+    <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

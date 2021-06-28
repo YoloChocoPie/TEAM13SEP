@@ -11,7 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Adminity : Widget</title>
+    <title>Feedback for IT students</title>
+    <!--icon title-->
+    <link rel="icon" type="image/svg" href="~/AdminPlugin/assets/images/sep_logo_6a.png" />
+
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -31,87 +34,227 @@
     <link href="@Url.Content("~/AdminPlugin/assets/css/lib/bootstrap.min.css")" rel="stylesheet">
     <link href="@Url.Content("~/AdminPlugin/assets/css/lib/unix.css")" rel="stylesheet">
     <link href="@Url.Content("~/AdminPlugin/assets/css/style.css")" rel="stylesheet">
+
+
+    <!-- FAV Icon
+    <link rel="apple-touch-icon" sizes="180x180" href="images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/fav/favicon-16x16.png">
+    <link rel="manifest" href="images/fav/site.webmanifest">
+    <link rel="mask-icon" href="images/fav/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/fav/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="HTGY">
+    <meta name="application-name" content="HTGY>
+    <meta name="msapplication-TileColor" content="#4243dc">
+    <meta name="msapplication-config" content="images/fav/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">-->
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:400,500,700" rel="stylesheet">
+    <!-- FONT-AWESOME ICON CSS -->
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/font-awesome.min.css">
+
+    <!--== ALL CSS FILES ==-->
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/style.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/materialize.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/mob.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/animate.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datetimepicker.css">
+
+
+    <!-- Datatables -->
+    <link href="~/AdminPlugin/assets/vendor/DataTables/datatables.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Slick -->
+    <link href="~/AdminPlugin/assets/vendor/slick/slick.css" rel="stylesheet" type="text/css">
+    <link href="~/AdminPlugin/assets/vendor/slick/slick-theme.css" rel="stylesheet" type="text/css">
+
+
 </head>
 
 <body class="bg-primary">
 
-    <div class="unix-login">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-lg-offset-3">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="index.html"><span>Hộp thư góp ý - Dành cho sinh viên khoa CNTT</span></a>
+    <!-- MOBILE MENU -->
+    <section>
+        <div class="ed-mob-menu">
+            <div class="ed-mob-menu-con">
+                <div class="ed-mm-left">
+                    <div class="wed-logo">
+                        <a href="/">
+                            <img src="~/AdminPlugin/assets/images/Sep_vlogo.png" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <div class="ed-mm-right">
+                    <div class="ed-mm-menu">
+                        <a href="javascript:void(0)" class="ed-micon"><i class="fa fa-bars"></i></a>
+                        <div class="ed-mm-inn">
+                            <a href="javascript:void(0)" class="ed-mi-close"><i class="fa fa-times"></i></a>
+                            <h4>EventBox</h4>
+                            <ul>
+                                <li><a href="/">Trang chủ</a></li>
+                            </ul>
+                            <h4>Tài khoản</h4>
+                            <ul>
+                                <!-- HTML login -->
+                                <li><a href="login.php">Đăng nhập</a></li>
+                                <li><a href="register.php">Đăng ký</a></li>
+                            </ul>
                         </div>
-                        <div class="login-form">
-                            @using (Html.BeginForm())
-                            {
-                                @Html.AntiForgeryToken()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                                <div class="form-horizontal">
-                                    Trang Đăng kí
-                                    <hr />
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.MSSV, "Mã số sinh viên", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.MSSV, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.MSSV, "", new { @class = "text-danger" })
-                                        </div>
+    <!--HEADER SECTION-->
+    <section>
+        <!-- TOP BAR -->
+        <div class="ed-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ed-com-t1-left">
+                            <ul>
+                                <li>
+                                    <div class="wed-logo">
+                                        <a href="/">
+                                            <img src="~/AdminPlugin/assets/images/Sep_vlogo.png" alt="" />
+                                        </a>
                                     </div>
+                                </li>
+                                <li>
+                                    <a href=" http://cntt.vanlanguni.edu.vn" target="_blank">Khoa Công Nghệ Thông Tin</a>
+                                </li>
+                                <li>
+                                    <a href="tel:02871099218">Điện thoại: 028 7109 9218 (Ext: 3310/3311)</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ed-com-t1-right">
+                            <ul>
+                                <li><a href="~/User/Auth/Login">Đăng nhập</a></li>
+                                <li><a href="~/User/Auth/Create">Đăng kí</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--END HEADER SECTION-->	<!-- html login form -->
+    <!--DASHBOARD-->
 
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.EMAIL, "Địa chỉ email ", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="login-content">
+                    <div class="login-logo">
+                        <span><b> Đăng Ký </b></span>
+                    </div>
 
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.PASSWORD, "Mật khẩu", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.PASSWORD, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.PASSWORD, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.HOTEN_SV, "Họ và tên", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.HOTEN_SV, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.HOTEN_SV, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-                                            <input type="submit" value="Create" class="btn btn-default" />
-                                        </div>
+                    <div class="login-form">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-res">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.MSSV, "Mã số sinh viên", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.MSSV, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.MSSV, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-                            }
-                            <div class="social-login-content">
-                                <div class="social-button">
-                                    <button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10"><i class="ti-facebook"></i>Register with facebook</button>
-                                    <button type="button" class="btn btn-primary bg-twitter btn-flat btn-addon m-t-10"><i class="ti-twitter"></i>Register with twitter</button>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EMAIL, "Địa chỉ email ", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PASSWORD, "Mật khẩu", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.PASSWORD, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PASSWORD, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.HOTEN_SV, "Họ và tên", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.HOTEN_SV, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HOTEN_SV, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-default" />
+                                    </div>
                                 </div>
                             </div>
-                            <div class="register-link m-t-15 text-center">
-                                <p>Đã có tài khoản ? <a href="~/User/Auth/Login"> Đăng nhập ngay !</a></p>
-                            </div>
+                        }
 
+                        <div class="register-link m-t-15 text-center">
+                            <p> Bạn đã có tài khoản ?<a href="~/User/Auth/Login"> Bấm vào đây để đăng nhập !</a></p>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <section>
+        <div class="rows">
+            <div class="footer">
+                <div class="container">
+                    <div class="foot-sec2">
+                        <div>
+                            <div class="row footernoop">
+                                <div class="col-sm-2 foot-spec foot-com">
+                                    <div class="wed-logo2">
+                                        <a href="/">
+                                            <img src="~/AdminPlugin/assets/images/logo_vanlang.png" alt="Feedback webiste for IT student" style="width:100px;height:100px">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 foot-spec foot-com">
+                                    <h4>Địa chỉ</h4>
+                                    <p><a style="color: #fff" href="https://goo.gl/maps/2CcxCxTxQXPDDYwW8" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Trụ sở: <br>45 Nguyễn Khắc Nhu, P.Cô Giang, Q.1, Hồ Chí Minh.</a></p>
+                                    <p><a style="color: #fff" href="https://goo.gl/maps/H4RCpcajjiNjpjZ8A" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Cơ sở 2: <br> 233A Phan Văn Trị, P.11, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
+                                    <p><a style="color: #fff" href="https://goo.gl/maps/UdzN3SB64pcwUyGGA" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Cơ sơ 3: <br> 80/68 Dương Quảng Hàm, P.5, Q.Gò Vấp, Hồ Chí Minh. <br> 69/68 Đặng Thùy Trâm, P.13, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
+                                </div>
+                                <div class="col-sm-3 col-md-3 foot-spec foot-com">
+                                    <h4>Liên hệ</h4>
+                                    <p">
+                                        <a style="color: #fff" href="tel:02871099218,3310"><i class="fa fa-phone" aria-hidden="true"></i> 028 7109 9218 (Ext: 3310)</a><p></p>
+                                        <p><a style="color: #fff" href="tel:02871099218,3311"><i class="fa fa-phone" aria-hidden="true"></i> 028 7109 9218 (Ext: 3311)</a></p>
+                                        <p><a style="color: #fff" href="k.cntt@vanlanguni.edu.vn"><i class="fa fa-envelope-o" aria-hidden="true"></i> Khoa Công Nghệ Thông Tin </a></p>
+                                    </p">
+                                </div>
+                                <div class="col-sm-3 foot-social foot-spec foot-com">
+                                    <h4>Theo dõi chúng tôi</h4>
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/khoacntt.vanlang" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://www.youtube.com/channel/UCMUwcQecO4jqgoTgBJ3W6bQ" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://www.instagram.com/vanlanguniversity/?r=nametag" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://twitter.com/universityvan?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 
 </html>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

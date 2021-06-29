@@ -3,10 +3,10 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/User/Views/Shared/_UserLayoutHTGY.cshtml";
+    Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách các câu trả lời", "Index2")
+@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách các câu góp ý đã duyệt", "Index") | @Html.ActionLink("Xem danh sách các câu trả lời", "Index2")
 <div></div>
 
 
@@ -33,8 +33,8 @@
             </header>
             @item.NOIDUNG_GOPY
         </section>
-                @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
-            @Html.ActionLink("Like", "Like", new { id = item.ID })
+        @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
+        @Html.ActionLink("Like", "Like", new { id = item.ID })
     </article>
 }
 
@@ -42,36 +42,36 @@
 
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 2))
 {
-<article class="answer">
-    <section class="question">
-        <header>
-            <span class="fa-stack fa-lg">
-                <i class="fas fa-square fa-stack-2x"></i>
-                <i class="fas fa-question fa-stack-1x fa-inverse"></i>
-            </span>
-            <span class="info">
-                <i class="fas fa-tag">Góp ý đã được duyệt</i> @*@item.CHUDE.CHUDE_NAME*@
-                @* <i class="fas fa-calendar"></i> <time value=""></time>
-                    @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                    {
-                        <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                    }*@
-            </span>
-            @item.GOPY_TEN
-        </header>
-        @item.NOIDUNG_GOPY
-    </section>
+    <article class="answer">
+        <section class="question">
+            <header>
+                <span class="fa-stack fa-lg">
+                    <i class="fas fa-square fa-stack-2x"></i>
+                    <i class="fas fa-question fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="info">
+                    <i class="fas fa-tag">Góp ý đã được duyệt</i> @*@item.CHUDE.CHUDE_NAME*@
+                    @* <i class="fas fa-calendar"></i> <time value=""></time>
+                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+                        {
+                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
+                        }*@
+                </span>
+                @item.GOPY_TEN
+            </header>
+            @item.NOIDUNG_GOPY
+        </section>
 
 
-    
-    
 
-    
+
+
+
 
         @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
         @Html.ActionLink("Like", "Like", new { id = item.ID })
-    
 
-</article>
+
+    </article>
 }
 

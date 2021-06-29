@@ -53,6 +53,9 @@
     <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datepicker.css">
     <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datetimepicker.css">
 
+    @*<link rel="stylesheet" type="text/css" href="@Url.Content("~/UserPlugin/Styles/askme.css")" asp-append-version="true" />*@
+    @*<link rel="stylesheet" type="text/css" href="@Url.Content("~/UserPlugin/Styles/askme.min.css")" asp-append-version="true" />*@
+
 
     <!-- Datatables -->
     <link href="~/AdminPlugin/assets/vendor/DataTables/datatables.min.css" rel="stylesheet" type="text/css">
@@ -61,7 +64,7 @@
     <link href="~/AdminPlugin/assets/vendor/slick/slick.css" rel="stylesheet" type="text/css">
     <link href="~/AdminPlugin/assets/vendor/slick/slick-theme.css" rel="stylesheet" type="text/css">
 
-    <!-- old
+    <!-- old code
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
                   integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
@@ -72,12 +75,49 @@
             </environment>
             <environment exclude="Development">
                 <link rel="stylesheet" type="text/css" href="@Url.Content("~/UserPlugin/Styles/askme.min.css")" asp-append-version="true" />
-            </environment>* old-->
+            </environment>* old code-->
 </head>
 
 <body>
+    <!-- MOBILE MENU -->
+    <section>
+        <div class="ed-mob-menu">
+            <div class="ed-mob-menu-con">
+                <div class="ed-mm-left">
+                    <div class="wed-logo">
+                        <a href="~/Areas/User/Views/GopY/Index">
+                            <img src="~/AdminPlugin/assets/images/Sep_vlogo.png"/>
+                          
+                        </a>
+                    </div>
+                </div>
+                <div class="ed-mm-right">
+                    <div class="ed-mm-menu">
+                        <a href="javascript:void(0)" class="ed-micon"><i class="fa fa-bars"></i></a>
+                        <div class="ed-mm-inn">
+                            <a href="javascript:void(0)" class="ed-mi-close"><i class="fa fa-times"></i></a>
+                            <h4></h4>
+                            <ul>
+                                <li><a href="/">Trang chủ</a></li>
+                            </ul>
+                            <h4>Tài khoản</h4>
+                            <ul>
+                                <!-- HTML login -->
+                                <li><a href="login.php">Đăng nhập</a></li>
+                                <li><a href="register.php">Đăng ký</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
     <header>
-<!-- <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li> -->
+        <!-- <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li> -->
         <!--HEADER SECTION-->
         <section>
             <!-- TOP BAR -->
@@ -89,16 +129,13 @@
                                 <ul>
                                     <li>
                                         <div class="wed-logo">
-                                            <a href="/">
+                                            <a href="~/User/GopY">
                                                 <img src="~/AdminPlugin/assets/images/Sep_vlogo.png" alt="" />
                                             </a>
                                         </div>
                                     </li>
                                     <li>
-                                        <a href=" http://cntt.vanlanguni.edu.vn" target="_blank">Khoa Công Nghệ Thông Tin</a>
-                                    </li>
-                                    <li>
-                                        <a href="tel:02871099218">Điện thoại: 028 7109 9218 (Ext: 3310/3311)</a>
+                                        <a href=" http://cntt.vanlanguni.edu.vn" target="_blank"> Hộp thư góp ý dành cho sinh viên Khoa Công Nghệ Thông Tin</a>
                                     </li>
                                 </ul>
                             </div>
@@ -114,7 +151,6 @@
             </div>
         </section>
         <!--END HEADER SECTION-->
-
     </header>
 
 
@@ -141,16 +177,19 @@
                                     </div>
                                     <div class="col-sm-4 foot-spec foot-com">
                                         <h4>Địa chỉ</h4>
-                                        <p><a style="color: #fff" href="https://goo.gl/maps/2CcxCxTxQXPDDYwW8" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Trụ sở: <br>45 Nguyễn Khắc Nhu, P.Cô Giang, Q.1, Hồ Chí Minh.</a></p>
-                                        <p><a style="color: #fff" href="https://goo.gl/maps/H4RCpcajjiNjpjZ8A" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Cơ sở 2: <br> 233A Phan Văn Trị, P.11, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
-                                        <p><a style="color: #fff" href="https://goo.gl/maps/UdzN3SB64pcwUyGGA" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Cơ sơ 3: <br> 80/68 Dương Quảng Hàm, P.5, Q.Gò Vấp, Hồ Chí Minh. <br> 69/68 Đặng Thùy Trâm, P.13, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
+                                        <p><a style="color: #fff" href="https://goo.gl/maps/2CcxCxTxQXPDDYwW8" target="_blank"><i class="fa fa-university" aria-hidden="true"></i> Trụ sở: <br>45 Nguyễn Khắc Nhu, P.Cô Giang, Q.1, Hồ Chí Minh.</a></p>
+                                        <p><a style="color: #fff" href="https://goo.gl/maps/H4RCpcajjiNjpjZ8A" target="_blank"><i class="fa fa-university" aria-hidden="true"></i> Cơ sở 2: <br> 233A Phan Văn Trị, P.11, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
+                                        <p><a style="color: #fff" href="https://goo.gl/maps/UdzN3SB64pcwUyGGA" target="_blank"><i class="fa fa-university" aria-hidden="true"></i> Cơ sơ 3: <br> 80/68 Dương Quảng Hàm, P.5, Q.Gò Vấp, Hồ Chí Minh. <br> 69/68 Đặng Thùy Trâm, P.13, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
                                     </div>
                                     <div class="col-sm-3 col-md-3 foot-spec foot-com">
                                         <h4>Liên hệ</h4>
                                         <p">
-                                            <a style="color: #fff" href="tel:02871099218,3310"><i class="fa fa-phone" aria-hidden="true"></i> 028 7109 9218 (Ext: 3310)</a><p></p>
-                                            <p><a style="color: #fff" href="tel:02871099218,3311"><i class="fa fa-phone" aria-hidden="true"></i> 028 7109 9218 (Ext: 3311)</a></p>
-                                            <p><a style="color: #fff" href="k.cntt@vanlanguni.edu.vn"><i class="fa fa-envelope-o" aria-hidden="true"></i> Khoa Công Nghệ Thông Tin </a></p>
+                                            <p><a style="color: #fff" href="#"><i class="fa fa-male" aria-hidden="true"></i> Trưởng khoa: TS. Hoàng Lê Minh </a></p>
+                                            <p><a style="color: #fff" href="#"><i class="fa fa-male" aria-hidden="true"></i> Phó Trưởng khoa: ThS. Bùi Minh Phụng </a></p>
+                                            <p><a style="color: #fff" href="#"><i class="fa fa-building" aria-hidden="true"></i> Văn phòng: Phòng 5.07, Tòa nhà LV, Cơ sở 3 </a></p>
+                                            <a style="color: #fff" href="tel:02871099240,3310"><i class="fa fa-phone" aria-hidden="true"></i> 028 7109 9240 - Ext: 4010: (CTSV), 4111 (Ban lãnh đạo Khoa)</a><p></p>
+                                            <p><a style="color: #fff" href="k.cntt@vanlanguni.edu.vn"><i class="fa fa-mail-forward" aria-hidden="true"></i> Email: k.cntt@vanlanguni.edu.vn </a></p>
+                                            <p><a style="color: #fff" href="http://cntt.vanlanguni.edu.vn"><i class="fa fa-laptop" aria-hidden="true"></i> Website: Khoa Công Nghệ Thông Tin </a></p>
                                         </p">
                                     </div>
                                     <div class="col-sm-3 foot-social foot-spec foot-com">

@@ -5699,7 +5699,7 @@
 }
  .wed-logo a img{
      width: 250px;
-     height: 47px;
+     height: 53px;
      margin: 4px 0px;
      margin-left: -37px;
 }
@@ -7512,13 +7512,17 @@
      float: left;
      display: inline-block;
 }
- .ed-com-t1-left ul li a{
-     color: #7a8088;
-     padding: 5px 14px;
-     line-height: 30px;
-     border-right: 1px solid #e7ebef;
-     font-size: 16px;
-}
+    .ed-com-t1-left ul li a {
+        color: #ffa600;
+        padding: 5px 14px;
+        line-height: 3.5em;
+        border-right: 2px solid #000;
+        font-size: 19px;
+        font-style: inherit;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
  .ed-com-t1-right{
      float: right;
 }
@@ -8734,10 +8738,13 @@ i {
 
 
 /*--
-    Register form
-                    --*/
-/*.register span {
-    color: honeydew;
-    font-size: 36px;
-    font-weight: bold;
-}*/
+   --- REGISTER FORM ---
+                        --*/
+.register-form {
+    background: #ffffff;
+    padding: 30px 30px 20px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    margin-left: 300px;
+    width: 615px;
+}

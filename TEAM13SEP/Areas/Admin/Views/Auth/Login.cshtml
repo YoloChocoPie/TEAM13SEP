@@ -55,10 +55,11 @@
                                 @if (Convert.ToBoolean(Session["user-not-found"]) == true)
                                 {
                     <p style="color : red"> User Email not found </p>}
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password">
-                                </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Password" name="password">
+                                @Html.ValidationMessage("TN", new { @class = "text-danger" })
+                            </div>
                                 @if (Convert.ToBoolean(Session["password-incorrect"]) == true)
                                 {
                     <p style="color : red"> User Password not found </p>}

@@ -87,9 +87,11 @@ namespace TEAM13SEP.Areas.User.Controllers
             var Message = new MailMessage(fromMail, toEmail);
 
 
-            Message.Subject = "Registration Completed-Demo";
-            Message.Body = "<br/> Your registration completed succesfully." +
-                           "<br/> please click on the below link for account verification" +
+            Message.Subject = " Hãy xác thực Email ";
+            Message.Body = "<br/> Xin chào." +
+                           "<br/> Hiện tại bạn đã đăng kí thành công ở Website Hộp thư góp ý dành cho sinh viên khoa CNTT của TEAM13." +
+                           "<br/> Trạng thái tài khoản hiện tại là <b>Chưa kích hoạt</b>. " +
+                           "<br/> Vui lòng nhấn vào đường link sau để xác thực tài khoản" +
                            "<br/><br/><a href=" + link + ">" + link + "</a>";
             Message.IsBodyHtml = true;
             smtp.Send(Message);
@@ -107,12 +109,12 @@ namespace TEAM13SEP.Areas.User.Controllers
             {
                 IsVerify.EmailConfirm = true;
                 model.SaveChanges();
-                ViewBag.Message = "Email Verification completed";
+                ViewBag.Message = "Xác thực email thành công";
                 Status = true;
             }
             else
             {
-                ViewBag.Message = "Invalid Request...Email not verify";
+                ViewBag.Message = "Email xác thực không thành công";
                 ViewBag.Status = false;
             }
 
@@ -125,41 +127,53 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult Create(SINHVIEN c)
         {
 
-
-            // cách đăng nhập mới. Ở đây, những thông tin cần nhập nằm bên view. Còn bên controller add những gì dev muốn
-
-            // email not verified on registration time    
-            c.EmailConfirm = false;
-
-            // code kiểm tra xem liệu email đã được sử dụng hay chưa?
-
-            var check = IsEmailExists(c.EMAIL);
-            if (check)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("EmailExists", "Email đã tồn tại");
-                return View("Create");
+
+                // cách đăng nhập mới. Ở đây, những thông tin cần nhập nằm bên view. Còn bên controller add những gì dev muốn
+
+                // email not verified on registration time    
+                c.EmailConfirm = false;
+
+                // code kiểm tra xem liệu email đã được sử dụng hay chưa?
+
+                var check = IsEmailExists(c.EMAIL);
+                if (check)
+                {
+                    ModelState.AddModelError("EmailExists", "Email đã tồn tại");
+                    return View("Create");
+                }
+                // code kiểm tra xem liệu mssv đã được sử dụng hay chưa?
+                var check1 = IscodeExists(c.MSSV);
+                if (check1)
+                {
+                    ModelState.AddModelError("codeExists", "mssv đã tồn tại");
+                    return View("Create");
+                }
+
+
+                //it generate unique code       
+                c.ActivetionCode = Guid.NewGuid();
+
+                model.SINHVIENs.Add(c);
+                model.SaveChanges();
+
+                SendEmailToUser(c.EMAIL, c.ActivetionCode.ToString());
+                var Message = "Đăng kí thành công, check ib pls" + c.EMAIL;
+                ViewBag.Message = Message;
+
+
+                return View("Login");
             }
-            // code kiểm tra xem liệu mssv đã được sử dụng hay chưa?
-            var check1 = IscodeExists(c.MSSV);
-            if (check1)
+            else
             {
-                ModelState.AddModelError("codeExists", "mssv đã tồn tại");
-                return View("Create");
+                ModelState.AddModelError("bug1", "Vui lòng kiểm tra lại trường thông tin");
+
+
+                return View();
             }
 
 
-            //it generate unique code       
-            c.ActivetionCode = Guid.NewGuid();
-
-            model.SINHVIENs.Add(c);
-            model.SaveChanges();
-
-            SendEmailToUser(c.EMAIL, c.ActivetionCode.ToString());
-            var Message = "Đăng kí thành công, check ib pls" + c.EMAIL;
-            ViewBag.Message = Message;
-
-
-            return View("Login");
         }
 
         public bool IsEmailExists(string eMail)

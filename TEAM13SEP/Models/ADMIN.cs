@@ -31,6 +31,7 @@ namespace TEAM13SEP.Models
         [DataType(DataType.Password)]
         public string PASSWORD { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Họ tên không được bỏ trống")]
+        [RegularExpression(@"^[^<>.,?;:'()!~%\-_@#/*""]+$", ErrorMessage = "Họ tên không có kí tự đặc biệt")]
         public string FULL_NAME { get; set; }
 
 

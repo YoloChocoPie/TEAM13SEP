@@ -41,7 +41,9 @@
                         <th>
                             Họ và tên
                         </th>
-
+                        <th>
+                            Vai trò 
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -49,21 +51,38 @@
 
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EMAIL)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FULL_NAME)
-                        </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FULL_NAME)
+                </td>
+                <td>
+                    @if (item.ROLE == 1)
+                    {
+                        <label>Admin</label>
+                    }
+                    @if (item.ROLE == 2)
+                    {
+                        <label>BCN Khoa/ Giảng viên</label>
+                    }
+                    @if (item.ROLE == 3)
+                    {
+                        <label>Trợ lý</label>
+                    }
+                    @if (item.ROLE == 4)
+                    {
+                        <label>Không Quyền</label>
+                    }
+                </td>
+                <td>
 
-                        <td>
-
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                            @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@|
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                        </td>
-                    </tr>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
                 }
 
 

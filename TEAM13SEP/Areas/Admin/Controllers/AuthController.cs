@@ -18,6 +18,10 @@ namespace TEAM13SEP.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult Index()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Login(string email, string password, ADMIN c)
         {
@@ -31,12 +35,13 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 Session["user-fullname"] = user.FULL_NAME;
                 Session["user-id"] = user.ID;
                 Session["user-role"] = user.ROLE;
-                return RedirectToAction("Index", "ChuDe");
+                return RedirectToAction("Index", "Auth");
 
             }
             else
             {
-                ModelState.AddModelError("TN", "Email chưa được kích hoạt");
+               
+                ModelState.AddModelError("TN", "Email chưa được kích hoạt hoặc sai email/mật khẩu");
                 return View();
             }
 
@@ -54,36 +59,57 @@ namespace TEAM13SEP.Areas.Admin.Controllers
         public ActionResult Create(ADMIN c)
         {
 
+            if (ModelState.IsValid)
+            {
+                c.EmailConfirm = false;
+
+                var check = IsEmailExists(c.EMAIL);
+                if (check)
+                {
+                    ModelState.AddModelError("EmailExists", "Email đã tồn tại");
+                    return View("Create");
+                }
+                c.ActivetionCode = Guid.NewGuid();
+
+
+
+                model.ADMINs.Add(c);
+                model.SaveChanges();
+
+                SendEmailToUser(c.EMAIL, c.ActivetionCode.ToString());
+                var Message = "Đăng kí thành công, check ib pls" + c.EMAIL;
+                ViewBag.Message = Message;
+
+
+                return View("Login");
+            }
+            else
+            {
+                ModelState.AddModelError("bug1", "Vui lòng kiểm tra lại trường thông tin");
+       
+
+                return View();
+            }
+
+
+
+
+
 
             // cách đăng nhập mới. Ở đây, những thông tin cần nhập nằm bên view. Còn bên controller add những gì dev muốn
 
             // email not verified on registration time    
-            c.EmailConfirm = false;
+            
 
             // code kiểm tra xem liệu email đã được sử dụng hay chưa?
 
-            var check = IsEmailExists(c.EMAIL);
-            if (check)
-            {
-                ModelState.AddModelError("EmailExists", "Email đã tồn tại");
-                return View("Create");
-            }
+         
             // code kiểm tra xem liệu mssv đã được sử dụng hay chưa?
          
 
 
             //it generate unique code       
-            c.ActivetionCode = Guid.NewGuid();
-
-            model.ADMINs.Add(c);
-            model.SaveChanges();
-
-            SendEmailToUser(c.EMAIL, c.ActivetionCode.ToString());
-            var Message = "Đăng kí thành công, check ib pls" + c.EMAIL;
-            ViewBag.Message = Message;
-
-
-            return View("Login");
+          
         }
 
         public bool IsEmailExists(string eMail)
@@ -125,9 +151,11 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             var Message = new MailMessage(fromMail, toEmail);
 
 
-            Message.Subject = "Registration Completed-Demo";
-            Message.Body = "<br/> Your registration completed succesfully." +
-                           "<br/> please click on the below link for account verification" +
+            Message.Subject = " Hãy xác thực Email ";
+            Message.Body = "<br/> Xin chào." +
+                           "<br/> Hiện tại bạn đã đăng kí thành công ở Website Hộp thư góp ý dành cho sinh viên khoa CNTT của TEAM13." +
+                           "<br/> Trạng thái tài khoản hiện tại là <b>Chưa kích hoạt</b>. " +
+                           "<br/> Vui lòng nhấn vào đường link sau để xác thực tài khoản" +
                            "<br/><br/><a href=" + link + ">" + link + "</a>";
             Message.IsBodyHtml = true;
             smtp.Send(Message);
@@ -145,12 +173,12 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             {
                 IsVerify.EmailConfirm = true;
                 model.SaveChanges();
-                ViewBag.Message = "Email Verification completed";
+                ViewBag.Message = "Xác thực email thành công";
                 Status = true;
             }
             else
             {
-                ViewBag.Message = "Invalid Request...Email not verify";
+                ViewBag.Message = "Email xác thực không thành công";
                 ViewBag.Status = false;
             }
 

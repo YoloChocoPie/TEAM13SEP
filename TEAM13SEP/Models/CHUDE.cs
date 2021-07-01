@@ -23,8 +23,7 @@ namespace TEAM13SEP.Models
     
         public int ID { get; set; }
         public string CHUDE_CODE { get; set; }
-        [RegularExpression("^[ -_, @.A-Za-z0-9]*$",
-        ErrorMessage = "Tên chủ đề không có kí tự đặc biệt ")]
+        [RegularExpression(@"^[^<>.,?;:'()!~%\-_@#/*""]+$", ErrorMessage = "Tên chủ đề không có kí tự đặc biệt")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Tên chủ đề không được bỏ trống")]
         public string CHUDE_NAME { get; set; }
     

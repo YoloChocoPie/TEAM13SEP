@@ -29,8 +29,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.GOPY_TEN, "Tiêu đề góp ý", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.GOPY_TEN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GOPY_TEN, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.GOPY_TEN, new { htmlAttributes = new { @minlength = "4", @maxlength = "250" } })
+                @Html.ValidationMessage("bug1", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -45,8 +45,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NOIDUNG_GOPY, "Nội dung góp ý", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NOIDUNG_GOPY, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NOIDUNG_GOPY, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.NOIDUNG_GOPY, new { htmlAttributes = new { @minlength = "4", @maxlength = "250" } })
+                @Html.ValidationMessage("bug1", new { @class = "text-danger" })
             </div>
         </div>
         @*
@@ -79,15 +79,18 @@
         @*  Sinh viên ko cần phải nhập id - LTC*@
 
         @*Cần phải nhập mssv để lấy tên  - LTC *@
+    <br />
 
         <div class="form-group">
 
             @Html.LabelFor(model => model.SINHVIEN_ID, "", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <label>Vui lòng nhập 5 mã số cuối của mã sinh viên</label> <br />
+
+                @Html.EditorFor(model => model.SINHVIEN_ID, new { htmlAttributes = new { @min = "10000000" } })
+                @Html.ValidationMessage("bug1", new { @class = "text-danger" })
+                <label>Vui lòng nhập 3 chữ số đầu và 5 chữ số cuối của mã sinh viên. Ví dụ : 18712345</label> <br />
                 <label>Bỏ trống ô này nếu bạn muốn đăng ẩn danh</label>
-                @Html.EditorFor(model => model.SINHVIEN_ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SINHVIEN_ID, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
@@ -110,12 +113,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Đặt Góp Ý" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Quay về trang chủ", "Index")
 </div>

@@ -52,41 +52,45 @@
                                     Trang Đăng kí
                                     <hr />
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.MSSV, "Mã số sinh viên", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.MSSV, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.MSSV, "", new { @class = "text-danger" })
-                                            @*  kiểm tra xem liệu mssv đã tồn tại*@
+                                <div class="form-group">
+                                    <label>Vui lòng nhập 3 chữ số đầu và 5 chữ số cuối của mã sinh viên. Ví dụ : 18712345</label> <br />
+                                    @Html.LabelFor(model => model.MSSV, "Mã số sinh viên", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
 
-                                            @Html.ValidationMessage("codeExists", new { @class = "text-danger" })
-                                        </div>
+                                        @Html.EditorFor(model => model.MSSV, new { htmlAttributes = new { @class = "form-control", @min = "1000000" } })
+
+                                        @*  kiểm tra xem liệu mssv đã tồn tại*@
+
+                                        @Html.ValidationMessage("codeExists", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("bug1", new { @class = "text-danger" })
                                     </div>
+                                </div>
 
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.EMAIL, "Địa chỉ email ", htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
                                             @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                                      
                                             @*  kiểm tra xem liệu email đã tồn tại*@
 
                                             @Html.ValidationMessage("EmailExists", new { @class = "text-danger" })
+                                            @Html.ValidationMessage("bug1", new { @class = "text-danger" })
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.PASSWORD, "Mật khẩu", htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
-                                            @Html.EditorFor(model => model.PASSWORD, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.PASSWORD, "", new { @class = "text-danger" })
+                                            @Html.EditorFor(model => model.PASSWORD, new { htmlAttributes = new { @class = "form-control", @minlength = "6", @maxlength = "25" } })
+                                            @Html.ValidationMessage("bug1", new { @class = "text-danger" })
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.HOTEN_SV, "Họ và tên", htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
-                                            @Html.EditorFor(model => model.HOTEN_SV, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.HOTEN_SV, "", new { @class = "text-danger" })
+                                            @Html.EditorFor(model => model.HOTEN_SV, new { htmlAttributes = new { @class = "form-control", @minlength = "4", @maxlength = "25" } })
+                                            @Html.ValidationMessage("bug1", new { @class = "text-danger" })
                                         </div>
                                     </div>
 

@@ -39,6 +39,8 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult Create([Bind(Include = "GOPY_CODE,GOPY_TEN,CHUDE_ID,ADMIN_ID,nutLIKE,SINHVIEN_ID,NOIDUNG_GOPY,TRALOI_GOPY,GOPY_STATUS,DATE")]
                         GOPY gopy)
         {
+            ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
             if (ModelState.IsValid)
             {
                 var gopy1 = new GOPY();
@@ -58,13 +60,22 @@ namespace TEAM13SEP.Areas.User.Controllers
                 model.SaveChanges();
 
                 Session["Success"] = true;
+                
                 return RedirectToAction("Index");
+
+
             }
-            ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
-            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
-            return View();
+      
 
 
+            else
+            {
+                ModelState.AddModelError("bug1", "Vui lòng kiểm tra lại trường thông tin");
+                return View();
+            }
+
+          
+         
 
         }
 

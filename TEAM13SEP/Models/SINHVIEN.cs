@@ -32,6 +32,7 @@ namespace TEAM13SEP.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Mật khẩu không được bỏ trống")]
         public string PASSWORD { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Họ tên sinh viên không được bỏ trống")]
+        [RegularExpression(@"^[^<>.,?;:'()!~%\-_@#/*""]+$", ErrorMessage = "Họ tên không có kí tự đặc biệt")]
         public string HOTEN_SV { get; set; }
         public Nullable<bool> EmailConfirm { get; set; }
         public Nullable<System.Guid> ActivetionCode { get; set; }

@@ -42,7 +42,7 @@
                 <ul>
                     <li class="label">Trang chủ</li>
 
-                    <li><a href="~/Admin/ChuDe"><i class="ti-home"></i> Trang Quản Trị </a></li>
+                    <li><a href="~/Admin/Auth"><i class="ti-home"></i> Trang Quản Trị </a></li>
                     @if ((int)Session["user-role"] == 1)
                     {
                         <li class="label">Mục Quản Lý</li>
@@ -77,7 +77,7 @@
                         <li>
                             <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                        
+
                                 <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
                                 <li><a href="~/Admin/GopY">Quản lý góp ý</a></li>
 
@@ -106,14 +106,20 @@
                         <li>
                             <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                        
-                                <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
-                          
+
+                                <li><a href="~/Admin/GopY">Quản lý góp ý</a></li>
+
 
 
 
                             </ul>
                         </li>
+
+                    }
+                    @if ((int)Session["user-role"] == 4)
+                    {
+
+                        
 
                     }
 
@@ -135,7 +141,7 @@
 
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="~/Admin/Chude"><span>TEAM13</span></a></div>
+            <div class="logo"><a href="~/Admin/Auth"><span>TEAM13</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>

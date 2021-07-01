@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TEAM13SEP.Models;
 using TEAM13SEP.Areas.Admin.Middleware;
+using System.ComponentModel.DataAnnotations;
 
 namespace TEAM13SEP.Areas.Admin.Controllers
 {
@@ -99,5 +100,6 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             return View(account);
 
         }
+     
     }
 }

@@ -19,29 +19,34 @@ namespace TEAM13SEP.Areas.User.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string email, string password)
+        public ActionResult Login(string email, string password, SINHVIEN c)
         {
             var user = model.SINHVIENs.FirstOrDefault(u => u.EMAIL.Equals(email));
-            if (user != null)
+
+            bool Isvalid = model.SINHVIENs.Any(x => x.EMAIL == c.EMAIL && x.EmailConfirm == true &&
+  x.PASSWORD == password);
+            if (Isvalid)
             {
-                if (user.PASSWORD.Equals(password))
-                {
-                    Session["user-fullname1"] = user.HOTEN_SV;
-                    Session["user-id1"] = user.MSSV;
+
+                Session["user-fullname1"] = user.HOTEN_SV;
+                Session["user-id1"] = user.MSSV;
 
 
-                    return RedirectToAction("Index", "GopY");
+                return RedirectToAction("Index", "GopY");
 
-                }
-                else
-                {
-                    Session["password-incorrect1"] = true;
-                    return View();
-                }
             }
-            Session["user-not-found1"] = true;
-            return View();
+            else
+            {
+                ModelState.AddModelError("TN", "Email chưa được kích hoạt hoặc sai email/mật khẩu");
+                return View();
+            }
         }
+           
+           
+           
+           
+           
+        
         [HttpGet]
         public ActionResult Create()
         {

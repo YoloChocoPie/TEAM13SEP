@@ -5,14 +5,14 @@
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>Create</h2>
+<h2></h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>GOPY</h4>
+        <h4>Giao diện đặt góp ý</h4>
         <hr />
 
         @* Có trigger nên ko cần để -LTC*@
@@ -81,8 +81,11 @@
         @*Cần phải nhập mssv để lấy tên  - LTC *@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SINHVIEN_ID, "Mã sinh viên", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.LabelFor(model => model.SINHVIEN_ID, "", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <label>Vui lòng nhập 5 mã số cuối của mã sinh viên</label> <br />
+                <label>Bỏ trống ô này nếu bạn muốn đăng ẩn danh</label>
                 @Html.EditorFor(model => model.SINHVIEN_ID, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SINHVIEN_ID, "", new { @class = "text-danger" })
             </div>

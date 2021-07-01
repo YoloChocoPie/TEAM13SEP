@@ -19,43 +19,46 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string email, string password)
+        public ActionResult Login(string email, string password, ADMIN c)
         {
             var user = model.ADMINs.FirstOrDefault(u => u.EMAIL.Equals(email));
-            if (user != null)
-            {
-                if (user.PASSWORD.Equals(password))
-                {
-                    Session["user-fullname"] = user.FULL_NAME;
-                    Session["user-id"] = user.ID;
-                    Session["user-role"] = user.ROLE;
-                    return RedirectToAction("Index", "ChuDe");
 
-                }
-                else
-                {
-                    Session["password-incorrect"] = true;
-                    return View();
-                }
+            bool Isvalid = model.ADMINs.Any(x => x.EMAIL == c.EMAIL && x.EmailConfirm == true &&
+ x.PASSWORD == password);
+            if (Isvalid)
+            {
+
+                Session["user-fullname"] = user.FULL_NAME;
+                Session["user-id"] = user.ID;
+                Session["user-role"] = user.ROLE;
+                return RedirectToAction("Index", "ChuDe");
+
             }
-            Session["user-not-found"] = true;
-            return View();
+            else
+            {
+                ModelState.AddModelError("TN", "Email chưa được kích hoạt");
+                return View();
+            }
+
+
+            
         }
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ADMIN c)
         {
 
 
-              // cách đăng nhập mới. Ở đây, những thông tin cần nhập nằm bên view. Còn bên controller add những gì dev muốn
+            // cách đăng nhập mới. Ở đây, những thông tin cần nhập nằm bên view. Còn bên controller add những gì dev muốn
 
-                // email not verified on registration time    
-                c.EmailConfirm = false;
+            // email not verified on registration time    
+            c.EmailConfirm = false;
 
             // code kiểm tra xem liệu email đã được sử dụng hay chưa?
 
@@ -65,33 +68,39 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 ModelState.AddModelError("EmailExists", "Email đã tồn tại");
                 return View("Create");
             }
+            // code kiểm tra xem liệu mssv đã được sử dụng hay chưa?
+         
 
-                
-                //it generate unique code       
-                c.ActivetionCode = Guid.NewGuid();
 
-                model.ADMINs.Add(c);
-                model.SaveChanges();
+            //it generate unique code       
+            c.ActivetionCode = Guid.NewGuid();
 
-                SendEmailToUser(c.EMAIL, c.ActivetionCode.ToString());
-                var Message = "Đăng kí thành công, check ib pls" + c.EMAIL;
-                ViewBag.Message = Message;
+            model.ADMINs.Add(c);
+            model.SaveChanges();
+
+            SendEmailToUser(c.EMAIL, c.ActivetionCode.ToString());
+            var Message = "Đăng kí thành công, check ib pls" + c.EMAIL;
+            ViewBag.Message = Message;
 
 
             return View("Login");
-            }
+        }
 
         public bool IsEmailExists(string eMail)
         {
             var IsCheck = model.ADMINs.Where(email => email.EMAIL == eMail).FirstOrDefault();
             return IsCheck != null;
         }
+      
+
 
 
         public ActionResult Logout()
         {
             Session["user-fullname"] = null;
             Session["user-id"] = null;
+            Session["user-not-found"] = null;
+            Session["password-incorrect"] = null;
             return RedirectToAction("Login");
         }
 

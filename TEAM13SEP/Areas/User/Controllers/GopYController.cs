@@ -101,6 +101,7 @@ namespace TEAM13SEP.Areas.User.Controllers
             GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
             update.nutLIKE += 1;
             model.SaveChanges();
+            Session["like"] = true;
             return RedirectToAction("Index2");
 
 

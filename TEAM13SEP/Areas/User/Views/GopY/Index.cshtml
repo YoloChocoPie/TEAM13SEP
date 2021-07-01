@@ -8,7 +8,7 @@
 
 @Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách các câu trả lời", "Index2")
 <div></div>
-Hello @Session["user-fullname1"]
+Xin chào @Session["user-fullname1"]
 <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>
 
 
@@ -18,39 +18,55 @@ Hello @Session["user-fullname1"]
 
 
 
-    <article class="answer">
-        <section class="question">
-            <header>
-                <span class="fa-stack fa-lg">
-                    <i class="fas fa-square fa-stack-2x"></i>
-                    <i class="fas fa-question fa-stack-1x fa-inverse"></i>
-                </span>
-                <span class="info">
-                    <i class="fas fa-tag"> Góp ý nổi bật</i>
-
-
-                    @*@item.CHUDE.CHUDE_NAME*@
-                    @* <i class="fas fa-calendar"></i> <time value=""></time>
-                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                        {
-                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                        }*@
-                </span>
-                @item.GOPY_TEN
-            </header>
-            @item.NOIDUNG_GOPY
-
-        </section>
+<article class="answer">
+    <section class="question">
+        <header>
+            <span class="fa-stack fa-lg">
+                <i class="fas fa-square fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="info">
+                <i class="fas fa-tag"> Góp ý nổi bật</i>
+                <i class="fas fa-tag">  @item.CHUDE.CHUDE_NAME</i>
+                <i class="fas fa-calendar">  @item.DATE</i>
 
 
 
 
+                @* <i class="fas fa-calendar"></i> <time value=""></time>
+            @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+            {
+                <span><i class="fas fa-user"></i> @item.DisplayName</span>
+            }*@
+            </span>
+            <i class="fas fa-user"> </i>
+            @item.GOPY_TEN
+        </header>
+        @item.NOIDUNG_GOPY
 
-                @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
-            @Html.ActionLink("Like", "Like", new { id = item.ID })
+    </section>
 
 
-    </article>
+
+
+
+    @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
+
+
+
+
+    @Html.ActionLink("Like", "Like", new { id = item.ID })
+ 
+
+
+
+
+
+
+
+
+
+</article>
 }
 
 
@@ -71,12 +87,17 @@ Hello @Session["user-fullname1"]
                 <i class="fas fa-question fa-stack-1x fa-inverse"></i>
             </span>
             <span class="info">
-                <i class="fas fa-tag">Góp ý đã được duyệt</i> @*@item.CHUDE.CHUDE_NAME*@
+                <i class="fas fa-tag">Góp ý đã được duyệt</i>
+              
+                <i class="fas fa-tag">  @item.CHUDE.CHUDE_NAME</i>
+                <i class="fas fa-calendar">  @item.DATE</i>
+
+                @*@item.CHUDE.CHUDE_NAME*@
                 @* <i class="fas fa-calendar"></i> <time value=""></time>
-                    @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                    {
-                        <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                    }*@
+        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+        {
+            <span><i class="fas fa-user"></i> @item.DisplayName</span>
+        }*@
             </span>
             @item.GOPY_TEN
         </header>

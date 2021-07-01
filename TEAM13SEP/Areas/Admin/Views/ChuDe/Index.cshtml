@@ -11,6 +11,30 @@
 
 <body>
 
+    <div class="row">
+        <div class="col-lg-8 p-r-0 title-margin-right">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Hello @Session["user-fullname"], <span>Chào mừng</span></h1>
+                </div>
+            </div>
+        </div>
+        <!-- /# column -->
+        <div class="col-lg-4 p-l-0 title-margin-left">
+            <div class="page-header">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="~/Admin/ChuDe">Giao diện quản lý Chủ Đề</a></li>
+
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- /# column -->
+    </div>
+
+
+
     <div class="card-body p-0">
         <div class="table-responsive">
             <table class="table m-0" id="mySearchableData">
@@ -39,10 +63,10 @@
                         </td>
 
                         <td>
-                            @Html.ActionLink("Create New", "Create") |
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                     
+                            @Html.ActionLink("Thay đổi", "Edit", new { id = item.ID }) |
                             @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@|
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
                         </td>
                     </tr>
                 }

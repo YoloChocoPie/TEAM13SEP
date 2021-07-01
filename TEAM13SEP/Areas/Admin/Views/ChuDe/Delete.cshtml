@@ -5,13 +5,13 @@
 
 <h2></h2>
 
-<h3>Hãy kiểm tra lại thông tin trước khi xoá</h3>
+<h3>Hãy kiểm tra liệu chủ đề này còn nằm trong Góp Ý nào không nhé</h3>
 <div>
     <h4>Giao diện xoá chủ đề</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-         Mã chủ đề
+            Mã chủ đề
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-          Tên chủ đề
+            Tên chủ đề
         </dt>
 
         <dd>
@@ -30,10 +30,14 @@
 
     @using (Html.BeginForm())
     {
-@Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-                <div class="form-actions no-color">
-                    <input type="submit" value="Xoá" class="btn btn-default" /> |
-                    @Html.ActionLink("Quay về trang chủ", "Index")
-                </div>}
+
+        <div class="form-actions no-color">
+
+            <input type="submit" value="Xoá" class="btn btn-default" />
+            |
+            @Html.ActionLink("Quay về trang chủ", "Index")
+        </div>}
+    @Html.ValidationMessage("bug1", new { @class = "text-danger" })
 </div>

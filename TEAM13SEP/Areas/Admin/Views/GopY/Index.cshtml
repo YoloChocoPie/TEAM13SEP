@@ -95,7 +95,10 @@
                     @Html.DisplayFor(modelItem => item.NOIDUNG_GOPY)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TRALOI_GOPY)
+                    <div>
+                        @MvcHtmlString.Create(item.TRALOI_GOPY)
+                    </div>
+                   
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DATE)

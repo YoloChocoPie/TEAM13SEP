@@ -32,6 +32,8 @@ namespace TEAM13SEP.Areas.User.Controllers
                 Session["user-id1"] = user.MSSV;
                 Session["like"] = false;
                 Session["like1"] = false;
+                Session["like3"] = false;
+                Session["like4"] = false;
 
 
                 return RedirectToAction("Index", "GopY");

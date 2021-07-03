@@ -5,14 +5,13 @@
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách các câu góp ý", "Index") |  @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu ẩn danh được trả lời", "Index4")
+@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách các câu góp ý", "Index") |  @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu được trả lời", "Index2")
 <div></div>
 Hello @Session["user-fullname1"]
 <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 3))
 {
-
-    if (item.SINHVIEN_ID != null)
+    if (item.SINHVIEN_ID == null)
     {
 <article class="answer">
     <section class="question">
@@ -32,7 +31,7 @@ Hello @Session["user-fullname1"]
                         <span><i class="fas fa-user"></i> @item.DisplayName</span>
                     }*@
             </span>
-            <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
+            <i class="fas fa-user">Ẩn Danh </i>
             @item.GOPY_TEN
         </header>
         <div>
@@ -71,13 +70,13 @@ Hello @Session["user-fullname1"]
     @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
 
 
-    @if (Session["like1"] is bool && (bool)Session["like1"] == false)
+    @if (Session["like4"] is bool && (bool)Session["like4"] == false)
     {
-        @Html.ActionLink("Like", "Like1", new { id = item.ID })
+        @Html.ActionLink("Like", "Like4", new { id = item.ID })
     }
-    @if (Session["like1"] is bool && (bool)Session["like1"] == true)
+    @if (Session["like4"] is bool && (bool)Session["like4"] == true)
     {
-        @Html.ActionLink("Like", "unLike1", new { id = item.ID })
+        @Html.ActionLink("Like", "unLike4", new { id = item.ID })
     }
 
 </article>

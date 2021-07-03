@@ -26,6 +26,16 @@ namespace TEAM13SEP.Areas.User.Controllers
             var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
             return View(gopy);
         }
+        public ActionResult Index3()
+        {
+            var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
+            return View(gopy);
+        }
+        public ActionResult Index4()
+        {
+            var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
+            return View(gopy);
+        }
         [HttpGet]
         public ActionResult Create()
         {
@@ -100,18 +110,6 @@ namespace TEAM13SEP.Areas.User.Controllers
             return RedirectToAction("Index");
 
 
-            // cách dưới làm sml vẫn ko ra
-
-
-            /* var postIDforLike = model.GOPies.Find(id);// add logic to get the id of the post to increment the likes
-             using (var _gopy = new SEPEntities())
-             {
-
-                 var addLikeSql = "update GOPY set nutLike = nutLike + 1 where ID = @id";
-                 var paramID = new SqlParameter("id", postIDforLike);
-                 _gopy.Database.ExecuteSqlCommand(addLikeSql, postIDforLike);
-             }
-             return RedirectToAction("Index");*/
         }
         public ActionResult unLike(int id, SINHVIEN c)
         {
@@ -125,18 +123,7 @@ namespace TEAM13SEP.Areas.User.Controllers
             return RedirectToAction("Index");
 
 
-            // cách dưới làm sml vẫn ko ra
-
-
-            /* var postIDforLike = model.GOPies.Find(id);// add logic to get the id of the post to increment the likes
-             using (var _gopy = new SEPEntities())
-             {
-
-                 var addLikeSql = "update GOPY set nutLike = nutLike + 1 where ID = @id";
-                 var paramID = new SqlParameter("id", postIDforLike);
-                 _gopy.Database.ExecuteSqlCommand(addLikeSql, postIDforLike);
-             }
-             return RedirectToAction("Index");*/
+         
         }
         public ActionResult Like1(int id)
         {
@@ -164,21 +151,69 @@ namespace TEAM13SEP.Areas.User.Controllers
             return RedirectToAction("Index2");
 
 
-            // cách dưới làm sml vẫn ko ra
-
-
-            /* var postIDforLike = model.GOPies.Find(id);// add logic to get the id of the post to increment the likes
-             using (var _gopy = new SEPEntities())
-             {
-
-                 var addLikeSql = "update GOPY set nutLike = nutLike + 1 where ID = @id";
-                 var paramID = new SqlParameter("id", postIDforLike);
-                 _gopy.Database.ExecuteSqlCommand(addLikeSql, postIDforLike);
-             }
-             return RedirectToAction("Index");*/
+        
         }
 
-        // dưới này là controller cho cách like mới
+
+
+
+        public ActionResult Like3(int id)
+        {
+            // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+
+            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+            update.nutLIKE += 1;
+            model.SaveChanges();
+            Session["like3"] = true;
+            return RedirectToAction("Index3");
+
+
+        }
+        public ActionResult unLike3(int id, SINHVIEN c)
+        {
+            // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+
+            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+            update.nutLIKE -= 1;
+
+            model.SaveChanges();
+            Session["like3"] = false;
+            return RedirectToAction("Index3");
+
+
+
+        }
+
+
+
+
+        public ActionResult Like4(int id)
+        {
+            // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+
+            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+            update.nutLIKE += 1;
+            model.SaveChanges();
+            Session["like4"] = true;
+            return RedirectToAction("Index4");
+
+
+        }
+        public ActionResult unLike4(int id)
+        {
+            // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+
+            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+            update.nutLIKE -= 1;
+
+            model.SaveChanges();
+            Session["like4"] = false;
+            return RedirectToAction("Index4");
+
+
+
+        }
+
 
     }
 }

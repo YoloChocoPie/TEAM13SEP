@@ -629,6 +629,8 @@
     <Content Include="Areas\Admin\Views\Auth\UserVerification.cshtml" />
     <Content Include="Areas\User\Views\Auth\UserVerification.cshtml" />
     <Content Include="Areas\Admin\Views\Auth\Index.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index3.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index4.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

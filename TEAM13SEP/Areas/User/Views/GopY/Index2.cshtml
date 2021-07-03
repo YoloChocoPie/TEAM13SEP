@@ -19,7 +19,10 @@ Hello @Session["user-fullname1"]
                 <i class="fas fa-question fa-stack-1x fa-inverse"></i>
             </span>
             <span class="info">
-                <i class="fas fa-tag"> Góp ý đã được trả lời</i> @*@item.CHUDE.CHUDE_NAME*@
+                <i class="fas fa-tag"> Góp ý đã được trả lời</i>
+                <i class="fas fa-tag">  @item.CHUDE.CHUDE_NAME</i>
+                <i class="fas fa-calendar">  @item.DATE</i>
+                @*@item.CHUDE.CHUDE_NAME*@
                 @* <i class="fas fa-calendar"></i> <time value=""></time>
                     @if (!string.IsNullOrWhiteSpace(item.DisplayName))
                     {
@@ -28,7 +31,9 @@ Hello @Session["user-fullname1"]
             </span>
             @item.GOPY_TEN
         </header>
-        @item.NOIDUNG_GOPY
+        <div>
+            @MvcHtmlString.Create(item.NOIDUNG_GOPY)
+        </div>
         <div>
 
         </div>
@@ -51,13 +56,26 @@ Hello @Session["user-fullname1"]
             </span>
             @item.ADMIN.FULL_NAME
         </header>
-        @item.TRALOI_GOPY
+        <div>
+            @MvcHtmlString.Create(item.TRALOI_GOPY)
+        </div>
         <footer for-login-status="true">
         </footer>
 
     </section>
-    @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
-    @Html.ActionLink("Like", "Like1", new { id = item.ID })
+
+    @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
+
+
+    @if (Session["like1"] is bool && (bool)Session["like1"] == false)
+    {
+        @Html.ActionLink("Like", "Like1", new { id = item.ID })
+    }
+    else
+    {
+        @Html.ActionLink("Like", "unLike1", new { id = item.ID })
+    }
+
 </article>
 }
 

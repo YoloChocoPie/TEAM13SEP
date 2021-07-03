@@ -45,7 +45,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NOIDUNG_GOPY, "Nội dung góp ý", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NOIDUNG_GOPY, new { htmlAttributes = new { @minlength = "4", @maxlength = "250" } })
+                @Html.TextAreaFor(model => model.NOIDUNG_GOPY, new { @class = "form-control", @minlength = "4", @maxlength = "250"  })
+          
                 @Html.ValidationMessage("bug1", new { @class = "text-danger" })
             </div>
         </div>
@@ -79,7 +80,7 @@
         @*  Sinh viên ko cần phải nhập id - LTC*@
 
         @*Cần phải nhập mssv để lấy tên  - LTC *@
-    <br />
+        <br />
 
         <div class="form-group">
 
@@ -122,3 +123,14 @@
 <div>
     @Html.ActionLink("Quay về trang chủ", "Index")
 </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#NOIDUNG_GOPY',
+            menubar: false
+        });
+    </script>
+}

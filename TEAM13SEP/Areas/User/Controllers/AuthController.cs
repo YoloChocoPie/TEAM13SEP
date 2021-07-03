@@ -28,8 +28,10 @@ namespace TEAM13SEP.Areas.User.Controllers
             if (Isvalid)
             {
 
-                Session["user-fullname1"] = user.HOTEN_SV;
+                Session["user-fullname1"] = user.HOTEN_SV ;
                 Session["user-id1"] = user.MSSV;
+                Session["like"] = false;
+                Session["like1"] = false;
 
 
                 return RedirectToAction("Index", "GopY");

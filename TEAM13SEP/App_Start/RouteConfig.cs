@@ -18,6 +18,13 @@ namespace TEAM13SEP
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            /*   routes.MapRoute(
+              "Default", // Route name
+              "{controller}/{action}/{id}", // URL with parameters
+              new { area = "User", controller = "Auth", action = "Create", id = UrlParameter.Optional }, // Parameter defaults
+              new[] { "TEAM13SEP.Areas.User.Controllers" }
+          ).DataTokens.Add("area", "User");*/
         }
     }
 }

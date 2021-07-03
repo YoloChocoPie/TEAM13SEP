@@ -34,32 +34,48 @@ Xin chào @Session["user-fullname1"]
 
 
                 @* <i class="fas fa-calendar"></i> <time value=""></time>
-            @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-            {
-                <span><i class="fas fa-user"></i> @item.DisplayName</span>
-            }*@
+                    @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+                    {
+                        <span><i class="fas fa-user"></i> @item.DisplayName</span>
+                    }*@
             </span>
             <i class="fas fa-user"> </i>
             @item.GOPY_TEN
         </header>
-        @item.NOIDUNG_GOPY
+        <div>
+            @MvcHtmlString.Create(item.NOIDUNG_GOPY)
+        </div>
 
     </section>
 
 
 
-
-
-    @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
-
-
-
-
-    @Html.ActionLink("Like", "Like", new { id = item.ID })
- 
+    @*   làm được nút like rồi nhá
+        Cách làm
+        Sử dụng session
+        Nếu session == false thì cho hiển thị nút like
+        Khi like thì session sẽ = true
+        Và nếu session = true
+        Thì hiển thị unlike*@
 
 
 
+    @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
+
+
+    @if (Session["like"] is bool && (bool)Session["like"] == false)
+    {
+        @Html.ActionLink("Like", "Like", new { id = item.ID })
+    }
+    {
+        @Html.ActionLink("Like", "unLike", new { id = item.ID })
+    }
+
+    
+    <!-- LikeBtn.com BEGIN -->
+    <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-dislike_enabled="false"></span>
+    <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>-->
+    <!-- LikeBtn.com END -->
 
 
 
@@ -88,35 +104,59 @@ Xin chào @Session["user-fullname1"]
             </span>
             <span class="info">
                 <i class="fas fa-tag">Góp ý đã được duyệt</i>
-              
+
                 <i class="fas fa-tag">  @item.CHUDE.CHUDE_NAME</i>
                 <i class="fas fa-calendar">  @item.DATE</i>
 
                 @*@item.CHUDE.CHUDE_NAME*@
                 @* <i class="fas fa-calendar"></i> <time value=""></time>
-        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-        {
-            <span><i class="fas fa-user"></i> @item.DisplayName</span>
-        }*@
+                    @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+                    {
+                        <span><i class="fas fa-user"></i> @item.DisplayName</span>
+                    }*@
             </span>
             @item.GOPY_TEN
         </header>
-        @item.NOIDUNG_GOPY
+        <div>
+            @MvcHtmlString.Create(item.NOIDUNG_GOPY)
+        </div>
 
 
 
     </section>
 
 
-    
-    
 
-    
+ @*   làm được nút like rồi nhá
+    Cách làm
+    Sử dụng session
+    Nếu session == false thì cho hiển thị nút like
+    Khi like thì session sẽ = true
+    Và nếu session = true
+    Thì hiển thị unlike*@
 
-        @Html.DisplayFor(modelItem => item.nutLIKE) like <br />
+
+
+    @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
+
+
+    @if (Session["like"] is bool && (bool)Session["like"] == false)
+    {
         @Html.ActionLink("Like", "Like", new { id = item.ID })
-    
+    }
+    else
+    {
+        @Html.ActionLink("Like", "unLike", new { id = item.ID })
+    }
 
+
+
+
+    @**@
+    <!-- LikeBtn.com BEGIN -->
+    <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-theme="review" data-dislike_enabled="false" data-i18n_like="Tym" data-i18n_before_like="tym" data-popup_disabled="true" data-i18n_like_tooltip="Tôi thích góp ý này" data-share_enabled="false" data-i18n_unlike_tooltip="Tôi không thích góp ý này"></span>
+    <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>-->
+    <!-- LikeBtn.com END -->
 </article>
 }
 

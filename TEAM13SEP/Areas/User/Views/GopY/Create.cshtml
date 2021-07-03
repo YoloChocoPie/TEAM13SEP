@@ -89,6 +89,7 @@
 
                 @Html.EditorFor(model => model.SINHVIEN_ID, new { htmlAttributes = new { @min = "10000000" } })
                 @Html.ValidationMessage("bug1", new { @class = "text-danger" })
+                @Html.ValidationMessage("bug2", new { @class = "text-danger" })
                 <label>Vui lòng nhập 3 chữ số đầu và 5 chữ số cuối của mã sinh viên. Ví dụ : 18712345</label> <br />
                 <label>Bỏ trống ô này nếu bạn muốn đăng ẩn danh</label>
 

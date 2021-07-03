@@ -35,6 +35,7 @@ namespace TEAM13SEP.Areas.User.Controllers
 
         }
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "GOPY_CODE,GOPY_TEN,CHUDE_ID,ADMIN_ID,nutLIKE,SINHVIEN_ID,NOIDUNG_GOPY,TRALOI_GOPY,GOPY_STATUS,DATE")]
                         GOPY gopy)
@@ -48,8 +49,18 @@ namespace TEAM13SEP.Areas.User.Controllers
                 gopy1.GOPY_TEN = gopy.GOPY_TEN;
                 gopy1.CHUDE_ID = gopy.CHUDE_ID;
                 gopy1.ADMIN_ID = gopy.ADMIN_ID;
+               
                 gopy1.nutLIKE = gopy.nutLIKE;
-                gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
+                if ((int)Session["user-id1"] == gopy1.SINHVIEN_ID)
+                {
+                    gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
+                }
+                else
+                {
+                    ModelState.AddModelError("bug2", "Mã số sinh viên này không phải của bạn");
+                    return View();
+                }
+              
                 gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
                 gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
@@ -65,9 +76,6 @@ namespace TEAM13SEP.Areas.User.Controllers
 
 
             }
-      
-
-
             else
             {
                 ModelState.AddModelError("bug1", "Vui lòng kiểm tra lại trường thông tin");

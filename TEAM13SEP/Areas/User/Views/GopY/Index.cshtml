@@ -39,7 +39,7 @@ Xin chào @Session["user-fullname1"]
                         <span><i class="fas fa-user"></i> @item.DisplayName</span>
                     }*@
             </span>
-            <i class="fas fa-user"> </i>
+            <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
             @item.GOPY_TEN
         </header>
         <div>
@@ -105,16 +105,18 @@ Xin chào @Session["user-fullname1"]
             <span class="info">
                 <i class="fas fa-tag">Góp ý đã được duyệt</i>
 
-                <i class="fas fa-tag">  @item.CHUDE.CHUDE_NAME</i>
+                <i class="fas fa-tag">Tên chủ đề :  @item.CHUDE.CHUDE_NAME</i>
                 <i class="fas fa-calendar">  @item.DATE</i>
 
                 @*@item.CHUDE.CHUDE_NAME*@
                 @* <i class="fas fa-calendar"></i> <time value=""></time>
-                    @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                    {
-                        <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                    }*@
+            @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+            {
+                <span><i class="fas fa-user"></i> @item.DisplayName</span>
+            }*@
             </span>
+            <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
+            Tiêu đề :
             @item.GOPY_TEN
         </header>
         <div>

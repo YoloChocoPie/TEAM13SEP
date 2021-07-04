@@ -63,26 +63,81 @@ namespace TEAM13SEP.Areas.User.Controllers
                 gopy1.ADMIN_ID = gopy.ADMIN_ID;
 
                 gopy1.nutLIKE = gopy.nutLIKE;
-                if ((int)Session["user-id1"] == gopy1.SINHVIEN_ID)
-                {
-                    gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
-                }
-                else
-                {
-                    ModelState.AddModelError("bug2", "Mã số sinh viên này không phải của bạn");
-                    return View();
-                }
-
+                gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
                 gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
                 gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
                 gopy1.DATE = DateTime.Now;
+                if ((int)Session["user-id1"] != gopy1.SINHVIEN_ID)
+                {
+
+                    ModelState.AddModelError("bug2", "Mã số sinh viên này không phải của bạn");
+                    return View();
+                }
 
 
                 model.GOPies.Add(gopy1);
                 model.SaveChanges();
 
                 Session["Success"] = true;
+
+               
+
+
+
+
+                return RedirectToAction("Index");
+
+
+            }
+            else
+            {
+                ModelState.AddModelError("bug1", "Vui lòng kiểm tra lại trường thông tin");
+                return View();
+            }
+
+        }
+        [HttpGet]
+        public ActionResult Create1()
+        {
+            ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+            return View();
+
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create1([Bind(Include = "GOPY_CODE,GOPY_TEN,CHUDE_ID,ADMIN_ID,nutLIKE,SINHVIEN_ID,NOIDUNG_GOPY,TRALOI_GOPY,GOPY_STATUS,DATE")]
+                        GOPY gopy)
+        {
+            ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+            if (ModelState.IsValid)
+            {
+                var gopy1 = new GOPY();
+                gopy1.GOPY_CODE = gopy.GOPY_CODE;
+                gopy1.GOPY_TEN = gopy.GOPY_TEN;
+                gopy1.CHUDE_ID = gopy.CHUDE_ID;
+                gopy1.ADMIN_ID = gopy.ADMIN_ID;
+
+                gopy1.nutLIKE = gopy.nutLIKE;
+                gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
+                gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
+                gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
+                gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+                gopy1.DATE = DateTime.Now;
+                
+
+                model.GOPies.Add(gopy1);
+                model.SaveChanges();
+
+                Session["Success"] = true;
+
+
+
+
+
 
                 return RedirectToAction("Index");
 

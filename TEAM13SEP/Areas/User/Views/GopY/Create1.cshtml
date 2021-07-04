@@ -1,0 +1,136 @@
+﻿﻿@model TEAM13SEP.Models.GOPY
+
+@{
+    ViewBag.Title = "Create1";
+    Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2></h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Giao diện đặt góp ý</h4>
+    <hr />
+
+    @* Có trigger nên ko cần để -LTC*@
+
+    @* @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.GOPY_CODE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GOPY_CODE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GOPY_CODE, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GOPY_TEN, "Tiêu đề góp ý", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GOPY_TEN, new { htmlAttributes = new { @minlength = "4", @maxlength = "250" } })
+            @Html.ValidationMessage("bug1", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CHUDE_ID, "Chủ đề góp ý", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("CHUDE_ID", new SelectList(ViewBag.chude_id, "ID", "CHUDE_NAME"))
+            @Html.ValidationMessageFor(model => model.CHUDE_ID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NOIDUNG_GOPY, "Nội dung góp ý", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.NOIDUNG_GOPY, new { @class = "form-control", @minlength = "4", @maxlength = "250" })
+
+            @Html.ValidationMessage("bug1", new { @class = "text-danger" })
+        </div>
+    </div>
+    @*
+        <div class="form-group">
+            @Html.LabelFor(model => model.TRALOI_GOPY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TRALOI_GOPY, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TRALOI_GOPY, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    @*
+        BCN khoa trợ lý ko cần phải nhập id - LTC*@
+
+    @*   <div class="form-group">
+            @Html.LabelFor(model => model.ADMIN_ID, "ADMIN_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ADMIN_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ADMIN_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    @* <div class="form-group">
+            @Html.LabelFor(model => model.nutLIKE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nutLIKE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nutLIKE, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    @*  Sinh viên ko cần phải nhập id - LTC*@
+
+    @*Cần phải nhập mssv để lấy tên  - LTC *@
+    <br />
+
+    <div class="form-group">
+        @Html.HiddenFor(model => model.SINHVIEN_ID)
+    </div>
+    <div class="form-group">
+
+       
+            <p> <a href="~/User/GopY/Create"> Nhấn vào đây nếu bạn muốn đăng không ẩn danh</a></p>
+
+
+
+        </div>
+    
+
+
+
+
+
+    @*  Sửa lại db, tại sao DATE lại là checkbox :bonk: - LTC
+        Fix lại từ datetime to datetime2 - LTC
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DATE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.DATE)
+                    @Html.ValidationMessageFor(model => model.DATE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Đặt Góp Ý" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Quay về trang chủ", "Index")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#NOIDUNG_GOPY',
+            menubar: false
+        });
+    </script>
+}

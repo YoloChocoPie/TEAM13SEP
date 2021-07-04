@@ -12,6 +12,9 @@
 <body>
 
     <div class="card-body p-0">
+        <span style="color:darkslateblue; margin: 15px 0px 0px 20px"><b>Quản lý chủ đề</b></span>
+        <br />
+        <br />
         <div class="table-responsive">
             <table class="table m-0" id="mySearchableData">
                 <thead>
@@ -39,10 +42,10 @@
                         </td>
 
                         <td>
-                            @Html.ActionLink("Create New", "Create") |
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @*@Html.ActionLink("Tạo mới", "Create") ||*@
+                            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID }) |
                             @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@|
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
                         </td>
                     </tr>
                 }
@@ -63,9 +66,9 @@
 </body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<br/>
 
-
-@Html.ActionLink("Create New", "Create") |
+|| <b> @Html.ActionLink("Tạo mới", "Create") </b>||
 
 
 <!-- EVERYTHING BELOW THIS YOU WILL NEED -->

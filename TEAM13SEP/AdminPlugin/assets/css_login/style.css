@@ -7513,15 +7513,17 @@
      display: inline-block;
 }
     .ed-com-t1-left ul li a {
-        color: #ffa600;
+        color: #ff4800;
         padding: 5px 14px;
         line-height: 3.5em;
         border-right: 2px solid #000;
-        font-size: 19px;
+        font-size: 20px;
         font-style: inherit;
         font-weight: bolder;
         text-transform: uppercase;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+        text-shadow: 0px 3px 2px #b2a98f, 3px 16px 5px rgb(0 0 0 / 15%), 0px 2px 30px rgb(0 0 0 / 10%);
+        /*0px 24px 2px rgba(0,0,0,0.1)*/
     }
  .ed-com-t1-right{
      float: right;
@@ -7536,7 +7538,7 @@
      color: #fff;
      padding: 12px;
      margin-top: 12px;
-     line-height: 60px;
+     line-height: 71px;
      font-size: 16px;
 
 }
@@ -8673,7 +8675,10 @@ hr {
 }
 
 
-/*Login form*/
+/*---
+    Login form
+                ---*/
+
 #login-form .btn-large {
      height: 40px;
      line-height: 40px;
@@ -8747,4 +8752,41 @@ i {
     margin-bottom: 100px;
     margin-left: 300px;
     width: 615px;
+}
+.register-form .col-md-2{
+}
+
+/*--
+   --- UserLayoutHTGY ---
+                        --*/
+#vertical{
+    line-height: 30px;
+    color: black;
+    margin-top: 11px;
+    font-size: 18px;
+}
+
+#header-wrapper {
+    height: 46px;
+    background-color: #a7ada736;
+    box-sizing: border-box;
+    margin-top: 5px
+}
+#nav-bar > ul > li > a {
+    color: red;
+}
+#nav-bar li{
+    display: inline-block;
+    position: relative;
+    line-height: 45px;
+    padding: 0px 15px;
+    margin-left: 7px;
+}
+
+.header-wrapper .nav-header {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display:inline-block;
+    position: relative;
 }

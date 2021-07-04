@@ -35,7 +35,7 @@
 </head>
 
 <body>
-
+    <!-- /# sidebar -->
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
@@ -53,8 +53,6 @@
                                 <li><a href="~/Admin/GopY">Quản lý góp ý</a></li>
                                 <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
                                 <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>
-
-
                             </ul>
                         </li>
 
@@ -77,11 +75,9 @@
                         <li>
                             <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="">Quản lý góp ý</a></li>
+
                                 <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
-
-
-
+                                <li><a href="~/Admin/GopY">Quản lý góp ý</a></li>
                             </ul>
                         </li>
 
@@ -94,40 +90,23 @@
 
                             </ul>
                         </li>
+
                     }
 
                     @if ((int)Session["user-role"] == 3)
                     {
+
                         <li class="label">Mục Quản Lý</li>
 
                         <li>
                             <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="">Quản lý góp ý</a></li>
 
-
-
+                                <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
                             </ul>
                         </li>
 
-
                     }
-
-                    @if ((int)Session["user-role"] == 4)
-                    {
-
-
-
-                    }
-
-
-
-
-
-
-
-
-
                     <li><a href="~/Admin/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>
                 </ul>
             </div>
@@ -137,7 +116,7 @@
 
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="~/Admin/Chude"><span>TEAM13</span></a></div>
+            <div class="logo"><a href="~/Admin/Chude"><span>Hộp thư góp ý</span><br /><span>Khoa Công Nghệ Thông Tin</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -161,7 +140,7 @@
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Hello @Session["user-fullname"], <span>Welcome Here</span></h1>
+                                <h1>Xin Chào @Session["user-fullname"],</h1>
                             </div>
                         </div>
                     </div>
@@ -170,8 +149,7 @@
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
-                                    <li><a href="#">Dashboard</a></li>
-                                    <li class="active">Home</li>
+                                    <li></li>
                                 </ol>
                             </div>
                         </div>

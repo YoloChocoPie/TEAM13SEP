@@ -2666,6 +2666,7 @@ output {
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    margin-bottom: 15px;
 }
 .form-control:focus {
     border-color: #66afe9;
@@ -3086,6 +3087,7 @@ select[multiple].input-lg {
         padding-top: 7px;
         margin-bottom: 0;
         text-align: right;
+        font-size: medium;
     }
 }
 .form-horizontal .has-feedback .form-control-feedback {
@@ -3164,7 +3166,8 @@ fieldset[disabled] a.btn {
 .btn-default {
     color: #333;
     background-color: #fff;
-    border-color: #ccc;
+    border-color: #ef0b0b;
+    border-width: 2px;
 }
 .btn-default:focus,
 .btn-default.focus {
@@ -3193,9 +3196,9 @@ fieldset[disabled] a.btn {
 .btn-default:active.focus,
 .btn-default.active.focus,
 .open > .dropdown-toggle.btn-default.focus {
-    color: #333;
-    background-color: #d4d4d4;
-    border-color: #8c8c8c;
+    color: aliceblue;
+    background-color: dodgerblue;
+    border-color: #5bc0de;
 }
 .btn-default:active,
 .btn-default.active,

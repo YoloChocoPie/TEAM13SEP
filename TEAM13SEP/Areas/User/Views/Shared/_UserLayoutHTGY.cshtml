@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>  Trang chủ </title>
+    <title>  Hộp thư góp ý khoa CNTT </title>
     <!--icon title-->
     <link rel="icon" type="image/svg" href="~/AdminPlugin/assets/images/sep_logo_6a.png" />
 
@@ -18,14 +18,6 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon-->
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-
-    <!-- Styles -->
-    <link href="@Url.Content("~/AdminPlugin/assets/css/lib/font-awesome.min.css")" rel="stylesheet">
-    <link href="@Url.Content("~/AdminPlugin/assets/css/lib/themify-icons.css")" rel="stylesheet">
-    <link href="@Url.Content("~/AdminPlugin/assets/css/lib/bootstrap.min.css")" rel="stylesheet">
-    <link href="@Url.Content("~/AdminPlugin/assets/css/lib/unix.css")" rel="stylesheet">
-    <link href="@Url.Content("~/AdminPlugin/assets/css/style.css")" rel="stylesheet">
-
 
     <!-- FAV Icon
     <link rel="apple-touch-icon" sizes="180x180" href="images/fav/apple-touch-icon.png">
@@ -52,6 +44,8 @@
     <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/animate.css">
     <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datepicker.css">
     <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datetimepicker.css">
+
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/askme.min.css">
 
     @*<link rel="stylesheet" type="text/css" href="@Url.Content("~/UserPlugin/Styles/askme.css")" asp-append-version="true" />*@
     @*<link rel="stylesheet" type="text/css" href="@Url.Content("~/UserPlugin/Styles/askme.min.css")" asp-append-version="true" />*@
@@ -113,9 +107,6 @@
         </div>
     </section>
 
-
-
-
     <header>
         <!-- <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li> -->
         <!--HEADER SECTION-->
@@ -135,7 +126,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a href=" http://cntt.vanlanguni.edu.vn" target="_blank"> Hộp thư góp ý dành cho sinh viên Khoa Công Nghệ Thông Tin</a>
+                                        <a href=" http://cntt.vanlanguni.edu.vn" target="_blank"> Góp ý Khoa Công nghệ thông tin</a>
                                     </li>
                                 </ul>
                             </div>
@@ -157,7 +148,25 @@
     <vc:menu></vc:menu>
 
     <main>
+        <marquee id="vertical" scrollamount="2" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()">
+            🎈 Chào mừng bạn đến với trang đặt góp ý dành cho sinh viên khoa Công Nghệ Thông Tin.🎈
+        </marquee>
+        <div id="header-wrapper">
+            <div id="nav-header">
+                <div id="nav-bar">
+                    <ul>
+                        <li> @Html.ActionLink("Trang chủ", "Index2") </li>
+                        <li> @Html.ActionLink("Góp ý được duyệt", "Index") </li>
+                        <li> @Html.ActionLink("Đặt góp ý", "Create") </li>
+                    </ul>
+                </div>
+            </div>
+            @*@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách các câu góp ý đã duyệt", "Index") | @Html.ActionLink("Xem danh sách các câu trả lời", "Index2")*@
+        </div>
+
+
         @RenderBody()
+    
     </main>
 
     <footer>

@@ -928,10 +928,10 @@ a.dt-button.active:not(.disabled) {
   font-family: 'MontserratLight', sans-serif;
 }
 .dropdown-task .progress {
-  height: 5px;
-  margin-bottom: 0px;
-  margin-top: 20px;
-  box-shadow: none;
+    height: 5px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    box-shadow: none;
 }
 .dropdown-task .progress-bar {
   box-shadow: none;

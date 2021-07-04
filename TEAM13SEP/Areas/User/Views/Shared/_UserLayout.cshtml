@@ -3,35 +3,109 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>  "Hộp Thư Góp ý" : ViewBag.Title + "Hộp thư góp ý")</title>
+    <title> Hộp thư góp ý kkhoa CNTT </title>
+    <!--icon title-->
+    <link rel="icon" type="image/svg" href="~/AdminPlugin/assets/images/sep_logo_6a.png" />
+
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:400,500,700" rel="stylesheet">
+    <!-- FONT-AWESOME ICON CSS -->
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/font-awesome.min.css">
+
+    <!--== ALL CSS FILES ==-->
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/style.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/materialize.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/mob.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/animate.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/AdminPlugin/assets/css_login/bootstrap-datetimepicker.css">
+
+
+    <!-- Slick -->
+    <link href="~/AdminPlugin/assets/vendor/slick/slick.css" rel="stylesheet" type="text/css">
+    <link href="~/AdminPlugin/assets/vendor/slick/slick-theme.css" rel="stylesheet" type="text/css">
+
+    <!-- Datatables -->
+    <link href="~/AdminPlugin/assets/vendor/DataTables/datatables.min.css" rel="stylesheet" type="text/css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
           integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
           integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="" />
-    <environment include="Development">
+
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/UserPlugin/Styles/askme.min.css")" asp-append-version="true" />
+
+    @*<environment include="Development">
         <link rel="stylesheet" type="text/css" href="@Url.Content("~/UserPlugin/Styles/askme.css")" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" type="text/css" href="@Url.Content("~/UserPlugin/Styles/askme.min.css")" asp-append-version="true" />
-    </environment>
+    </environment>*@
+
 </head>
 <body>
     <header>
-        <h1>Hộp thư góp ý</h1>
-        <div>Dành cho khoa CNTT</div>
+
     </header>
     <vc:menu></vc:menu>
     <main>
         @RenderBody()
     </main>
-    <footer>
-        <ul>
-            <li>Copyright &copy; <a href="https://www.altairis.cz/">Altairis</a>, 2017-@DateTime.Today.Year</li>
-            <li title=" environment">Using ASP.NET MVC Core</li>
-            <li><a asp-route="RssFeed"><i class="fas fa-rss"></i> RSS</a></li>
-            <li for-login-status="false"><a asp-controller="Account" asp-action="Login">&pi;</a></li>
-        </ul>
-    </footer>
+
+
+
+
+    @*<footer>
+        <section>
+            <div class="rows">
+                <div class="footer">
+                    <div class="container">
+                        <div class="foot-sec2">
+                            <div>
+                                <div class="row footernoop">
+                                    <div class="col-sm-2 foot-spec foot-com">
+                                        <div class="wed-logo2">
+                                            <a href="/">
+                                                <img src="~/AdminPlugin/assets/images/logo_vanlang.png" alt="Feedback webiste for IT student" style="width:100px;height:100px">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 foot-spec foot-com">
+                                        <h4>Địa chỉ</h4>
+                                        <p><a style="color: #fff" href="https://goo.gl/maps/2CcxCxTxQXPDDYwW8" target="_blank"><i class="fa fa-university" aria-hidden="true"></i> Trụ sở: <br>45 Nguyễn Khắc Nhu, P.Cô Giang, Q.1, Hồ Chí Minh.</a></p>
+                                        <p><a style="color: #fff" href="https://goo.gl/maps/H4RCpcajjiNjpjZ8A" target="_blank"><i class="fa fa-university" aria-hidden="true"></i> Cơ sở 2: <br> 233A Phan Văn Trị, P.11, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
+                                        <p><a style="color: #fff" href="https://goo.gl/maps/UdzN3SB64pcwUyGGA" target="_blank"><i class="fa fa-university" aria-hidden="true"></i> Cơ sơ 3: <br> 80/68 Dương Quảng Hàm, P.5, Q.Gò Vấp, Hồ Chí Minh. <br> 69/68 Đặng Thùy Trâm, P.13, Q.Bình Thạnh, Hồ Chí Minh.</a></p>
+                                    </div>
+                                    <div class="col-sm-3 col-md-3 foot-spec foot-com">
+                                        <h4>Liên hệ</h4>
+                                        <p">
+                                            <p><a style="color: #fff" href="#"><i class="fa fa-male" aria-hidden="true"></i> Trưởng khoa: TS. Hoàng Lê Minh </a></p>
+                                            <p><a style="color: #fff" href="#"><i class="fa fa-male" aria-hidden="true"></i> Phó Trưởng khoa: ThS. Bùi Minh Phụng </a></p>
+                                            <p><a style="color: #fff" href="#"><i class="fa fa-building" aria-hidden="true"></i> Văn phòng: Phòng 5.07, Tòa nhà LV, Cơ sở 3 </a></p>
+                                            <a style="color: #fff" href="tel:02871099240,3310"><i class="fa fa-phone" aria-hidden="true"></i> 028 7109 9240 - Ext: 4010: (CTSV), 4111 (Ban lãnh đạo Khoa)</a><p></p>
+                                            <p><a style="color: #fff" href="k.cntt@vanlanguni.edu.vn"><i class="fa fa-mail-forward" aria-hidden="true"></i> Email: k.cntt@vanlanguni.edu.vn </a></p>
+                                            <p><a style="color: #fff" href="http://cntt.vanlanguni.edu.vn"><i class="fa fa-laptop" aria-hidden="true"></i> Website: Khoa Công Nghệ Thông Tin </a></p>
+                                        </p">
+                                    </div>
+                                    <div class="col-sm-3 foot-social foot-spec foot-com">
+                                        <h4>Theo dõi chúng tôi</h4>
+                                        <ul>
+                                            <li><a href="https://www.facebook.com/khoacntt.vanlang" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://www.youtube.com/channel/UCMUwcQecO4jqgoTgBJ3W6bQ" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://www.instagram.com/vanlanguniversity/?r=nametag" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://twitter.com/universityvan?lang=en" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>*@
 </body>
 </html>

@@ -5,14 +5,14 @@
     Layout = "~/Areas/User/Views/Shared/_UserLayoutHTGY.cshtml";
 }
 
-<h2>Create</h2>
+<h4>Hãy tạo góp ý của bạn</h4>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>GOPY</h4>
+        <span>📢 Nhà trường và Khoa luôn luôn lắng nghe, luôn luôn thấu hiểu các góp ý của sinh viên 🧾 </span>
         <hr />
 
         @* Có trigger nên ko cần để -LTC*@
@@ -114,5 +114,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Trở về", "Index")
 </div>

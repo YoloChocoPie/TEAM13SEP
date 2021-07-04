@@ -30,7 +30,7 @@ namespace TEAM13SEP.Areas.User.Controllers
                     Session["user-id1"] = user.MSSV;
 
 
-                    return RedirectToAction("Index", "GopY");
+                    return RedirectToAction("Index2", "GopY");
 
                 }
                 else

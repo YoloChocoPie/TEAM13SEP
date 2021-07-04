@@ -98,48 +98,22 @@ namespace TEAM13SEP.Areas.User.Controllers
 
 
         }
-        //
-
-        public ActionResult Logout(int id)
-        {
-            // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
-
-
-            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-            if (update.daLike == true)
-            {
-                update.daLike = false;
-                model.SaveChanges();
-                Session["user-fullname1"] = null;
-                Session["user-id1"] = null;
-            }
-
-
-
-            return RedirectToAction("Index");
-
-
-        }
-
-
-
-        //
-
-
 
         public ActionResult Like(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
-
-
-
+            // đã xoá
+            // đã xoá và thay đổi code mới ở dưới
+            
+            // khai báo hàm update và đặt điều kiện
+            // nếu thuộc tính dalike = false thì cho phép người dùng like, và ngược lại
             GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
             if (update.daLike == false)
             {
                 update.nutLIKE += 1;
                 update.daLike = true;
                 model.SaveChanges();
-                Session["like"] = true;
+            
             }
 
 
@@ -158,14 +132,17 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult unLike(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+            // đã xoá
+            // đã xoá và thay đổi code mới ở dưới
 
+            // Tương tự như code LIKE tuy nhiên ngược lại câu lệnh điều kiện
             GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
             if (update.daLike == true)
             {
                 update.nutLIKE -= 1;
                 update.daLike = false;
                 model.SaveChanges();
-                Session["like"] = false;
+              
             }
 
 
@@ -179,111 +156,167 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult Like1(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
-            // này là like khi đã dc trả lời
-            if (Session["like1"] is bool && (bool)Session["like1"] == false)
+            // đã xoá
+            // đã xoá và thay đổi code mới ở dưới
+
+            // khai báo hàm update và đặt điều kiện
+            // nếu thuộc tính dalike = false thì cho phép người dùng like, và ngược lại
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            if (update.daLike == false)
             {
-                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
                 update.nutLIKE += 1;
+                update.daLike = true;
                 model.SaveChanges();
-                Session["like1"] = true;
+          
             }
+
+
+
+
+
+
+
+
+            // add logic to get the id of the post to increment the likes
+
 
             return RedirectToAction("Index2");
 
-
-
         }
-        public ActionResult unLike1(int id, SINHVIEN c)
+        public ActionResult unLike1(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
-            if (Session["like1"] is bool && (bool)Session["like1"] == true)
-            {
-                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-                update.nutLIKE -= 1;
+            // đã xoá
+            // đã xoá và thay đổi code mới ở dưới
 
+            // Tương tự như code LIKE tuy nhiên ngược lại câu lệnh điều kiện
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            if (update.daLike == true)
+            {
+                update.nutLIKE -= 1;
+                update.daLike = false;
                 model.SaveChanges();
-                Session["like1"] = false;
+             
             }
+
+
+
+
 
             return RedirectToAction("Index2");
 
 
-
         }
-
-
-
 
         public ActionResult Like3(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
-            if (Session["like3"] is bool && (bool)Session["like3"] == false)
+            // đã xoá
+            // đã xoá và thay đổi code mới ở dưới
+
+            // khai báo hàm update và đặt điều kiện
+            // nếu thuộc tính dalike = false thì cho phép người dùng like, và ngược lại
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            if (update.daLike == false)
             {
-                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
                 update.nutLIKE += 1;
+                update.daLike = true;
                 model.SaveChanges();
-                Session["like3"] = true;
+
             }
+
+
+
+
+
+
+
+
+            // add logic to get the id of the post to increment the likes
+
 
             return RedirectToAction("Index3");
 
-
         }
-        public ActionResult unLike3(int id, SINHVIEN c)
+        public ActionResult unLike3(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
-            if (Session["like3"] is bool && (bool)Session["like3"] == true)
-            {
-                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-                update.nutLIKE -= 1;
+            // đã xoá
+            // đã xoá và thay đổi code mới ở dưới
 
+            // Tương tự như code LIKE tuy nhiên ngược lại câu lệnh điều kiện
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            if (update.daLike == true)
+            {
+                update.nutLIKE -= 1;
+                update.daLike = false;
                 model.SaveChanges();
-                Session["like3"] = false;
+
             }
+
+
+
+
 
             return RedirectToAction("Index3");
 
 
-
         }
-
-
-
 
         public ActionResult Like4(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
-            if (Session["like4"] is bool && (bool)Session["like4"] == false)
+            // đã xoá
+            // đã xoá và thay đổi code mới ở dưới
+
+            // khai báo hàm update và đặt điều kiện
+            // nếu thuộc tính dalike = false thì cho phép người dùng like, và ngược lại
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            if (update.daLike == false)
             {
-                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
                 update.nutLIKE += 1;
+                update.daLike = true;
                 model.SaveChanges();
-                Session["like4"] = true;
+
             }
 
-            return RedirectToAction("Index4");
 
+
+
+
+
+
+
+            // add logic to get the id of the post to increment the likes
+
+
+            return RedirectToAction("Index4");
 
         }
         public ActionResult unLike4(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
-            if (Session["like4"] is bool && (bool)Session["like4"] == true)
-            {
-                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-                update.nutLIKE -= 1;
+            // đã xoá
+            // đã xoá và thay đổi code mới ở dưới
 
+            // Tương tự như code LIKE tuy nhiên ngược lại câu lệnh điều kiện
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            if (update.daLike == true)
+            {
+                update.nutLIKE -= 1;
+                update.daLike = false;
                 model.SaveChanges();
-                Session["like4"] = false;
+
             }
+
+
+
+
 
             return RedirectToAction("Index4");
 
 
-
         }
-
-
 
     }
 }

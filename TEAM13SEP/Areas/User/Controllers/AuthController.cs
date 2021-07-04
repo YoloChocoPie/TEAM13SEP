@@ -67,6 +67,7 @@ namespace TEAM13SEP.Areas.User.Controllers
         {
             Session["user-fullname1"] = null;
             Session["user-id1"] = null;
+            // rs databse mỗi lần logout // không có WHERE vì ko để sẽ mặc định chọn hết
             model.Database.ExecuteSqlCommand("Update [GopY] Set daLike = @daLike ", new SqlParameter("@daLike", "False"));
             return RedirectToAction("Login");
         }

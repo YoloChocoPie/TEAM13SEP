@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -66,6 +67,7 @@ namespace TEAM13SEP.Areas.User.Controllers
         {
             Session["user-fullname1"] = null;
             Session["user-id1"] = null;
+            model.Database.ExecuteSqlCommand("Update [GopY] Set daLike = @daLike ", new SqlParameter("@daLike", "False"));
             return RedirectToAction("Login");
         }
 

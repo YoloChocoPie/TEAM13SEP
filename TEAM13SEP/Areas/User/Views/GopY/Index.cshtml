@@ -18,71 +18,73 @@ Xin chào @Session["user-fullname1"]
 
     if (item.SINHVIEN_ID != null)
     {
-        <article class="answer">
-            <section class="question">
-                <header>
-                    <span class="fa-stack fa-lg">
-                        <i class="fas fa-square fa-stack-2x"></i>
-                        <i class="fas fa-question fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="info">
-                        <i class="fas fa-tag"> Góp ý nổi bật</i>
-                        <i class="fas fa-tag">  @item.CHUDE.CHUDE_NAME</i>
-                        <i class="fas fa-calendar">  @item.DATE</i>
+<article class="answer">
+    <section class="question">
+        <header>
+            <span class="fa-stack fa-lg">
+                <i class="fas fa-square fa-stack-2x"></i>
+                <i class="fas fa-question fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="info">
+                <i class="fas fa-tag"> Góp ý nổi bật</i>
+                <i class="fas fa-tag">  @item.CHUDE.CHUDE_NAME</i>
+                <i class="fas fa-calendar">  @item.DATE</i>
 
 
 
 
-                        @* <i class="fas fa-calendar"></i> <time value=""></time>
-                            @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                            {
-                                <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                            }*@
-                    </span>
-                    <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
-                    @item.GOPY_TEN
-                </header>
-                <div>
-                    @MvcHtmlString.Create(item.NOIDUNG_GOPY)
-                </div>
+                @* <i class="fas fa-calendar"></i> <time value=""></time>
+                    @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+                    {
+                        <span><i class="fas fa-user"></i> @item.DisplayName</span>
+                    }*@
+            </span>
+            <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
+            @item.GOPY_TEN
+        </header>
+        <div>
+            @MvcHtmlString.Create(item.NOIDUNG_GOPY)
+        </div>
 
-            </section>
-
-
-
-            @*   làm được nút like rồi nhá
-                Cách làm
-                Sử dụng session
-                Nếu session == false thì cho hiển thị nút like
-                Khi like thì session sẽ = true
-                Và nếu session = true
-                Thì hiển thị unlike*@
+    </section>
 
 
 
-            @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
-
-
-            @if (Session["like"] is bool && (bool)Session["like"] == false)
-            {
-                @Html.ActionLink("Like", "Like", new { id = item.ID })
-            }
-            {
-            @Html.ActionLink("Like", "unLike", new { id = item.ID })
-            }
-
-
-            <!-- LikeBtn.com BEGIN -->
-            <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-dislike_enabled="false"></span>
-            <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>-->
-            <!-- LikeBtn.com END -->
+    @*   làm được nút like rồi nhá
+        Cách làm
+        Sử dụng session
+        Nếu session == false thì cho hiển thị nút like
+        Khi like thì session sẽ = true
+        Và nếu session = true
+        Thì hiển thị unlike*@
 
 
 
+    @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
 
 
 
-        </article>
+    @if (item.daLike == false)
+    {
+        @Html.ActionLink("Like", "Like", new { id = item.ID })
+    }
+    else
+    {
+        @Html.ActionLink("unLike", "unLike", new { id = item.ID })
+    }
+
+
+    <!-- LikeBtn.com BEGIN -->
+    <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-dislike_enabled="false"></span>
+    <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>-->
+    <!-- LikeBtn.com END -->
+
+
+
+
+
+
+</article>
     }
 
 
@@ -145,13 +147,14 @@ Xin chào @Session["user-fullname1"]
     @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
 
 
-    @if (Session["like"] is bool && (bool)Session["like"] == false)
+
+    @if (item.daLike == false)
     {
         @Html.ActionLink("Like", "Like", new { id = item.ID })
     }
-    @if (Session["like"] is bool && (bool)Session["like"] == true)
+    else
     {
-        @Html.ActionLink("Like", "unLike", new { id = item.ID })
+    @Html.ActionLink("unLike", "unLike", new { id = item.ID })
     }
 
 

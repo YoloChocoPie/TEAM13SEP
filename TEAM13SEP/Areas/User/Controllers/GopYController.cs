@@ -16,9 +16,11 @@ namespace TEAM13SEP.Areas.User.Controllers
     {
         // GET: Admin/GopY
         SEPEntities model = new SEPEntities();
+
         public ActionResult Index()
         {
             var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
+            
             return View(gopy);
         }
         public ActionResult Index2()
@@ -59,7 +61,7 @@ namespace TEAM13SEP.Areas.User.Controllers
                 gopy1.GOPY_TEN = gopy.GOPY_TEN;
                 gopy1.CHUDE_ID = gopy.CHUDE_ID;
                 gopy1.ADMIN_ID = gopy.ADMIN_ID;
-               
+
                 gopy1.nutLIKE = gopy.nutLIKE;
                 if ((int)Session["user-id1"] == gopy1.SINHVIEN_ID)
                 {
@@ -70,7 +72,7 @@ namespace TEAM13SEP.Areas.User.Controllers
                     ModelState.AddModelError("bug2", "Mã số sinh viên này không phải của bạn");
                     return View();
                 }
-              
+
                 gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
                 gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
@@ -81,7 +83,7 @@ namespace TEAM13SEP.Areas.User.Controllers
                 model.SaveChanges();
 
                 Session["Success"] = true;
-                
+
                 return RedirectToAction("Index");
 
 
@@ -92,66 +94,121 @@ namespace TEAM13SEP.Areas.User.Controllers
                 return View();
             }
 
-          
-         
+
+
 
         }
+        //
+
+        public ActionResult Logout(int id)
+        {
+            // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+
+
+            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+            if (update.daLike == true)
+            {
+                update.daLike = false;
+                model.SaveChanges();
+                Session["user-fullname1"] = null;
+                Session["user-id1"] = null;
+            }
+
+
+
+            return RedirectToAction("Index");
+
+
+        }
+
+
+
+        //
 
 
 
         public ActionResult Like(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
-           
-            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-            update.nutLIKE += 1;
-            model.SaveChanges();
-            Session["like"] = true;
+
+
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            if (update.daLike == false)
+            {
+                update.nutLIKE += 1;
+                update.daLike = true;
+                model.SaveChanges();
+                Session["like"] = true;
+            }
+
+
+
+
+
+
+
+
+            // add logic to get the id of the post to increment the likes
+        
+
             return RedirectToAction("Index");
 
-
         }
-        public ActionResult unLike(int id, SINHVIEN c)
+        public ActionResult unLike(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
 
-            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-            update.nutLIKE -= 1;
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            if (update.daLike == true)
+            {
+                update.nutLIKE -= 1;
+                update.daLike = false;
+                model.SaveChanges();
+                Session["like"] = false;
+            }
 
-            model.SaveChanges();
-            Session["like"] = false;
+
+
+
+
             return RedirectToAction("Index");
 
 
-         
         }
         public ActionResult Like1(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
             // này là like khi đã dc trả lời
+            if (Session["like1"] is bool && (bool)Session["like1"] == false)
+            {
+                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+                update.nutLIKE += 1;
+                model.SaveChanges();
+                Session["like1"] = true;
+            }
 
-            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-            update.nutLIKE += 1;
-            model.SaveChanges();
-            Session["like1"] = true;
             return RedirectToAction("Index2");
 
 
-            
+
         }
         public ActionResult unLike1(int id, SINHVIEN c)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+            if (Session["like1"] is bool && (bool)Session["like1"] == true)
+            {
+                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+                update.nutLIKE -= 1;
 
-            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-            update.nutLIKE -= 1;
+                model.SaveChanges();
+                Session["like1"] = false;
+            }
 
-            model.SaveChanges();
-            Session["like1"] = false;
             return RedirectToAction("Index2");
 
 
-        
+
         }
 
 
@@ -160,11 +217,14 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult Like3(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+            if (Session["like3"] is bool && (bool)Session["like3"] == false)
+            {
+                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+                update.nutLIKE += 1;
+                model.SaveChanges();
+                Session["like3"] = true;
+            }
 
-            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-            update.nutLIKE += 1;
-            model.SaveChanges();
-            Session["like3"] = true;
             return RedirectToAction("Index3");
 
 
@@ -172,12 +232,15 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult unLike3(int id, SINHVIEN c)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+            if (Session["like3"] is bool && (bool)Session["like3"] == true)
+            {
+                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+                update.nutLIKE -= 1;
 
-            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-            update.nutLIKE -= 1;
+                model.SaveChanges();
+                Session["like3"] = false;
+            }
 
-            model.SaveChanges();
-            Session["like3"] = false;
             return RedirectToAction("Index3");
 
 
@@ -190,11 +253,14 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult Like4(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+            if (Session["like4"] is bool && (bool)Session["like4"] == false)
+            {
+                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+                update.nutLIKE += 1;
+                model.SaveChanges();
+                Session["like4"] = true;
+            }
 
-            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-            update.nutLIKE += 1;
-            model.SaveChanges();
-            Session["like4"] = true;
             return RedirectToAction("Index4");
 
 
@@ -202,17 +268,21 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult unLike4(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
+            if (Session["like4"] is bool && (bool)Session["like4"] == true)
+            {
+                GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
+                update.nutLIKE -= 1;
 
-            GOPY update = model.GOPies.ToList().Find(u => u.ID == id);
-            update.nutLIKE -= 1;
+                model.SaveChanges();
+                Session["like4"] = false;
+            }
 
-            model.SaveChanges();
-            Session["like4"] = false;
             return RedirectToAction("Index4");
 
 
 
         }
+
 
 
     }

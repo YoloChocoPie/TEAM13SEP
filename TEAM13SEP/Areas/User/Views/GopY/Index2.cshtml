@@ -71,13 +71,13 @@ Hello @Session["user-fullname1"]
     @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
 
 
-    @if (Session["like1"] is bool && (bool)Session["like1"] == false)
+    @if (item.daLike == false)
     {
         @Html.ActionLink("Like", "Like1", new { id = item.ID })
     }
-    @if (Session["like1"] is bool && (bool)Session["like1"] == true)
+    else
     {
-        @Html.ActionLink("Like", "unLike1", new { id = item.ID })
+        @Html.ActionLink("unLike", "unLike1", new { id = item.ID })
     }
 
 </article>

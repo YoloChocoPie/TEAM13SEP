@@ -64,15 +64,15 @@ Xin chào @Session["user-fullname1"]
     @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
 
 
-    @if (Session["like3"] is bool && (bool)Session["like3"] == false)
+
+    @if (item.daLike == false)
     {
         @Html.ActionLink("Like", "Like3", new { id = item.ID })
     }
-    @if (Session["like3"] is bool && (bool)Session["like3"] == true)
+    else
     {
-        @Html.ActionLink("Like", "unLike3", new { id = item.ID })
+        @Html.ActionLink("unLike", "unLike3", new { id = item.ID })
     }
-
 
     <!-- LikeBtn.com BEGIN -->
     <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-dislike_enabled="false"></span>
@@ -147,13 +147,13 @@ Xin chào @Session["user-fullname1"]
     @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
 
 
-    @if (Session["like3"] is bool && (bool)Session["like3"] == false)
+    @if (item.daLike == false)
     {
         @Html.ActionLink("Like", "Like3", new { id = item.ID })
     }
-    @if (Session["like3"] is bool && (bool)Session["like3"] == true)
+    else
     {
-        
+        @Html.ActionLink("unLike", "unLike3", new { id = item.ID })
     }
 
 

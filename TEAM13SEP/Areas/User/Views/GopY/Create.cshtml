@@ -5,14 +5,14 @@
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>Create</h2>
+<h2></h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>GOPY</h4>
+        <h4>Giao diện đặt góp ý</h4>
         <hr />
 
         @* Có trigger nên ko cần để -LTC*@
@@ -29,8 +29,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.GOPY_TEN, "Tiêu đề góp ý", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.GOPY_TEN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GOPY_TEN, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.GOPY_TEN, new { htmlAttributes = new { @minlength = "4", @maxlength = "250" } })
+                @Html.ValidationMessage("bug1", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -45,8 +45,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NOIDUNG_GOPY, "Nội dung góp ý", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NOIDUNG_GOPY, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NOIDUNG_GOPY, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.NOIDUNG_GOPY, new { @class = "form-control", @minlength = "4", @maxlength = "250"  })
+          
+                @Html.ValidationMessage("bug1", new { @class = "text-danger" })
             </div>
         </div>
         @*
@@ -79,12 +80,21 @@
         @*  Sinh viên ko cần phải nhập id - LTC*@
 
         @*Cần phải nhập mssv để lấy tên  - LTC *@
+        <br />
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SINHVIEN_ID, "Mã sinh viên", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.LabelFor(model => model.SINHVIEN_ID, "", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SINHVIEN_ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SINHVIEN_ID, "", new { @class = "text-danger" })
+
+                @Html.EditorFor(model => model.SINHVIEN_ID, null, new { htmlAttributes = new { @min = "10000000" } })
+                @Html.ValidationMessage("bug1", new { @class = "text-danger" })
+                @Html.ValidationMessage("bug2", new { @class = "text-danger" })
+                <label>Vui lòng nhập 3 chữ số đầu và 5 chữ số cuối của mã sinh viên. Ví dụ : 18712345</label> <br />
+                <p> <a href="~/User/GopY/Create1"> Nhấn vào đây nếu bạn muốn đăng ẩn danh</a></p>
+           
+
+
             </div>
         </div>
 
@@ -107,12 +117,23 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Đặt Góp Ý" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Quay về trang chủ", "Index")
 </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#NOIDUNG_GOPY',
+            menubar: false
+        });
+    </script>
+}

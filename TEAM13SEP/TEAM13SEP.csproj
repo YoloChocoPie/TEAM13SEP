@@ -633,20 +633,15 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="AdminPlugin\assets\vendor\slick\fonts\slick.woff" />
-    <Content Include="Areas\User\Views\Auth\Create.cshtml" />
-    <Content Include="Areas\User\Views\Auth\Login.cshtml" />
-    <Content Include="Areas\User\Views\GopY\Create.cshtml" />
-    <Content Include="Areas\User\Views\GopY\Index.cshtml" />
-    <Content Include="Areas\User\Views\GopY\Index2.cshtml" />
     <Content Include="Areas\User\Views\Shared\_UserLayoutHTGY.cshtml" />
     <Content Include="Areas\User\Views\web.config" />
-    <Content Include="Areas\User\Views\Auth\UserVerification.cshtml" />
     <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Auth\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Auth\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Auth\Test.cshtml" />
     <Content Include="Areas\Admin\Views\Auth\UserVerification.cshtml" />
@@ -662,6 +657,15 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\User\Views\Auth\Create.cshtml" />
+    <Content Include="Areas\User\Views\Auth\Login.cshtml" />
+    <Content Include="Areas\User\Views\Auth\UserVerification.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Create.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Create1.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index2.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index3.cshtml" />
+    <Content Include="Areas\User\Views\GopY\Index4.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

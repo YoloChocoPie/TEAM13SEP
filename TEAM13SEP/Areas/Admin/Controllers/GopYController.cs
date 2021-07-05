@@ -81,6 +81,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             return View(gopy);
         }
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(
                         GOPY gopy, int id)
@@ -121,5 +122,6 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             model.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }

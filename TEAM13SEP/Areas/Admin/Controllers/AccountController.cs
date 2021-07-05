@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TEAM13SEP.Models;
 using TEAM13SEP.Areas.Admin.Middleware;
+using System.ComponentModel.DataAnnotations;
 
 namespace TEAM13SEP.Areas.Admin.Controllers
 {
@@ -34,8 +35,8 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 account.EMAIL = c.EMAIL;
                 account.PASSWORD = c.PASSWORD;
                 account.FULL_NAME = c.FULL_NAME;
-                
-             
+
+
 
                 model.ADMINs.Add(account);
                 model.SaveChanges();
@@ -62,7 +63,12 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 account.EMAIL = c.EMAIL;
                 account.PASSWORD = c.PASSWORD;
                 account.FULL_NAME = c.FULL_NAME;
-                
+                if ((int)Session["user-id"] == c.ID)
+                {
+
+                    ModelState.AddModelError("bug2", "Bạn không thể tự thay đổi quyền của chính mình !");
+                    return View();
+                }
                 account.ROLE = c.ROLE;
                 model.SaveChanges();
                 return RedirectToAction("Index");
@@ -99,5 +105,6 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             return View(account);
 
         }
+
     }
 }

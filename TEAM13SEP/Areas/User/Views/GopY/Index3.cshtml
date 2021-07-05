@@ -3,10 +3,10 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/User/Views/Shared/_UserLayoutHTGY.cshtml";
+    Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu được trả lời", "Index2") | @Html.ActionLink("Xem danh sách các câu ẩn danh được trả lời", "Index4")
+@Html.ActionLink("Đặt góp ý", "Create")  | @Html.ActionLink("Xem danh sách các câu góp ý", "Index") |  @Html.ActionLink("Xem danh sách các câu trả lời", "Index2") | @Html.ActionLink("Xem danh sách các câu ẩn danh được trả lời", "Index4")
 <div></div>
 Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id1"]
 <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>
@@ -16,7 +16,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 4))
 {
 
-    if (item.SINHVIEN_ID != null)
+    if (item.SINHVIEN_ID == null)
     {
         <article class="answer">
             <section class="question">
@@ -27,7 +27,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
                     </span>
                     <span class="info">
                         <i class="fas fa-tag"> Góp ý nổi bật</i>
-                        <i class="fas fa-tag">Tên chủ đề :  @item.CHUDE.CHUDE_NAME</i>
+                        <i class="fas fa-tag"> Tên chủ đề : @item.CHUDE.CHUDE_NAME</i>
                         <i class="fas fa-calendar">  @item.DATE</i>
 
 
@@ -39,7 +39,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
                                 <span><i class="fas fa-user"></i> @item.DisplayName</span>
                             }*@
                     </span>
-                    <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
+                    <i class="fas fa-user">Ẩn Danh </i>
                     @item.GOPY_TEN
                 </header>
                 <div>
@@ -60,19 +60,19 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
 
 
 
+
             @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
 
 
 
             @if (item.daLike == false)
             {
-                @Html.ActionLink("Like", "Like", new { id = item.ID })
+                @Html.ActionLink("Like", "Like3", new { id = item.ID })
             }
             else
             {
-                @Html.ActionLink("unLike", "unLike", new { id = item.ID })
+                @Html.ActionLink("unLike", "unLike3", new { id = item.ID })
             }
-
 
             <!-- LikeBtn.com BEGIN -->
             <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-dislike_enabled="false"></span>
@@ -98,7 +98,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 2))
 {
 
-    if (item.SINHVIEN_ID != null)
+    if (item.SINHVIEN_ID == null)
     {
         <article class="answer">
             <section class="question">
@@ -120,7 +120,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
                                 <span><i class="fas fa-user"></i> @item.DisplayName</span>
                             }*@
                     </span>
-                    <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
+                    <i class="fas fa-user">Ẩn Danh </i>
                     Tiêu đề :
                     @item.GOPY_TEN
                 </header>
@@ -147,14 +147,13 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
             @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
 
 
-
             @if (item.daLike == false)
             {
-                @Html.ActionLink("Like", "Like", new { id = item.ID })
+                @Html.ActionLink("Like", "Like3", new { id = item.ID })
             }
             else
             {
-                @Html.ActionLink("unLike", "unLike", new { id = item.ID })
+                @Html.ActionLink("unLike", "unLike3", new { id = item.ID })
             }
 
 

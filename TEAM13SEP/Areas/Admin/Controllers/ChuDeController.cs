@@ -82,10 +82,21 @@ namespace TEAM13SEP.Areas.Admin.Controllers
         [ActionName("Delete")]
         public ActionResult ComfirmDelete(int id)
         {
-            var chude = model.CHUDEs.FirstOrDefault(x => x.ID == id);
-            model.CHUDEs.Remove(chude);
-            model.SaveChanges();
-            return RedirectToAction("Index");
+
+            if (ModelState.IsValid)
+            {
+                var chude = model.CHUDEs.FirstOrDefault(x => x.ID == id);
+                model.CHUDEs.Remove(chude);
+                model.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("bug1", "CHỦ ĐỀ NÀY ĐANG NẰM TRONG CÁC GÓP Ý. VUI LÒNG THAY ĐỔI TRƯỚC KHI XOÁ");
+
+
+                return View();
+            }
         }
     }
 }

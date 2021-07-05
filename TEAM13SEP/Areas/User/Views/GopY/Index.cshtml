@@ -6,10 +6,14 @@
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu được trả lời", "Index2") | @Html.ActionLink("Xem danh sách các câu ẩn danh được trả lời", "Index4")
+@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Đặt góp ý ẩn danh", "Create1")  <br />
+<br />  @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu được trả lời", "Index2") | @Html.ActionLink("Xem danh sách các câu ẩn danh được trả lời", "Index4")
 <div></div>
-Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id1"]
-<li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>
+<br />
+Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id1"] <br /> <br />
+Bạn đang xem : Các góp ý mới nhất<br /> <br />
+                                                                                      
+<li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>  <br />
 
 
 
@@ -27,7 +31,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
                     </span>
                     <span class="info">
                         <i class="fas fa-tag"> Góp ý nổi bật</i>
-                        <i class="fas fa-tag">  @item.CHUDE.CHUDE_NAME</i>
+                        <i class="fas fa-tag"> Tên chủ đề  @item.CHUDE.CHUDE_NAME</i>
                         <i class="fas fa-calendar">  @item.DATE</i>
 
 
@@ -40,7 +44,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
                             }*@
                     </span>
                     <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
-                    @item.GOPY_TEN
+                    Tiêu đề :  @item.GOPY_TEN
                 </header>
                 <div>
                     @MvcHtmlString.Create(item.NOIDUNG_GOPY)

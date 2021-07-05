@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Giao diện đặt góp ý</h4>
+    <h4>Giao diện đặt góp ý ẩn danh</h4>
     <hr />
 
     @* Có trigger nên ko cần để -LTC*@
@@ -85,14 +85,7 @@
     <div class="form-group">
         @Html.HiddenFor(model => model.SINHVIEN_ID)
     </div>
-    <div class="form-group">
-
-       
-            <p> <a href="~/User/GopY/Create"> Nhấn vào đây nếu bạn muốn đăng không ẩn danh</a></p>
-
-
-
-        </div>
+  
     
 
 
@@ -118,6 +111,7 @@
         </div>
     </div>
 </div>
+<br />
 }
 
 <div>

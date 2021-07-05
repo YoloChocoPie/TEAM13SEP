@@ -78,6 +78,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             ViewBag.admin_id = model.ADMINs.OrderByDescending(x => x.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.mssv = (int)Session["user-id"];
             return View(gopy);
         }
         [HttpPost]
@@ -85,7 +86,12 @@ namespace TEAM13SEP.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(
                         GOPY gopy, int id)
+
         {
+            ViewBag.mssv = (int)Session["user-id"];
+               ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.admin_id = model.ADMINs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
             if (ModelState.IsValid)
             {
                 var gopy1 = model.GOPies.FirstOrDefault(x => x.ID == id);

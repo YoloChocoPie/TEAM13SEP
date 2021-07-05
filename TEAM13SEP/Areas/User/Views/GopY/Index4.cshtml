@@ -5,10 +5,20 @@
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách các câu góp ý", "Index") |  @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu được trả lời", "Index2")
+@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Đặt góp ý ẩn danh", "Create1") <br />
+                                                                                           <br />
+@Html.ActionLink("Xem danh sách các câu góp ý", "Index") |  @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu được trả lời", "Index2")
 <div></div>
+<br />
 Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id1"]
+<br />
+<br />
+Bạn đang xem : Các góp ý ẩn danh đã trả lời
+<br />
+<br />
+
 <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>
+<br />
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 3))
 {
     if (item.SINHVIEN_ID == null)
@@ -22,7 +32,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
                     </span>
                     <span class="info">
                         <i class="fas fa-tag"> Góp ý đã được trả lời</i>
-                        <i class="fas fa-tag">  @item.CHUDE.CHUDE_NAME</i>
+                        <i class="fas fa-tag">Tên chủ đề :  @item.CHUDE.CHUDE_NAME</i>
                         <i class="fas fa-calendar">  @item.DATE</i>
                         @*@item.CHUDE.CHUDE_NAME*@
                         @* <i class="fas fa-calendar"></i> <time value=""></time>
@@ -32,6 +42,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
                             }*@
                     </span>
                     <i class="fas fa-user">Ẩn Danh </i>
+                    Tiêu đề :
                     @item.GOPY_TEN
                 </header>
                 <div>
@@ -57,7 +68,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
 
                         @*<i class="fas fa-calendar"></i> <time value="@item."></time>*@
                     </span>
-                    @item.ADMIN.FULL_NAME
+                    Người trả lời   @item.ADMIN.FULL_NAME
                 </header>
                 <div>
                     @MvcHtmlString.Create(item.TRALOI_GOPY)

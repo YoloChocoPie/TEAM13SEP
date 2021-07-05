@@ -5,14 +5,13 @@
     Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
 }
 
-@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách các câu góp ý", "Index") |  @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu ẩn danh được trả lời", "Index4")
+@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách các câu góp ý", "Index") |  @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu được trả lời", "Index2")
 <div></div>
 Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id1"]
 <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 3))
 {
-
-    if (item.SINHVIEN_ID != null)
+    if (item.SINHVIEN_ID == null)
     {
         <article class="answer">
             <section class="question">
@@ -32,7 +31,7 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
                                 <span><i class="fas fa-user"></i> @item.DisplayName</span>
                             }*@
                     </span>
-                    <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
+                    <i class="fas fa-user">Ẩn Danh </i>
                     @item.GOPY_TEN
                 </header>
                 <div>
@@ -70,14 +69,13 @@ Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id
 
             @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
 
-
             @if (item.daLike == false)
             {
-                @Html.ActionLink("Like", "Like1", new { id = item.ID })
+                @Html.ActionLink("Like", "Like4", new { id = item.ID })
             }
             else
             {
-                @Html.ActionLink("unLike", "unLike1", new { id = item.ID })
+                @Html.ActionLink("unLike", "unLike4", new { id = item.ID })
             }
 
         </article>

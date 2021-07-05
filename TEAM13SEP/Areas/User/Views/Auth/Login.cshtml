@@ -51,16 +51,19 @@
                                 <div class="form-group">
                                     <label>Email address</label>
                                     <input type="email" class="form-control" placeholder="Email của bạn" name="email">
+                                    @Html.ValidationMessage("TN", new { @class = "text-danger" })
                                 </div>
 
                                 @if (Convert.ToBoolean(Session["user-not-found1"]) == true)
                                 {
                                     <p style="color : red"> User Email not found </p>
                                 }
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
-                                </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
+                                @Html.ValidationMessage("TN", new { @class = "text-danger" })
+
+                            </div>
                                 @if (Convert.ToBoolean(Session["password-incorrect1"]) == true)
                                 {
                                     <p style="color : red"> User Password not found </p>

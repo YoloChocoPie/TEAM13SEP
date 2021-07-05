@@ -40,6 +40,7 @@
           <Property Name="TRALOI_GOPY" Type="nvarchar(max)" />
           <Property Name="GOPY_STATUS" Type="int" />
           <Property Name="DATE" Type="datetime2" Precision="7" />
+          <Property Name="daLike" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="SINHVIEN">
           <Key>
@@ -186,6 +187,7 @@
           <NavigationProperty Name="CHUDE" Relationship="Self.FK_GOPY_CHUDE" FromRole="GOPY" ToRole="CHUDE" />
           <NavigationProperty Name="SINHVIEN" Relationship="Self.FK_GOPY_SINHVIEN" FromRole="GOPY" ToRole="SINHVIEN" />
           <NavigationProperty Name="TRANGTHAI" Relationship="Self.FK_GOPY_TRANGTHAI" FromRole="GOPY" ToRole="TRANGTHAI" />
+          <Property Name="daLike" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="SINHVIEN">
           <Key>
@@ -320,6 +322,7 @@
           <EntitySetMapping Name="GOPies">
             <EntityTypeMapping TypeName="TEAM13SEPModel.GOPY">
               <MappingFragment StoreEntitySet="GOPY">
+                <ScalarProperty Name="daLike" ColumnName="daLike" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="GOPY_CODE" ColumnName="GOPY_CODE" />
                 <ScalarProperty Name="GOPY_TEN" ColumnName="GOPY_TEN" />

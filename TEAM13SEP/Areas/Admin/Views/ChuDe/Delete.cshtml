@@ -3,15 +3,15 @@
 @{ ViewBag.Title = "Delete";
                 Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml"; }
 
-<h2>Delete</h2>
+<h2></h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Hãy kiểm tra liệu chủ đề này còn nằm trong Góp Ý nào không nhé</h3>
 <div>
-    <h4>CHUDE</h4>
+    <h4>Giao diện xoá chủ đề</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CHUDE_CODE)
+            Mã chủ đề
         </dt>
 
         <dd>
@@ -19,21 +19,26 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CHUDE_NAME)
+            Tên chủ đề
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CHUDE_NAME)
+            @Html.ValidationMessage("bug1", new { @class = "text-danger" })
         </dd>
 
     </dl>
 
     @using (Html.BeginForm())
     {
-@Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-                <div class="form-actions no-color">
-                    <input type="submit" value="Delete" class="btn btn-default" /> |
-                    @Html.ActionLink("Quay về trang chủ", "Index")
-                </div>}
+
+        <div class="form-actions no-color">
+
+            <input type="submit" value="Xoá" class="btn btn-default" />
+            |
+            @Html.ActionLink("Quay về trang chủ", "Index")
+        </div>}
+ 
 </div>

@@ -57,11 +57,12 @@ a:hover {
 abbr[title] {
     border-bottom: 1px dotted;
 }
-b,
-strong {
+/*strong*/
+b{
     font-weight: bold;
     font-size: 30px;
     color: #fff;
+    margin-left: 188px;
 }
 dfn {
     font-style: italic;
@@ -1291,6 +1292,7 @@ h6,
 }
 p {
     margin: 0 0 10px;
+    margin-right: -53px;
 }
 .lead {
     margin-bottom: 20px;
@@ -1673,8 +1675,8 @@ pre code {
 .col-lg-12 {
     position: relative;
     min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 2px;
+    padding-left: 43px;
 }
 .col-xs-1,
 .col-xs-2,
@@ -2610,8 +2612,9 @@ legend {
 label {
     display: inline-block;
     max-width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: -5px;
     font-weight: bold;
+    font-size: 14px;
 }
 input[type="search"] {
     -webkit-box-sizing: border-box;
@@ -3084,9 +3087,10 @@ select[multiple].input-lg {
 }
 @media (min-width: 768px) {
     .form-horizontal .control-label {
-        padding-top: 7px;
+        padding-top: 11px;
+        padding-left: 15px;
         margin-bottom: 0;
-        text-align: right;
+        text-align: start;
         font-size: medium;
     }
 }
@@ -3164,10 +3168,11 @@ fieldset[disabled] a.btn {
     pointer-events: none;
 }
 .btn-default {
-    color: #333;
+    color: #0f0f0f;
     background-color: #fff;
-    border-color: #ef0b0b;
+    border-color: #270ceb;
     border-width: 2px;
+    font-weight: bolder;
 }
 .btn-default:focus,
 .btn-default.focus {
@@ -3187,7 +3192,7 @@ fieldset[disabled] a.btn {
     background-color: #e6e6e6;
     border-color: #adadad;
 }
-.btn-default:active:hover,
+.btn-default:hover,
 .btn-default.active:hover,
 .open > .dropdown-toggle.btn-default:hover,
 .btn-default:active:focus,

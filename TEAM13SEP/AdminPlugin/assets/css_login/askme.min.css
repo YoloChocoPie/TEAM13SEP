@@ -99,13 +99,13 @@ body>main a:hover{
 }*/
 
 a:link,
-a:visited{
-    color:#eee;
-    text-decoration:none;
-
+a:visited {
+    color: chocolate;
+    text-decoration: none;
+    font-weight: bold;
 }
 a:hover{
-    color:#2c8f01;
+    color: red;
     text-decoration:none;
 
 }
@@ -138,12 +138,17 @@ section.form .validation-summary-errors{clear:both;border:1px solid #333;backgro
     padding:.5em 3em;min-width:25%;
     font-weight:bold;
 }*/
+
 form input[type=text],
 form input[type=password],
 form input[type=email],
-form textarea,form select{
-    box-sizing:border-box;width:100%;padding:.5em;margin:0;border:1px solid #333;display:block;
-
+form textarea, form select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: .5em;
+    margin: 0;
+    border: 1px solid #333;
+    display: block;
 }
 form input[type=text].half-width,
 form input[type=password].half-width,
@@ -191,3 +196,8 @@ article.answer {
 /*article.answer section.question header .info{float:right;}*/
 /*article.answer section.answer header{color:#2c8f01;border-bottom:rgba(44,143,1,.2) 1px solid;}*/
 /*article.answer section.answer header .info{float:right;}*/
+
+
+.field-validation-error {
+    color: red;
+}

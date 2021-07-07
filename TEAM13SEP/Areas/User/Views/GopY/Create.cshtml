@@ -10,7 +10,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Giao diện đặt góp ý</h4>
+        <h3> <i class="fa fa-user fa-2x" aria-hidden="true" style="color:navy"></i> Đặt góp ý với Mã số sinh viên </h3>
         <hr />
 
         @* Có trigger nên ko cần để -LTC*@
@@ -88,17 +88,13 @@
                 @Html.EditorFor(model => model.SINHVIEN_ID, null, new { htmlAttributes = new { @min = "10000000" } })
                 @Html.ValidationMessage("bug1", new { @class = "text-danger" })
                 @Html.ValidationMessage("bug2", new { @class = "text-danger" })
-                <label>Vui lòng nhập 3 chữ số đầu và 5 chữ số cuối của mã sinh viên. Ví dụ : 18712345</label> <br />
-                <p> <a href="~/User/GopY/Create1"> Nhấn vào đây nếu bạn muốn đăng ẩn danh</a></p>
+                <label>Vui lòng nhập 3 chữ số đầu và 5 chữ số cuối của mã sinh viên. Ví dụ : 187pm12345 => 18712345 </label> <br />
+                @*<p> <a href="~/User/GopY/Create1"> Nhấn vào đây nếu bạn muốn đăng ẩn danh</a></p>*@
            
-
+               
 
             </div>
         </div>
-
-
-
-
 
         @*  Sửa lại db, tại sao DATE lại là checkbox :bonk: - LTC
             Fix lại từ datetime to datetime2 - LTC

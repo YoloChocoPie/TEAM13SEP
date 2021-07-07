@@ -8676,8 +8676,8 @@ hr {
 
 
 /*---
-    Login form
-                ---*/
+    ----------------------------------Login form
+                -------------------------------------------------------------*/
 
 #login-form .btn-large {
      height: 40px;
@@ -8744,8 +8744,8 @@ i {
 
 
 /*--
-   --- REGISTER FORM ---
-                        --*/
+   -------------------------------------- REGISTER FORM ---
+                        -----------------------------------------------------*/
 .register-form {
     background: #ffffff;
     padding: 30px 30px 20px;
@@ -8758,8 +8758,8 @@ i {
 }
 
 /*--
-   --- UserLayoutHTGY ---
-                        --*/
+   -------------------------------- UserLayoutHTGY ---
+                       -----------------------------------------------*/
 #vertical{
     line-height: 30px;
     color: black;
@@ -8781,7 +8781,7 @@ i {
     position: relative;
 }*/
 
-/*nav-bar*/
+/*-------------------------------------------------nav-bar-------------------*/
 
 #nav-bar{
     display: inline-block;
@@ -8791,10 +8791,11 @@ i {
     list-style: none;
 }
 #nav-bar > ul > li > a{
-    color: crimson;
+    color: #bc4904;
+    font-size: 16px;
 }
 #nav-bar > ul > li > a:hover {
-    color: blue;
+    color: Highlight;
     text-decoration: underline;
 }
 #nav-bar li{
@@ -8805,7 +8806,7 @@ i {
     margin-left: 7px;
 }
 
-/*sub-nav*/
+/*-----------------------------------------------sub-nav----------------*/
 /*#sub{
     display:inline-block
 }*/
@@ -8817,7 +8818,8 @@ i {
     display: block;
 }
 #nav-bar #sub-nav a{
-    color: red;
+    color: black;
+    font-size: 16px;
 }
 #nav-bar #sub-nav li:hover a {
     color: dodgerblue;
@@ -8829,11 +8831,11 @@ i {
     margin-top: -25px;
 }
 #sub-nav > #subsub1 > a {
-    margin-left: -15px;
-    width: 160px;
+    margin-left: -37px;
+    width: 180px;
 }
 #sub-nav > #subsub2 > a {
-    margin-left: 105px;
+    margin-left: 100px;
     width: 200px;
 }
 /**/
@@ -8845,4 +8847,9 @@ i {
 }
 #sub-nav > #subsub2{
     margin-left: 25px;
+}*/
+
+/*------------------------------------------------- Index2 ----------*/
+/*.question > #info-user{
+    margin-left: 20px;
 }*/

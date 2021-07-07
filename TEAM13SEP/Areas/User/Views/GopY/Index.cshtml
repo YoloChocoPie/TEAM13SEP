@@ -3,19 +3,16 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/User/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Areas/User/Views/Shared/_UserLayoutHTGY.cshtml";
 }
 
-@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Đặt góp ý ẩn danh", "Create1")  <br />
-<br />  @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu được trả lời", "Index2") | @Html.ActionLink("Xem danh sách các câu ẩn danh được trả lời", "Index4")
-<div></div>
-<br />
-Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id1"] <br /> <br />
-Bạn đang xem : Các góp ý mới nhất<br /> <br />
-                                                                                      
-<li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>  <br />
+@*@Html.ActionLink("Đặt góp ý", "Create") | @Html.ActionLink("Xem danh sách góp ý ẩn danh", "Index3") | @Html.ActionLink("Xem danh sách các câu được trả lời", "Index2") | @Html.ActionLink("Xem danh sách các câu ẩn danh được trả lời", "Index4")*@
+@*<div></div>
+    Xin chào : @Session["user-fullname1"] | Mã số sinh viên : @Session["user-id1"]
+    <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>*@
 
-
+<h4>Danh sách các góp ý được duyệt</h4>
+<hr />
 
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 4))
 {
@@ -25,26 +22,15 @@ Bạn đang xem : Các góp ý mới nhất<br /> <br />
         <article class="answer">
             <section class="question">
                 <header>
-                    <span class="fa-stack fa-lg">
-                        <i class="fas fa-square fa-stack-2x"></i>
-                        <i class="fas fa-question fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="info">
-                        <i class="fas fa-tag"> Góp ý nổi bật</i>
-                        <i class="fas fa-tag"> Tên chủ đề  @item.CHUDE.CHUDE_NAME</i>
-                        <i class="fas fa-calendar">  @item.DATE</i>
-
-
-
-
-                        @* <i class="fas fa-calendar"></i> <time value=""></time>
-                            @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                            {
-                                <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                            }*@
-                    </span>
-                    <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
-                    Tiêu đề :  @item.GOPY_TEN
+                    <span style="font-size: 18px"> <i class="fa fa-star" aria-hidden="true"> Góp ý nổi bật, </i> </span>
+                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE</i> </span> <br />
+                    <span style="font-size: 18px"> <u style="color: crimson"><i class="fa fa-user-o" aria-hidden="true"></i> Tên sinh viên: @item.SINHVIEN.HOTEN_SV</u>,  <i class="fa fa-tags" aria-hidden="true"></i> Tiêu đề: @item.GOPY_TEN, </span>
+                    <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+                    @* <i class="fas fa-calendar"></i> <time value=""></time>
+                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+                        {
+                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
+                        }*@
                 </header>
                 <div>
                     @MvcHtmlString.Create(item.NOIDUNG_GOPY)
@@ -62,36 +48,22 @@ Bạn đang xem : Các góp ý mới nhất<br /> <br />
                 Và nếu session = true
                 Thì hiển thị unlike*@
 
-
-
-            @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
-
-
-
+            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
             @if (item.daLike == false)
             {
-                @Html.ActionLink("Like", "Like", new { id = item.ID })
+                <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
             }
             else
             {
-                @Html.ActionLink("unLike", "unLike", new { id = item.ID })
+                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
             }
-
 
             <!-- LikeBtn.com BEGIN -->
             <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-dislike_enabled="false"></span>
             <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>-->
             <!-- LikeBtn.com END -->
-
-
-
-
-
-
         </article>
     }
-
-
 }
 
 
@@ -107,36 +79,23 @@ Bạn đang xem : Các góp ý mới nhất<br /> <br />
         <article class="answer">
             <section class="question">
                 <header>
-                    <span class="fa-stack fa-lg">
-                        <i class="fas fa-square fa-stack-2x"></i>
-                        <i class="fas fa-question fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="info">
-                        <i class="fas fa-tag">Góp ý đã được duyệt</i>
+                    <span style="font-size: 18px"><i class="fa fa-check" aria-hidden="true">Góp ý đã được duyệt, </i></span>
+                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE</i> </span> <br />
+                    <span style="font-size: 18px"> <u style="color: crimson"><i class="fa fa-user-o" aria-hidden="true"></i> Tên sinh viên: @item.SINHVIEN.HOTEN_SV</u>,  <i class="fa fa-tags" aria-hidden="true"></i> Tiêu đề: @item.GOPY_TEN, </span>
+                    <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
 
-                        <i class="fas fa-tag">Tên chủ đề :  @item.CHUDE.CHUDE_NAME</i>
-                        <i class="fas fa-calendar">  @item.DATE</i>
 
-                        @*@item.CHUDE.CHUDE_NAME*@
-                        @* <i class="fas fa-calendar"></i> <time value=""></time>
-                            @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                            {
-                                <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                            }*@
-                    </span>
-                    <i class="fas fa-user">@item.SINHVIEN.HOTEN_SV </i>
-                    Tiêu đề :
-                    @item.GOPY_TEN
+                    @*@item.CHUDE.CHUDE_NAME*@
+                    @* <i class="fas fa-calendar"></i> <time value=""></time>
+                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+                        {
+                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
+                        }*@
                 </header>
                 <div>
                     @MvcHtmlString.Create(item.NOIDUNG_GOPY)
                 </div>
-
-
-
             </section>
-
-
 
             @*   làm được nút like rồi nhá
                 Cách làm
@@ -146,23 +105,15 @@ Bạn đang xem : Các góp ý mới nhất<br /> <br />
                 Và nếu session = true
                 Thì hiển thị unlike*@
 
-
-
-            @Html.DisplayFor(modelItem => item.nutLIKE) lượt tương tác <br />
-
-
-
+            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
             @if (item.daLike == false)
             {
-                @Html.ActionLink("Like", "Like", new { id = item.ID })
+                <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
             }
             else
             {
-                @Html.ActionLink("unLike", "unLike", new { id = item.ID })
+                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
             }
-
-
-
 
             @**@
             <!-- LikeBtn.com BEGIN -->

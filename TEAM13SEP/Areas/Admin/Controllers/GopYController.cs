@@ -19,6 +19,35 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
             return View(gopy);
         }
+        public ActionResult Index1()
+        {
+            var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
+            return View(gopy);
+        }
+        public ActionResult Index2()
+        {
+            var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
+            return View(gopy);
+        }
+        public ActionResult Index3()
+        {
+            var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
+            return View(gopy);
+        }
+        public ActionResult ThongKe()
+        {
+            var gopy = model.GOPies.OrderByDescending(x => x.ID).Count();
+            ViewBag.gopy = gopy;
+            var sinhvien = model.SINHVIENs.OrderByDescending(model => model.MSSV).Count();
+            ViewBag.sinhvien = sinhvien;
+            var chude = model.CHUDEs.OrderByDescending(a => a.ID).Count();
+            ViewBag.chude = chude;
+            var admin = model.ADMINs.OrderByDescending(a => a.ID).Count();
+            ViewBag.admin = admin;
+
+
+            return View();
+        }
         [HttpGet]
         public ActionResult Create()
         {

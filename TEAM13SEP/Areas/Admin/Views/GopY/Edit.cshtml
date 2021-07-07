@@ -64,15 +64,17 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NOIDUNG_GOPY, "Nội dung", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group ">
+            @Html.LabelFor(model => model.NOIDUNG_GOPY, "Nội dung", htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.NOIDUNG_GOPY, new { @class = "form-control", @readonly = "readonly" })
-                @Html.ValidationMessageFor(model => model.NOIDUNG_GOPY, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.NOIDUNG_GOPY)
+            
+
+                @MvcHtmlString.Create(Model.NOIDUNG_GOPY)
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group " >
             @Html.LabelFor(model => model.TRALOI_GOPY, "Câu trả lời", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
@@ -115,5 +117,13 @@
             selector: 'textarea#TRALOI_GOPY',
             menubar: false
         });
+    </script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#NOIDUNG_GOPY',
+          
+            menubar: false
+        });
+      
     </script>
 }

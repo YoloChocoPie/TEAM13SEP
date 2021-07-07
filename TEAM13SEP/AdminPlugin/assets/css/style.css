@@ -101,7 +101,7 @@
   font-weight: 500;
 }
 .card-header p {
-  font-family: 'MontserratLight', sans-serif;
+  
   margin-bottom: 12px;
 }
 .card-header-right-icon {
@@ -919,13 +919,13 @@ a.dt-button.active:not(.disabled) {
 .main .page-header .breadcrumb li:hover,
 .main .page-header .breadcrumb li:focus,
 .main .page-header .breadcrumb li.active {
-  font-family: 'MontserratLight', sans-serif;
+
   font-weight: normal;
   font-size: 12px;
 }
 .main .page-header .breadcrumb li a {
   font-size: 12px;
-  font-family: 'MontserratLight', sans-serif;
+
 }
 .dropdown-task .progress {
   height: 5px;
@@ -2650,11 +2650,11 @@ thead tr th:last-child {
 }
 tbody tr th {
   color: #252525;
-  font-family: 'MontserratLight', sans-serif;
+
   font-weight: normal;
 }
 tbody tr td {
-  font-family: 'MontserratLight', sans-serif;
+
   color: #252525;
 }
 tbody tr td:last-child {

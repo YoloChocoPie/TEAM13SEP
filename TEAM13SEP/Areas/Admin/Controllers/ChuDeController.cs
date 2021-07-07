@@ -27,6 +27,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CHUDE_CODE,CHUDE_NAME")]
                         CHUDE chude)

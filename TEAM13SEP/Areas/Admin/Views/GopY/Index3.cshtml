@@ -1,9 +1,11 @@
 ﻿﻿@model IEnumerable<TEAM13SEP.Models.GOPY>
 
 @{
-    ViewBag.Title = "Index3";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<!-- Styles -->
+
 
 
 
@@ -21,7 +23,7 @@
         <div class="page-header">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="~/Admin/GopY">Giao diện quản lý Góp ý Đang Được Pin</a></li>
+                    <li><a href="~/Admin/GopY">Giao diện quản lý Góp ý Chưa được Duyệt</a></li>
 
                 </ol>
             </div>
@@ -29,6 +31,7 @@
     </div>
     <!-- /# column -->
 </div>
+
 
 
 
@@ -70,7 +73,6 @@
 
 
 
-                       
                         </tr>
                     </thead>
 
@@ -115,7 +117,7 @@
 
                             <td>
 
-                                @Html.ActionLink("Tuỳ Chỉnh", "Edit", new { id = item.ID }) <br />|| <br />
+                                @Html.ActionLink("Tuỳ Chỉnh", "Edit", new { id = item.ID }) <br /> || <br />
                                 @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@
                                 @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
                             </td>
@@ -147,3 +149,7 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
 </div>
+
+
+
+

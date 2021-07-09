@@ -1,9 +1,11 @@
 ﻿﻿@model IEnumerable<TEAM13SEP.Models.GOPY>
 
 @{
-    ViewBag.Title = "Index1";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<!-- Styles -->
+
 
 
 
@@ -21,7 +23,7 @@
         <div class="page-header">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="~/Admin/GopY">Giao diện quản lý Góp ý Đã Được Duyệt</a></li>
+                    <li><a href="~/Admin/GopY">Giao diện quản lý Góp ý Chưa được Duyệt</a></li>
 
                 </ol>
             </div>
@@ -29,6 +31,7 @@
     </div>
     <!-- /# column -->
 </div>
+
 
 
 
@@ -48,9 +51,9 @@
                             <th>
                                 Tên chủ đề
                             </th>
-                              <th>
+                            @*   <th>
                                     Tên người thực hiện
-                                </th>
+                                </th>*@
 
                             <th>
                                 Tên sinh viên hỏi
@@ -64,9 +67,9 @@
                             <th>
                                 ngày tạo
                             </th>
-                            @**@     <th>
+                            @*     <th>
                                     Số lượng Like
-                                </th>
+                                </th>*@
 
 
 
@@ -87,9 +90,9 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
                             </td>
-                               <td>
+                            @*   <td>
                                     @Html.DisplayFor(modelItem => item.ADMIN.FULL_NAME)
-                                </td>
+                                </td>*@
 
                             <td>
                                 @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
@@ -108,14 +111,14 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.DATE)
                             </td>
-                            @**@ <td>
+                            @* <td>
                                     @Html.DisplayFor(modelItem => item.nutLIKE)
-                                </td>
+                                </td>*@
 
 
                             <td>
 
-                                @Html.ActionLink("Tuỳ Chỉnh", "Edit", new { id = item.ID })<br /> || <br />
+                                @Html.ActionLink("Tuỳ Chỉnh", "Edit", new { id = item.ID }) <br /> || <br />
                                 @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@
                                 @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
                             </td>
@@ -147,3 +150,7 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
 </div>
+
+
+
+

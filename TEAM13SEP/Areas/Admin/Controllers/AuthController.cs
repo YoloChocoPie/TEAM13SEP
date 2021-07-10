@@ -35,7 +35,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 Session["user-fullname"] = user.FULL_NAME;
                 Session["user-id"] = user.ID;
                 Session["user-role"] = user.ROLE;
-                return RedirectToAction("Index", "Auth");
+                return RedirectToAction("Index2", "GopY");
 
             }
             else

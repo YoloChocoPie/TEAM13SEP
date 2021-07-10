@@ -42,38 +42,26 @@
                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>
-                                Mã Góp Ý
-                            </th>
+
                             <th>
                                 Tên Góp Ý
                             </th>
                             <th>
                                 Tên chủ đề
                             </th>
-                            @*   <th>
-                                    Tên người thực hiện
-                                </th>*@
-
                             <th>
-                                Tên sinh viên hỏi
+                                Tên sinh viên
                             </th>
                             <th>
                                 Nội dung
                             </th>
-                            @*    <th>
-                                    Câu trả lời
-                                </th>*@
                             <th>
                                 ngày tạo
                             </th>
-                            @*     <th>
-                                    Số lượng Like
-                                </th>*@
-
-
-
-                        
+             
+                            <th>
+                              
+                            </th>
                         </tr>
                     </thead>
 
@@ -81,18 +69,14 @@
                     @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 2))
                     {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.GOPY_CODE)
-                            </td>
+
                             <td>
                                 @Html.DisplayFor(modelItem => item.GOPY_TEN)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
                             </td>
-                            @*   <td>
-                                    @Html.DisplayFor(modelItem => item.ADMIN.FULL_NAME)
-                                </td>*@
+
 
                             <td>
                                 @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
@@ -102,19 +86,10 @@
                                 @MvcHtmlString.Create(item.NOIDUNG_GOPY)
 
                             </td>
-                            @*    <td>
-                                    <div>
-                                        @MvcHtmlString.Create(item.TRALOI_GOPY)
-                                    </div>
 
-                                </td>*@
                             <td>
                                 @Html.DisplayFor(modelItem => item.DATE)
                             </td>
-                            @* <td>
-                                    @Html.DisplayFor(modelItem => item.nutLIKE)
-                                </td>*@
-
 
                             <td>
 

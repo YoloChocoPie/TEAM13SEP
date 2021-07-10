@@ -42,14 +42,14 @@
                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>
-                                Mã chủ đề
-                            </th>
+                          
                             <th>
                                 Tên chủ đề
                             </th>
 
-                            <th></th>
+                            <th>
+
+                            </th>
                         </tr>
                     </thead>
 
@@ -57,9 +57,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CHUDE_CODE)
-                            </td>
+                         
                             <td>
                                 @Html.DisplayFor(modelItem => item.CHUDE_NAME)
                             </td>

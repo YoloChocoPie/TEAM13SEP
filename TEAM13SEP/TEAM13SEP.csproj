@@ -986,8 +986,6 @@
     <Content Include="Areas\Admin\Views\Auth\UserVerification.cshtml" />
     <Content Include="Areas\User\Views\Auth\UserVerification.cshtml" />
     <Content Include="Areas\Admin\Views\Auth\Index.cshtml" />
-    <Content Include="Areas\User\Views\GopY\Index3.cshtml" />
-    <Content Include="Areas\User\Views\GopY\Index4.cshtml" />
     <Content Include="Areas\User\Views\GopY\Create1.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Index1.cshtml" />
     <Content Include="AdminPlugin\assets\fontss\themify-icons\fonts\themify.eot" />

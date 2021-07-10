@@ -75,6 +75,63 @@
 
 }
 
+@foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 3))
+{
+    if (item.SINHVIEN_ID == null)
+    {
+        <article class="answer">
+            <section class="question">
+                <header>
+                    <span style="font-size: 18px"> <i class="fa fa-comments-o" aria-hidden="true"> Góp ý đã được trả lời, </i> </span>
+                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE</i> </span>
+                    <br />
+                    <span style="font-size: 18px"> <i class="fa fa-user-secret" aria-hidden="true">Ẩn Danh </i>, <i class="fa fa-tags" aria-hidden="true"></i> Tiêu đề: @item.GOPY_TEN, </span>
+                    <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+
+                    @*@item.CHUDE.CHUDE_NAME*@
+                    @* <i class="fas fa-calendar"></i> <time value=""></time>
+                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+                        {
+                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
+                        }*@
+                </header>
+                <div>
+                    @MvcHtmlString.Create(item.NOIDUNG_GOPY)
+                </div>
+                <div>
+
+                </div>
+            </section>
+
+
+
+            <section class="answer">
+                <header>
+                    <span class="ti-pencil" style="font-size:18px"> Người trả lời: @item.ADMIN.FULL_NAME </span>
+                </header>
+                <div>
+                    @MvcHtmlString.Create(item.TRALOI_GOPY)
+                </div>
+                <footer for-login-status="true">
+                </footer>
+
+            </section>
+
+            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
+            @if (item.daLike == false)
+            {
+                <span id="heartbeat"> @Html.ActionLink("🤍", "Like1", new { id = item.ID })</span>
+            }
+            else
+            {
+                <span id="heartbeat"> @Html.ActionLink("💖", "unLike1", new { id = item.ID }) </span>
+            }
+
+        </article>
+    }
+
+}
+
 
 
 

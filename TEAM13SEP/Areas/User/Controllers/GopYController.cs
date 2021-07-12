@@ -20,7 +20,10 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult Index()
         {
             var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
-            
+
+            int loggedUserName = (int)Session["user-id1"];
+            ViewBag.mssv = (int)Session["user-id1"];
+
             return View(gopy);
         }
         public ActionResult Index2()
@@ -43,6 +46,7 @@ namespace TEAM13SEP.Areas.User.Controllers
         {
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.mssv = (int)Session["user-id1"];
             return View();
 
         }
@@ -54,6 +58,7 @@ namespace TEAM13SEP.Areas.User.Controllers
         {
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.mssv = (int)Session["user-id1"];
             if (ModelState.IsValid)
             {
                 var gopy1 = new GOPY();
@@ -101,7 +106,8 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult Create1()
         {
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
-            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.mssv = model.SINHVIENs.OrderByDescending(x => x.MSSV).ToList();
+          
             return View();
 
         }
@@ -113,6 +119,7 @@ namespace TEAM13SEP.Areas.User.Controllers
         {
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+           
             if (ModelState.IsValid)
             {
                 var gopy1 = new GOPY();
@@ -174,7 +181,7 @@ namespace TEAM13SEP.Areas.User.Controllers
 
 
 
-
+         
 
 
 

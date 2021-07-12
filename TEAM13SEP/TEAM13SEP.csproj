@@ -626,7 +626,11 @@
     <Content Include="AdminPlugin\assets\images\background_istm_2.jpg" />
     <Content Include="AdminPlugin\assets\images\background_vanlang.jpg" />
     <Content Include="AdminPlugin\assets\images\background_vanlang_1.jpg" />
+    <Content Include="AdminPlugin\assets\images\background_vlu.jpg" />
+    <Content Include="AdminPlugin\assets\images\background_vlu_1.jpg" />
+    <Content Include="AdminPlugin\assets\images\background_vlu_2.jpg" />
     <Content Include="AdminPlugin\assets\images\footer_vanlang.jpg" />
+    <Content Include="AdminPlugin\assets\images\logo-vlu_1.png" />
     <Content Include="AdminPlugin\assets\images\logo_vanlang.png" />
     <Content Include="AdminPlugin\assets\images\sep_logo_6a.png" />
     <Content Include="AdminPlugin\assets\images\sep_logo_7.png" />
@@ -1023,8 +1027,6 @@
     <Content Include="Areas\User\Views\GopY\Create1.cshtml" />
     <Content Include="Areas\User\Views\GopY\Index.cshtml" />
     <Content Include="Areas\User\Views\GopY\Index2.cshtml" />
-    <Content Include="Areas\User\Views\GopY\Index3.cshtml" />
-    <Content Include="Areas\User\Views\GopY\Index4.cshtml" />
     <Content Include="AdminPlugin\assets\fontss\themify-icons\fonts\themify.eot" />
     <Content Include="AdminPlugin\assets\fontss\themify-icons\fonts\themify.ttf" />
     <Content Include="AdminPlugin\assets\fontss\themify-icons\fonts\themify.woff" />

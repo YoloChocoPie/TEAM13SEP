@@ -113,30 +113,25 @@
         <!--HEADER SECTION-->
         <section>
             <!-- TOP BAR -->
-            <div class="ed-top">
+            <div class="ed-top_1">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="ed-com-t1-left">
                                 <ul>
                                     <li>
-                                        <div class="wed-logo">
+                                        <div class="wed-logo-trang-chu">
                                             <a href="~/User/GopY/Index2">
-                                                <img src="~/AdminPlugin/assets/images/Sep_vlogo.png" alt="" />
+                                                <img src="~/AdminPlugin/assets/images/logo-vlu_1.png" alt="" />
                                             </a>
                                         </div>
                                     </li>
                                     <li>
-                                        <a href=" http://cntt.vanlanguni.edu.vn" target="_blank"> Hộp thư Góp ý Khoa Công nghệ thông tin</a>
+                                        <a href=" http://cntt.vanlanguni.edu.vn" target="_blank"> Hộp thư Góp ý sinh viên Khoa Công nghệ thông tin</a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="ed-com-t1-right">
-                                <ul>
-                                    <li><a> Xin chào @Session["user-fullname1"] </a></li>
-                                    <li><a href="~/User/Auth/Login"> Đăng xuất </a></li>
-                                </ul>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -150,23 +145,29 @@
 
     <main>
         <marquee id="vertical" scrollamount="2" behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()">
-            🎈 Chào mừng bạn đến với trang đặt góp ý dành cho sinh viên khoa Công Nghệ Thông Tin.🎈
+            🎈 Chào mừng bạn đến với trang đặt góp ý dành cho sinh viên khoa Công Nghệ Thông Tin.🎈 
         </marquee>
         <div id="header-wrapper">
             <div id="nav-header">
                 <div id="nav-bar">
                     <ul>
                         <li> @Html.ActionLink("Trang chủ", "Index2") </li>
-                        <li> @Html.ActionLink("Góp ý được duyệt", "Index") </li>
-                        <li> @Html.ActionLink("Góp ý ẩn danh được trả lời", "Index4") </li>
-                        <li> @Html.ActionLink("Góp ý ẩn danh được duyệt", "Index3") </li>
+                        <li> @Html.ActionLink("Danh sách góp ý", "Index") </li>
+                        @*<li> @Html.ActionLink("Góp ý ẩn danh được trả lời", "Index4") </li>
+                <li> @Html.ActionLink("Góp ý ẩn danh được duyệt", "Index3") </li>*@
                         <li>
                             <a href="#"> Tạo góp ý <i class="ti-angle-double-down"></i></a>
                             <ul id="sub-nav">
-                                <li id="subsub1"> @Html.ActionLink("⭕Đặt góp ý với MSSV", "Create") </li>
-                                <li id="subsub2"> @Html.ActionLink(" ❌Đặt góp ý ẩn danh", "Create1") </li>
+                                <li id="subsub1"> @Html.ActionLink("⭕Đặt góp ý với MSSV", "Create")</li>
+                                <li id="subsub2"> @Html.ActionLink(" ❌Đặt góp ý ẩn danh", "Create1")</li>
                             </ul>
                         </li>
+                    </ul>
+                </div>
+                <div class="login-section">
+                    <ul>
+                        <li><a> Xin chào @Session["user-fullname1"] </a></li>
+                        <li><a href="~/User/Auth/Login" style="color:white"> Đăng xuất </a></li>
                     </ul>
                 </div>
             </div>

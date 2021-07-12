@@ -20,7 +20,10 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult Index()
         {
             var gopy = model.GOPies.OrderByDescending(x => x.ID).ToList();
-            
+
+            int loggedUserName = (int)Session["user-id1"];
+            ViewBag.mssv = (int)Session["user-id1"];
+
             return View(gopy);
         }
         public ActionResult Index2()
@@ -43,6 +46,7 @@ namespace TEAM13SEP.Areas.User.Controllers
         {
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.mssv = (int)Session["user-id1"];
             return View();
 
         }
@@ -54,6 +58,7 @@ namespace TEAM13SEP.Areas.User.Controllers
         {
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.mssv = (int)Session["user-id1"];
             if (ModelState.IsValid)
             {
                 var gopy1 = new GOPY();
@@ -80,14 +85,7 @@ namespace TEAM13SEP.Areas.User.Controllers
                 model.SaveChanges();
 
                 Session["Success"] = true;
-
-               
-
-
-
-
                 return RedirectToAction("Index");
-
 
             }
             else
@@ -101,7 +99,8 @@ namespace TEAM13SEP.Areas.User.Controllers
         public ActionResult Create1()
         {
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
-            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.mssv = model.SINHVIENs.OrderByDescending(x => x.MSSV).ToList();
+
             return View();
 
         }
@@ -113,6 +112,7 @@ namespace TEAM13SEP.Areas.User.Controllers
         {
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(x => x.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(x => x.ID).ToList();
+
             if (ModelState.IsValid)
             {
                 var gopy1 = new GOPY();
@@ -127,17 +127,12 @@ namespace TEAM13SEP.Areas.User.Controllers
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
                 gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
                 gopy1.DATE = DateTime.Now;
-                
+
 
                 model.GOPies.Add(gopy1);
                 model.SaveChanges();
 
                 Session["Success"] = true;
-
-
-
-
-
 
                 return RedirectToAction("Index");
 
@@ -150,16 +145,16 @@ namespace TEAM13SEP.Areas.User.Controllers
             }
 
 
-
-
         }
+
+        //------index 1-----------
 
         public ActionResult Like(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
             // đã xoá
             // đã xoá và thay đổi code mới ở dưới
-            
+
             // khai báo hàm update và đặt điều kiện
             // nếu thuộc tính dalike = false thì cho phép người dùng like, và ngược lại
             GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
@@ -168,22 +163,20 @@ namespace TEAM13SEP.Areas.User.Controllers
                 update.nutLIKE += 1;
                 update.daLike = true;
                 model.SaveChanges();
-            
+
             }
 
 
 
-
-
-
-
-
             // add logic to get the id of the post to increment the likes
-        
+
 
             return RedirectToAction("Index");
 
         }
+
+        //--index 2---------
+
         public ActionResult unLike(int id)
         {
             // cách này ổn, tuy nhiên vấn đề gặp phải là : Ai cũng like dc, ko coi được người like, like nhiều lần => đây là một tính năng :bonk:
@@ -197,11 +190,8 @@ namespace TEAM13SEP.Areas.User.Controllers
                 update.nutLIKE -= 1;
                 update.daLike = false;
                 model.SaveChanges();
-              
+
             }
-
-
-
 
 
             return RedirectToAction("Index");
@@ -222,14 +212,8 @@ namespace TEAM13SEP.Areas.User.Controllers
                 update.nutLIKE += 1;
                 update.daLike = true;
                 model.SaveChanges();
-          
+
             }
-
-
-
-
-
-
 
 
             // add logic to get the id of the post to increment the likes
@@ -251,17 +235,15 @@ namespace TEAM13SEP.Areas.User.Controllers
                 update.nutLIKE -= 1;
                 update.daLike = false;
                 model.SaveChanges();
-             
+
             }
-
-
-
-
 
             return RedirectToAction("Index2");
 
 
         }
+
+        //--------index 3------------
 
         public ActionResult Like3(int id)
         {
@@ -279,12 +261,6 @@ namespace TEAM13SEP.Areas.User.Controllers
                 model.SaveChanges();
 
             }
-
-
-
-
-
-
 
 
             // add logic to get the id of the post to increment the likes
@@ -309,14 +285,12 @@ namespace TEAM13SEP.Areas.User.Controllers
 
             }
 
-
-
-
-
             return RedirectToAction("Index3");
 
 
         }
+
+        //---index 4---- 
 
         public ActionResult Like4(int id)
         {
@@ -334,13 +308,6 @@ namespace TEAM13SEP.Areas.User.Controllers
                 model.SaveChanges();
 
             }
-
-
-
-
-
-
-
 
             // add logic to get the id of the post to increment the likes
 
@@ -363,10 +330,6 @@ namespace TEAM13SEP.Areas.User.Controllers
                 model.SaveChanges();
 
             }
-
-
-
-
 
             return RedirectToAction("Index4");
 

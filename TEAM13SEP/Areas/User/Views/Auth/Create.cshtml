@@ -80,7 +80,7 @@
             <div class="ed-mob-menu-con">
                 <div class="ed-mm-left">
                     <div class="wed-logo">
-                        <a href="/">
+                        <a href="#">
                             <img src="~/AdminPlugin/assets/images/Sep_vlogo.png" alt="" />
                         </a>
                     </div>
@@ -113,7 +113,7 @@
         <div class="ed-top">
             <div class="container">
                 <div class="row">
-                    <div>
+                    <div class="col-md-12">
                         <div class="ed-com-t1-left">
                             <ul>
                                 <li>
@@ -124,7 +124,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <a href=" http://cntt.vanlanguni.edu.vn" target="_blank"> Hộp thư góp ý Khoa Công Nghệ Thông Tin</a>
+                                    <a href=" http://cntt.vanlanguni.edu.vn" target="_blank">Hộp thư góp ý Khoa Công Nghệ Thông Tin</a>
                                 </li>
                             </ul>
                         </div>
@@ -146,11 +146,16 @@
         <div class="row">
             <div>
                 <div class="login-content">
-                    <div class="login-logo">
+                    @*<div class="login-logo">
                         <span><b> Đăng Ký </b></span>
-                    </div>
+                    </div>*@
 
                     <div class="register-form">
+
+                        <div class="login-logo">
+                            <span><b style="margin-left:200px; color: black"> 📝 Đăng Ký </b></span>
+                        </div>
+
                         @using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
@@ -207,7 +212,7 @@
                             </div>
                         }
 
-                      
+
                         <div class="register-link m-t-15 text-center">
                             <p> Bạn đã có tài khoản ? <a href="~/User/Auth/Login">Bấm vào đây để đăng nhập ngay !</a></p>
                         </div>

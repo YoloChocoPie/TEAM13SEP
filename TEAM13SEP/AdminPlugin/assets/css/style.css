@@ -830,7 +830,7 @@ a.dt-button.active:not(.disabled) {
 /*    Header
 ---------------*/
 .header {
-    background-color: darkblue;
+    background-image: url('../images/banner-yersin.jpg');
     position: fixed;
     width: 100%;
     min-height: 50px;
@@ -1049,7 +1049,7 @@ a.dt-button.active:not(.disabled) {
     min-height: 50px;
     margin: 15px 0px 5px 0px;
     padding: 0px 15px;
-    background: #F00B00;
+    background: #FF3333;
     border-bottom: 0px;
 }
 
@@ -1067,7 +1067,7 @@ a.dt-button.active:not(.disabled) {
     .main .page-header .breadcrumb {
         margin: 0px;
         padding: 14px 15px;
-        background: #F00B00;
+        background: #FF3333;
     }
 
         .main .page-header .breadcrumb li:hover,

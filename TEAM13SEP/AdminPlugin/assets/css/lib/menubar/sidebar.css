@@ -364,7 +364,7 @@ body {
 }
 
     .sidebar .nano > .nano-content {
-        background-color: darkblue;
+        background-color: royalblue;
         position: absolute;
         overflow: scroll;
         overflow-x: hidden;

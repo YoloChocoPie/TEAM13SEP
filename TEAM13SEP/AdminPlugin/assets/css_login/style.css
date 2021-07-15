@@ -25,7 +25,10 @@
      -ms-transition: all 0.5s ease;
      -o-transition: all 0.5s ease;
 }
- a, p, li, td {
+ p{
+     font-size: 18.5px;
+ }
+ a, li, td {
      font-size: 14.5px;
      line-height: 24px;
      font-family: 'Poppins', sans-serif;
@@ -7537,6 +7540,7 @@
     .ed-com-t1-left ul li a {
         color: #ff4800;
         padding: 5px 14px;
+        padding-left: 70px;
         line-height: 4.5em;
         border-right: 2px solid #000;
         font-size: 25px;
@@ -8894,7 +8898,7 @@ i {
     width: 180px;
 }
 #sub-nav > #subsub2 > a {
-    margin-left: 100px;
+    margin-left: 25px;
     width: 200px;
 }
 /**/

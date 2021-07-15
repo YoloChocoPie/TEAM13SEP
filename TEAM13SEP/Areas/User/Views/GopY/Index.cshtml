@@ -23,14 +23,14 @@
         <article class="answer">
             <section class="question">
                 <header>
-                    <span style="font-size: 18px"> <i class="fa fa-star" aria-hidden="true"> </i> </span>
-                    <span style="font-size: 18px"> <u><i class="fa fa-user-circle" aria-hidden="true"></i>  @item.SINHVIEN.HOTEN_SV</u>, </span>
-                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE </i> </span>
-                    
-                    @*<i class="fa fa-tags" aria-hidden="true"></i> Tiêu đề: @item.GOPY_TEN,*@
+                    <span style="font-size: 17px"> <i class="fa fa-star" aria-hidden="true"> </i> </span>
                     <div id="tag-name">
-                        <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME</span>
+                        <span style="font-size: 16px"> <i class="fa fa-creative-commons" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME</span>
                     </div>
+                    <span style="font-size: 16px"> <i class="fa fa-user-o" aria-hidden="true"></i>  @item.SINHVIEN.HOTEN_SV </span> <br />
+                    <span style="font-size: 12.5px">@item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
+
                 </header>
                 <div>
                     @MvcHtmlString.Create(item.NOIDUNG_GOPY) 
@@ -38,14 +38,14 @@
             </section>
             @*làm được nút like rồi nhá  Cách làm Sử dụng session Nếu session == false thì cho hiển thị nút like   Khi like thì session sẽ = true
                 Và nếu session = true Thì hiển thị unlike*@
-            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
+            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
             @if (item.daLike == false)
             {
                 <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
             }
             else
             {
-                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
+                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike", new { id = item.ID }) </span>
             }
 
             <!-- LikeBtn.com BEGIN -->
@@ -65,12 +65,13 @@
         <article class="answer">
             <section class="question">
                 <header>
-                    <span style="font-size: 18px"> <i class="fa fa-star" aria-hidden="true"> </i> </span>
-                    <span style="font-size: 18px"> <i class="fa fa-user-secret" aria-hidden="true">, </i> </span>
-                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE </i> </span>
+                    <span style="font-size: 17px"> <i class="fa fa-star" aria-hidden="true"> </i> </span>
                     <div id="tag-name">
-                        <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+                        <span style="font-size: 16px"> <i class="fa fa-creative-commons" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
                     </div>
+                    <span style="font-size: 16px"> <i class="fa fa-user-secret" aria-hidden="true"> Ẩn danh </i> </span> <br />
+                    <span style="font-size: 12.5px"> @item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
                     @* <i class="fas fa-calendar"></i> <time value=""></time>
         @if (!string.IsNullOrWhiteSpace(item.DisplayName))
         {
@@ -82,14 +83,14 @@
                 </div>
             </section>
 
-            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
+            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
             @if (item.daLike == false)
             {
                 <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
             }
             else
             {
-                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
+                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike", new { id = item.ID }) </span>
             }
             <!-- LikeBtn.com BEGIN -->
             <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-dislike_enabled="false"></span>
@@ -108,12 +109,13 @@
         <article class="answer">
             <section class="question">
                 <header>
-                    <span style="font-size: 18px"><i class="fa fa-check" aria-hidden="true"> </i></span>
-                    <span style="font-size: 18px"> <u><i class="fa fa-user-circle" aria-hidden="true"></i>  @item.SINHVIEN.HOTEN_SV</u>, </span>
-                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE</i> </span>
+                    <span style="font-size: 17px"><i class="fa fa-check" aria-hidden="true"> </i></span>
                     <div id="tag-name">
-                        <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+                        <span style="font-size: 16px"> <i class="fa fa-creative-commons" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
                     </div>
+                    <span style="font-size: 16px"> <i class="fa fa-user-o" aria-hidden="true"></i>  @item.SINHVIEN.HOTEN_SV</span> <br />
+                    <span style="font-size: 12.5px"> @item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
                     @*@item.CHUDE.CHUDE_NAME*@
                     @* <i class="fas fa-calendar"></i> <time value=""></time>
         @if (!string.IsNullOrWhiteSpace(item.DisplayName))
@@ -126,14 +128,14 @@
                 </div>
             </section>
 
-            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
+            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
             @if (item.daLike == false)
             {
                 <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
             }
             else
             {
-                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
+                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike", new { id = item.ID }) </span>
             }
             <!-- LikeBtn.com BEGIN -->
             <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-theme="review" data-dislike_enabled="false" data-i18n_like="Tym" data-i18n_before_like="tym" data-popup_disabled="true" data-i18n_like_tooltip="Tôi thích góp ý này" data-share_enabled="false" data-i18n_unlike_tooltip="Tôi không thích góp ý này"></span>
@@ -153,26 +155,27 @@
         <article class="answer">
             <section class="question">
                 <header>
-                    <span style="font-size: 18px"><i class="fa fa-check" aria-hidden="true"> </i></span>
-                    <span style="font-size: 18px"> <i class="fa fa-user-secret" aria-hidden="true"></i>, </span>
-                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE</i> </span>
+                    <span style="font-size: 16px"><i class="fa fa-check" aria-hidden="true"> </i></span>
                     <div id="tag-name">
-                        <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+                        <span style="font-size: 16px"> <i class="fa fa-creative-commons" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
                     </div>
+                    <span style="font-size: 16px"> <i class="fa fa-user-secret" aria-hidden="true"></i> Ẩn danh</span> <br />
+                    <span style="font-size: 12.5px"> @item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
                 </header>
                 <div>
                     @MvcHtmlString.Create(item.NOIDUNG_GOPY)
                 </div>
             </section>
 
-            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
+            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
             @if (item.daLike == false)
             {
                 <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
             }
             else
             {
-                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
+                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike", new { id = item.ID }) </span>
             }
             <!-- LikeBtn.com BEGIN -->
             <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-theme="review" data-dislike_enabled="false" data-i18n_like="Tym" data-i18n_before_like="tym" data-popup_disabled="true" data-i18n_like_tooltip="Tôi thích góp ý này" data-share_enabled="false" data-i18n_unlike_tooltip="Tôi không thích góp ý này"></span>

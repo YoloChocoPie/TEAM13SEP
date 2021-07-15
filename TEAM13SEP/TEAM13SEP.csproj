@@ -617,12 +617,17 @@
     <Content Include="AdminPlugin\assets\images\background_istm_2.jpg" />
     <Content Include="AdminPlugin\assets\images\background_vanlang.jpg" />
     <Content Include="AdminPlugin\assets\images\background_vanlang_1.jpg" />
+    <Content Include="AdminPlugin\assets\images\background_vlu.jpg" />
+    <Content Include="AdminPlugin\assets\images\background_vlu_1.jpg" />
+    <Content Include="AdminPlugin\assets\images\background_vlu_2.jpg" />
     <Content Include="AdminPlugin\assets\images\chat-person-add.png" />
     <Content Include="AdminPlugin\assets\images\close.png" />
     <Content Include="AdminPlugin\assets\images\fjords.jpg" />
     <Content Include="AdminPlugin\assets\images\footer_vanlang.jpg" />
     <Content Include="AdminPlugin\assets\images\hand.jpg" />
     <Content Include="AdminPlugin\assets\images\lights.jpg" />
+    <Content Include="AdminPlugin\assets\images\logo-vlu.png" />
+    <Content Include="AdminPlugin\assets\images\logo-vlu_1.png" />
     <Content Include="AdminPlugin\assets\images\logo.png" />
     <Content Include="AdminPlugin\assets\images\logo_vanlang.png" />
     <Content Include="AdminPlugin\assets\images\maximize.png" />
@@ -650,6 +655,7 @@
     <Content Include="AdminPlugin\assets\images\user-profile.jpg" />
     <Content Include="AdminPlugin\assets\images\user.jpg" />
     <Content Include="AdminPlugin\assets\images\video-cam.png" />
+    <Content Include="AdminPlugin\assets\images\vlu-header-footer.jpg" />
     <Content Include="AdminPlugin\assets\less\advance-widget.less" />
     <Content Include="AdminPlugin\assets\less\badge.less" />
     <Content Include="AdminPlugin\assets\less\booking-system.less" />
@@ -1016,6 +1022,7 @@
     <Content Include="Areas\Admin\Views\GopY\Index3.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Index2.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\ThongKe.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayoutHTGY.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

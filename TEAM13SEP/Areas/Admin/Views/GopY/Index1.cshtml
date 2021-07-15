@@ -14,7 +14,7 @@
     <div class="col-lg-8 p-r-0 title-margin-right">
         <div class="page-header">
             <div class="page-title">
-                <h1>Hello @Session["user-fullname"], <span>Welcome Here</span></h1>
+                <h1>Xin chào @Session["user-fullname"], <span> Tới giao diện quản trị</span></h1>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="page-header">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="~/Admin/GopY">Giao diện quản lý Góp ý Chưa được Duyệt</a></li>
+                    <li><a href="~/Admin/GopY">Giao diện quản lý Góp ý đã được Duyệt</a></li>
 
                 </ol>
             </div>
@@ -93,7 +93,7 @@
 
                             <td>
 
-                                @Html.ActionLink("Tuỳ Chỉnh", "Edit", new { id = item.ID }) <br /> || <br />
+                                @Html.ActionLink("Chức năng", "Edit", new { id = item.ID }) <br /> || <br />
                                 @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@
                                 @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
                             </td>

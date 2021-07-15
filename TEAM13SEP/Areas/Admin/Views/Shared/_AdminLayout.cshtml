@@ -46,10 +46,11 @@
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
             <div class="nano-content">
+                <br />
+                <br />
                 <ul>
-                    <li class="label">Trang chủ</li>
 
-                    <li><a href="~/Admin/Auth"><i class="ti-home"></i> Trang Quản Trị </a></li>
+                   
                     @if ((int)Session["user-role"] == 1)
                     {
                         <li class="label">Mục Quản Lý</li>
@@ -62,7 +63,7 @@
                                 <li><a href="~/Admin/GopY/Index2">Quản lý góp ý đã được trả lời </a></li>
                                 <li><a href="~/Admin/GopY/Index3">Quản lý góp ý đang được pin </a></li>
                                 @*  <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
-                                    <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
+                        <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
 
 
                             </ul>
@@ -169,37 +170,52 @@
         </div>
     </div>
     <!-- /# sidebar -->
-
+    
     <div class="header">
+      
+
+
         <div class="pull-left">
-            <div class="logo"><a href="~/Admin/Auth"><span>TEAM13</span></a></div>
+            <div class="logo">
+                <img src="~/AdminPlugin/assets/images/logo-vlu.png" style=" height: 52px; width: 200px; max-width: 75% " />
+
+      
+
+
+            </div>
+
+
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>
                 <span class="line"></span>
             </div>
         </div>
+
         <div class="pull-right p-r-15">
             <ul>
 
                 <li class="header-icon dib">
-                    <img class="avatar-img" src="@Url.Content("~/AdminPlugin/assets/images/avatar/1.jpg")" alt="" /> <span class="user-avatar">@Session["user-fullname"] <i class="ti-angle-down f-s-10"></i></span>
+                    <i class="fa fa-user" aria-hidden="true"> </i> <span class="user-avatar">@Session["user-fullname"] <i class="ti-angle-down f-s-10"></i></span>
 
                 </li>
             </ul>
         </div>
+
     </div>
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
-
+                <br />
                 <!-- /# row -->
                 <section id="main-content">
 
+                    <div>
+
+                        @RenderBody()
+                    </div>
 
 
-
-                    @RenderBody()
 
 
                 </section>

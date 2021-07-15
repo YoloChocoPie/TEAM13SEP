@@ -14,48 +14,38 @@
 <h4>Danh sách các góp ý được duyệt</h4>
 <hr />
 
+@*--------------------------------------------------------------------gop y MSSV duoc duyen noi bat-----------*@
+
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 4))
 {
-
     if (item.SINHVIEN_ID != null)
     {
         <article class="answer">
             <section class="question">
                 <header>
-                    <span style="font-size: 18px"> <i class="fa fa-star" aria-hidden="true"> Góp ý nổi bật, </i> </span>
-                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE</i> </span> <br />
-                    <span style="font-size: 18px"> <u style="color: crimson"><i class="fa fa-user-o" aria-hidden="true"></i> Tên sinh viên: @item.SINHVIEN.HOTEN_SV</u>,  <i class="fa fa-tags" aria-hidden="true"></i> Tiêu đề: @item.GOPY_TEN, </span>
-                    <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
-                    @* <i class="fas fa-calendar"></i> <time value=""></time>
-                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                        {
-                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                        }*@
+                    <span style="font-size: 17px"> <i class="fa fa-star" aria-hidden="true"> </i> </span>
+                    <div id="tag-name">
+                        <span style="font-size: 16px"> <i class="fa fa-creative-commons" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME</span>
+                    </div>
+                    <span style="font-size: 16px"> <i class="fa fa-user-o" aria-hidden="true"></i>  @item.SINHVIEN.HOTEN_SV </span> <br />
+                    <span style="font-size: 12.5px">@item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
+
                 </header>
                 <div>
                     @MvcHtmlString.Create(item.NOIDUNG_GOPY)
                 </div>
-
             </section>
-
-
-
-            @*   làm được nút like rồi nhá
-                Cách làm
-                Sử dụng session
-                Nếu session == false thì cho hiển thị nút like
-                Khi like thì session sẽ = true
-                Và nếu session = true
-                Thì hiển thị unlike*@
-
-            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
+            @*làm được nút like rồi nhá  Cách làm Sử dụng session Nếu session == false thì cho hiển thị nút like   Khi like thì session sẽ = true
+                Và nếu session = true Thì hiển thị unlike*@
+            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
             @if (item.daLike == false)
             {
                 <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
             }
             else
             {
-                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
+                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike", new { id = item.ID }) </span>
             }
 
             <!-- LikeBtn.com BEGIN -->
@@ -66,25 +56,66 @@
     }
 }
 
+@*------------------------------------------------------------------------------gop y AN DANH duoc duyen noi bat-----------*@
 
+@foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 4))
+{
+    if (item.SINHVIEN_ID == null)
+    {
+        <article class="answer">
+            <section class="question">
+                <header>
+                    <span style="font-size: 17px"> <i class="fa fa-star" aria-hidden="true"> </i> </span>
+                    <div id="tag-name">
+                        <span style="font-size: 16px"> <i class="fa fa-creative-commons" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+                    </div>
+                    <span style="font-size: 16px"> <i class="fa fa-user-secret" aria-hidden="true"> Ẩn danh </i> </span> <br />
+                    <span style="font-size: 12.5px"> @item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
+                    @* <i class="fas fa-calendar"></i> <time value=""></time>
+                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
+                        {
+                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
+                        }*@
+                </header>
+                <div>
+                    @MvcHtmlString.Create(item.NOIDUNG_GOPY)
+                </div>
+            </section>
 
+            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
+            @if (item.daLike == false)
+            {
+                <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
+            }
+            else
+            {
+                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike", new { id = item.ID }) </span>
+            }
+            <!-- LikeBtn.com BEGIN -->
+            <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-dislike_enabled="false"></span>
+            <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>-->
+            <!-- LikeBtn.com END -->
+        </article>
+    }
+}
 
-
+@*-----------------------------------------------------------------------------------gop y MSSV duoc duyen -----------*@
 
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 2))
 {
-
     if (item.SINHVIEN_ID != null)
     {
         <article class="answer">
             <section class="question">
                 <header>
-                    <span style="font-size: 18px"><i class="fa fa-check" aria-hidden="true">Góp ý đã được duyệt, </i></span>
-                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE</i> </span> <br />
-                    <span style="font-size: 18px"> <u style="color: crimson"><i class="fa fa-user-o" aria-hidden="true"></i> Tên sinh viên: @item.SINHVIEN.HOTEN_SV</u>,  <i class="fa fa-tags" aria-hidden="true"></i> Tiêu đề: @item.GOPY_TEN, </span>
-                    <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
-
-
+                    <span style="font-size: 17px"><i class="fa fa-check" aria-hidden="true"> </i></span>
+                    <div id="tag-name">
+                        <span style="font-size: 16px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+                    </div>
+                    <span style="font-size: 16px"> <i class="fa fa-user-o" aria-hidden="true"></i>  @item.SINHVIEN.HOTEN_SV</span> <br />
+                    <span style="font-size: 12.5px"> @item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
                     @*@item.CHUDE.CHUDE_NAME*@
                     @* <i class="fas fa-calendar"></i> <time value=""></time>
                         @if (!string.IsNullOrWhiteSpace(item.DisplayName))
@@ -97,87 +128,24 @@
                 </div>
             </section>
 
-            @*   làm được nút like rồi nhá
-                Cách làm
-                Sử dụng session
-                Nếu session == false thì cho hiển thị nút like
-                Khi like thì session sẽ = true
-                Và nếu session = true
-                Thì hiển thị unlike*@
-
-            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
+            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
             @if (item.daLike == false)
             {
                 <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
             }
             else
             {
-                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
+                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike", new { id = item.ID }) </span>
             }
-
-            @**@
             <!-- LikeBtn.com BEGIN -->
             <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-theme="review" data-dislike_enabled="false" data-i18n_like="Tym" data-i18n_before_like="tym" data-popup_disabled="true" data-i18n_like_tooltip="Tôi thích góp ý này" data-share_enabled="false" data-i18n_unlike_tooltip="Tôi không thích góp ý này"></span>
             <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>-->
             <!-- LikeBtn.com END -->
         </article>
     }
-
-
-}
-@foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 4))
-{
-
-    if (item.SINHVIEN_ID == null)
-    {
-        <article class="answer">
-            <section class="question">
-                <header>
-                    <span style="font-size: 18px"> <i class="fa fa-star" aria-hidden="true"> Góp ý nổi bật, </i> </span>
-                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE</i> </span> <br />
-                    <span style="font-size: 18px"> <i class="fa fa-user-secret" aria-hidden="true">Ẩn Danh </i> ,<i class="fa fa-tags" aria-hidden="true"></i> Tiêu đề: @item.GOPY_TEN, </span>
-                    <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
-                    @* <i class="fas fa-calendar"></i> <time value=""></time>
-                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                        {
-                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                        }*@
-                </header>
-                <div>
-                    @MvcHtmlString.Create(item.NOIDUNG_GOPY)
-                </div>
-            </section>
-
-            @*   làm được nút like rồi nhá
-                Cách làm
-                Sử dụng session
-                Nếu session == false thì cho hiển thị nút like
-                Khi like thì session sẽ = true
-                Và nếu session = true
-                Thì hiển thị unlike*@
-
-            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
-            @if (item.daLike == false)
-            {
-                <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
-            }
-            else
-            {
-                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
-            }
-
-            <!-- LikeBtn.com BEGIN -->
-            <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-dislike_enabled="false"></span>
-            <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>-->
-            <!-- LikeBtn.com END -->
-
-        </article>
-    }
-
-
 }
 
-
+@*--------------------------------------------------------------------------------------gop y AN DANH duoc duyet-----------*@
 
 @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 2))
 {
@@ -187,66 +155,33 @@
         <article class="answer">
             <section class="question">
                 <header>
-                    <!--<span class="fa-stack fa-lg">
-                        <i class="fas fa-square fa-stack-2x"></i>
-                        <i class="fas fa-question fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <span class="info">
-                        <i class="fas fa-tag">Góp ý đã được duyệt</i>
-
-                        <i class="fas fa-tag">Tên chủ đề :  @item.CHUDE.CHUDE_NAME</i>
-                        <i class="fas fa-calendar">  @item.DATE</i>-->
-                    @*@item.CHUDE.CHUDE_NAME*@
-                    @* <i class="fas fa-calendar"></i> <time value=""></time>
-                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                        {
-                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                        }*@
-                    <!--</span>
-                    <i class="fas fa-user">Ẩn Danh </i>
-                    Tiêu đề :
-                    @item.GOPY_TEN-->
-                    <span style="font-size: 18px"><i class="fa fa-check" aria-hidden="true">Góp ý đã được duyệt, </i></span>
-                    <span style="font-size: 18px"> <i class="fa fa-calendar" aria-hidden="true"> @item.DATE</i> </span> <br />
-                    <span style="font-size: 18px"> <i class="fa fa-user-secret" aria-hidden="true">Ẩn Danh </i>,  <i class="fa fa-tags" aria-hidden="true"></i> Tiêu đề: @item.GOPY_TEN, </span>
-                    <span style="font-size: 18px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+                    <span style="font-size: 16px"><i class="fa fa-check" aria-hidden="true"> </i></span>
+                    <div id="tag-name">
+                        <span style="font-size: 16px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+                    </div>
+                    <span style="font-size: 16px"> <i class="fa fa-user-secret" aria-hidden="true"></i> Ẩn danh</span> <br />
+                    <span style="font-size: 12.5px"> @item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
                 </header>
                 <div>
                     @MvcHtmlString.Create(item.NOIDUNG_GOPY)
                 </div>
-
-
-
             </section>
 
-
-
-            @*   làm được nút like rồi nhá
-                Cách làm
-                Sử dụng session
-                Nếu session == false thì cho hiển thị nút like
-                Khi like thì session sẽ = true
-                Và nếu session = true
-                Thì hiển thị unlike*@
-
-            <span class="heartbip" style="margin-left: 10px; font-size: 15px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
+            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
             @if (item.daLike == false)
             {
                 <span id="heartbeat"> @Html.ActionLink("🤍", "Like", new { id = item.ID })</span>
             }
             else
             {
-                <span id="heartbeat"> @Html.ActionLink("💖", "unLike", new { id = item.ID }) </span>
+                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike", new { id = item.ID }) </span>
             }
-
-            @**@
             <!-- LikeBtn.com BEGIN -->
             <!--<span class="likebtn-wrapper" data-identifier="Nut_LIKE" data-theme="review" data-dislike_enabled="false" data-i18n_like="Tym" data-i18n_before_like="tym" data-popup_disabled="true" data-i18n_like_tooltip="Tôi thích góp ý này" data-share_enabled="false" data-i18n_unlike_tooltip="Tôi không thích góp ý này"></span>
             <script>(function (d, e, s) { if (d.getElementById("likebtn_wjs")) return; a = d.createElement(e); m = d.getElementsByTagName(e)[0]; a.async = 1; a.id = "likebtn_wjs"; a.src = s; m.parentNode.insertBefore(a, m) })(document, "script", "//w.likebtn.com/js/w/widget.js");</script>-->
             <!-- LikeBtn.com END -->
         </article>
     }
-
-
 }
 

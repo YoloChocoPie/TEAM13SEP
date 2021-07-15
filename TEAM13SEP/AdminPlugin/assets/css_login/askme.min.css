@@ -102,7 +102,7 @@ a:link,
 a:visited {
     color: chocolate;
     text-decoration: none;
-    font-weight: bold;
+/*    font-weight: bold;*/
 }
 a:hover{
     color: red;
@@ -179,16 +179,17 @@ article.question{
 
 article.answer section.answer {
     padding: 1em;
-    background-color: rgba(44,143,1,.05);
+    background-color: rgb(93 210 127 / 7%);
 }
 article.answer section.question {
     padding: 1em;
-    background-color: rgb(156 201 221 / 18%);
+/*    background-color: rgb(156 201 221 / 18%);*/
 }
 article.answer {
     border: 1px solid #00415e;
-    border-radius: .33333em;
-    margin-bottom: 1em;
+    border-radius: 1.33333em;
+    margin-bottom: 2em;
+    padding-bottom: 5px;
 }
 /*article.question header{color:#00415e;border-bottom:rgba(0,65,94,.2) 1px solid;}*/
 /*article.question header .info{float:right;}*/
@@ -204,6 +205,6 @@ article.answer {
 /*---------------heat------------------*/
 
 #heartbeat > a:link{
-    font-size: 24px;
+    font-size: 20.5px;
     margin-left: 10px;
 }

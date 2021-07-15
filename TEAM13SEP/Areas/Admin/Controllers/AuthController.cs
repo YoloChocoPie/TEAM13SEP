@@ -35,7 +35,15 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 Session["user-fullname"] = user.FULL_NAME;
                 Session["user-id"] = user.ID;
                 Session["user-role"] = user.ROLE;
-                return RedirectToAction("Index2", "GopY");
+
+                if (((int)Session["user-role"] == 4))
+                {
+                    return RedirectToAction("Index", "Auth");
+                }
+                else
+                {
+                    return RedirectToAction("Index2", "GopY");
+                }
 
             }
             else

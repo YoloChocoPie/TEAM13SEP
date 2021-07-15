@@ -496,7 +496,7 @@ a.dt-button.active:not(.disabled) {
   margin: 15px 0;
 }
 .panel-body {
-  font-family: 'MontserratLight', sans-serif;
+  
 }
 .panel-primary {
   border-color: #03a9f5;
@@ -715,12 +715,13 @@ a.dt-button.active:not(.disabled) {
 /*    Header
 ---------------*/
 .header {
-  background: #ffffff;
-  position: fixed;
-  width: 100%;
-  min-height: 50px;
-  z-index: 990;
-  top: 0;
+    background-image: url('../images/vlu-header-footer.jpg');
+   
+    position: fixed;
+    width: 100%;
+    min-height: 50px;
+    z-index: 990;
+    top: 0;
 }
 .logo {
   /*background: #03A9F5;*/
@@ -744,7 +745,7 @@ a.dt-button.active:not(.disabled) {
 .header-icon {
   font-size: 18px;
   padding: 14px 15px;
-  color: #252525;
+  color: white;
   position: relative;
   transition: all 0.4s ease-in-out;
   display: inline-block;
@@ -833,7 +834,7 @@ a.dt-button.active:not(.disabled) {
 }
 .notification-text {
   font-size: 12px;
-  font-family: 'MontserratLight', sans-serif;
+  
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -959,16 +960,16 @@ a.dt-button.active:not(.disabled) {
   transition: all 0.5s ease 0s;
 }
 .chat-sidebar .user-name {
-  font-family: 'MontserratLight', sans-serif;
+  
 }
 .chat-sidebar .content {
-  font-family: 'MontserratLight', sans-serif;
+  
 }
 .chat-sidebar .textarea {
-  font-family: 'MontserratLight', sans-serif;
+  
 }
 .chat-sidebar .seen {
-  font-family: 'MontserratLight', sans-serif;
+  
 }
 .chat-sidebar.is-active {
   right: 0;
@@ -1147,7 +1148,7 @@ a.dt-button.active:not(.disabled) {
   margin-bottom: 30px;
 }
 .testimonial-widget-one .testimonial-author-position {
-  font-family: 'MontserratLight', sans-serif;
+  
   margin-right: 75px;
   position: relative;
   top: -5px;
@@ -1856,7 +1857,7 @@ footer p {
 .recent-comment .comment-date {
   float: left;
   color: #252525;
-  font-family: 'MontserratLight', sans-serif;
+  
   font-size: 12px;
 }
 .comment-action {
@@ -1864,7 +1865,7 @@ footer p {
 }
 .comment-action .badge {
   text-transform: uppercase;
-  font-family: 'MontserratLight', sans-serif;
+  
 }
 .comment-action i {
   padding: 0px 5px;
@@ -1910,7 +1911,7 @@ footer p {
   border-radius: 0px;
   box-shadow: none;
   border-color: #e7e7e7;
-  font-family: 'MontserratLight', sans-serif;
+ 
 }
 .form-control:hover {
   box-shadow: none;
@@ -2196,7 +2197,7 @@ ul.inbox-nav li a {
   line-height: 45px;
   padding: 0 20px;
   width: 100%;
-  font-family: 'MontserratLight', sans-serif;
+  
 }
 ul.inbox-nav li a:hover {
   background: #eef1f6;
@@ -2235,7 +2236,7 @@ ul.labels-info li h4 {
 ul.labels-info li a {
   border-radius: 0;
   color: #6a6a6a;
-  font-family: 'MontserratLight', sans-serif;
+ 
 }
 ul.labels-info li a:hover {
   background: #eef1f6;
@@ -2337,7 +2338,7 @@ ul.inbox-pagination li {
   background: #ffffff;
   border: 1px solid #e7e7e7;
   border-radius: 3px !important;
-  font-family: 'MontserratLight', sans-serif;
+ 
   color: #252525;
   display: inline-block;
   padding: 5px 10px;
@@ -2559,7 +2560,7 @@ ul {
 }
 .tdl-holder li span {
   margin-left: 30px;
-  font-family: 'MontserratLight', sans-serif;
+ 
   vertical-align: middle;
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
@@ -2633,7 +2634,7 @@ ul {
 }
 .datamap-sales-hover-tooltip {
   background: #545454;
-  font-family: 'MontserratLight', sans-serif;
+ 
   padding: 5px 10px;
   color: #ffffff;
   font-weight: 400;
@@ -2829,7 +2830,7 @@ tbody tr td:last-child {
   margin-bottom: 15px;
   padding: 5px 0px;
   border-bottom: 1px solid #e7e7e7;
-  font-family: 'MontserratLight', sans-serif;
+ 
 }
 .work-content {
   margin-bottom: 15px;
@@ -2851,7 +2852,7 @@ tbody tr td:last-child {
   display: inline-block;
   font-size: 12px;
   margin-left: 10px;
-  font-family: 'MontserratLight', sans-serif;
+ 
 }
 .user-Location i {
   font-size: 14px;
@@ -2897,7 +2898,7 @@ tbody tr td:last-child {
   text-transform: uppercase;
   padding-top: 10px;
   padding-bottom: 15px;
-  font-family: 'MontserratLight', sans-serif;
+  
 }
 .contact-title {
   display: inline-block;
@@ -2913,7 +2914,7 @@ tbody tr td:last-child {
 .contact-skype,
 .birth-date,
 .gender {
-  font-family: 'MontserratLight', sans-serif;
+  
   font-size: 16px;
   color: #252525;
 }
@@ -3629,7 +3630,7 @@ li {
   list-style: none;
 }
 p {
-  font-family: 'MontserratLight', sans-serif;
+  
   color: #252525;
 }
 .dib {

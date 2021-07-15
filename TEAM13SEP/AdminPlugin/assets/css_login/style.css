@@ -1,4 +1,4 @@
------------------------------------------ [MASTER STYLE SHEET] * Project: The Travel * Version: v2.0 * Copyright 2016-2020 rn53themes * V1.0: 03/09/2016 * V2.0: 24/08/2017 * Author: RN53 Themes * Email: rn53themes@gmail.com * Website: http://www.rn53themes.net -----------------------------------------------*/
+﻿----------------------------------------- [MASTER STYLE SHEET] * Project: The Travel * Version: v2.0 * Copyright 2016-2020 rn53themes * V1.0: 03/09/2016 * V2.0: 24/08/2017 * Author: RN53 Themes * Email: rn53themes@gmail.com * Website: http://www.rn53themes.net -----------------------------------------------*/
 /*------------------------------------------------- = TABLE OF CSS 1.COMMON CSS 2.HEADER(LOG0 & HELP LINE) 3.NAVIGATION MENU 4.SLIDER & INNER PAGE BANNER 5.SLIDER ENQUIRY 6.TOUR PLACES 6.1 HOTELS 7.FREE CONSULTANT 8.EVENTS 9.POPULAR TOUR PLACES 10.REQUEST A QUOTE 11.TIPS BEFORE TRAVEL 11.1 TIPS BEFORE TRAVEL 11.2 CUSTOMER TESTIMONIALS 11.3 ARRANGEMENTS & HELPS 12.FOOTER 1 12.1 OFFERS 12.2 MOST POPULAR VACATIONS 13.FOOTER 2 13.1 ADDRESS 13.2 SUBSCRIBE 13.2 FAQ 13.2 LOCATION 13.5 SOCIAL MEDIA 14.COPY RIGHTS 15.INNER PAGE 15.1 COMMON BANNER 15.2 ALL INNER PAGE STYLES 16.PRE LOADING 17.REVIEWS 18.TOP TRENDINGS 19.INNER PAGE LISTING 20.LISTING 21.LISTING SOCIAL SHARE 22.ROOM AVAILABILITY CHECK 23.SOCIAL MEDIA SHARE 24.MY ACCOUNT DROP DOWN -------------------------------------------------*/
 /*-------------------------------------------------------*/
 /* 1.COMMON CSS 
@@ -25,7 +25,10 @@
      -ms-transition: all 0.5s ease;
      -o-transition: all 0.5s ease;
 }
- a, p, li, td {
+ p{
+     font-size: 18.5px;
+ }
+ a, li, td {
      font-size: 14.5px;
      line-height: 24px;
      font-family: 'Poppins', sans-serif;
@@ -5703,6 +5706,20 @@
      margin: 4px 0px;
      margin-left: -37px;
 }
+/*--------------------------logo trang chu------------------------*/
+.wed-logo-trang-chu {
+    float: left;
+    width: 20%;
+}
+ .wed-logo-trang-chu a{
+}
+ .wed-logo-trang-chu a img{
+     width: 202px;
+     height: 107px;
+     margin: 4px 0px;
+     margin-left: 73px;
+}
+/* ----------------------------*/
 .wed-logo2{
      height: 200px;
 }
@@ -7501,7 +7518,15 @@
  .com-fir-sp-top{
 }
  .ed-top{
-     background: #f5f7f9;
+     background: #fff;
+}
+/*-------------------------------trang chu-----------------------*/
+.ed-top_1 {
+/*    background: #162344;*/
+    background-image: url("../images/background_vlu_1.jpg");
+/*    opacity: 0.5;*/
+    background-position: top;
+    background-position-y: -75px;
 }
  .ed-com-t1-left{
 }
@@ -7515,18 +7540,26 @@
     .ed-com-t1-left ul li a {
         color: #ff4800;
         padding: 5px 14px;
-        line-height: 3.5em;
+        padding-left: 70px;
+        line-height: 4.5em;
         border-right: 2px solid #000;
-        font-size: 20px;
+        font-size: 25px;
         font-style: inherit;
         font-weight: bolder;
         text-transform: uppercase;
         /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
-        text-shadow: 0px 3px 2px #b2a98f, 3px 16px 5px rgb(0 0 0 / 15%), 0px 2px 30px rgb(0 0 0 / 10%);
+        /*text-shadow: 0px 3px 2px #b2a98f, 3px 16px 5px rgb(0 0 0 / 15%), 0px 2px 30px rgb(0 0 0 / 10%);*/
         /*0px 24px 2px rgba(0,0,0,0.1)*/
+
+        font-family: system-ui;
+        background: linear-gradient(to right, #ff1414 0%, #f3ce23 100%);
+        /* background: linear-gradient(to right, #FF145F 0%, #FFC42D 69%);*/
+        /*background: linear-gradient(to right, #FF8C00 0%, #FFC42D 100%);*/
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
- .ed-com-t1-right{
-     float: right;
+.ed-com-t1-right {
+    float: right;
 }
  .ed-com-t1-right ul{
 }
@@ -7535,11 +7568,11 @@
      display: inline-block;
 }
  .ed-com-t1-right ul li a{
-     color: #fff;
-     padding: 12px;
-     margin-top: 12px;
-     line-height: 71px;
-     font-size: 16px;
+    color: #fff;
+    padding: 14px;
+    margin-top: 12px;
+    line-height: 112px;
+    font-size: 16px;
 
 }
  .ed-com-t1-right ul li:nth-child(1) a{
@@ -7547,7 +7580,7 @@
      background: linear-gradient(to bottom,#f4364f,#dc2039);
 }
  .ed-com-t1-right ul li:nth-child(2) a{
-     background: #2d5d73;
+     background: #34568B;
 }
 /*-------------------------------------------------*/
 /* = 6.HOME PAGE: TAB AND ENQUIRY 
@@ -7577,6 +7610,33 @@
     /* border-right: 1px solid #e7ebef;
      */
 }
+ /* ----------------------------------------------------------login trang chu-------- */
+.login-section {
+    float: right;
+    margin-top: -12px;
+}
+.login-section {
+}
+ .login-section ul li{
+     float: left;
+     display: inline-block;
+}
+ .login-section ul li a{
+     color: #fff;
+     padding: 12px;
+     margin-top: 12px;
+     line-height: 71px;
+     font-size: 16px;
+}
+ .login-section ul li:nth-child(1) a{
+     background: #f4364f;
+     background: linear-gradient(to bottom,#f4364f,#dc2039);
+}
+ .login-section ul li:nth-child(2) a{
+     background: #34568B;
+}
+
+
 /*-------------------------------------------------*/
 /* = HOME PAGE OFFER 
 /*-------------------------------------------------*/
@@ -8771,7 +8831,8 @@ i {
     height: 46px;
     background-color: #a7ada736;
     box-sizing: border-box;
-    margin-top: 5px
+    margin-top: 5px;
+    height: 47px;
 }
 /*.header-wrapper .nav-header .sub-nav{
     padding: 0;
@@ -8793,6 +8854,7 @@ i {
 #nav-bar > ul > li > a{
     color: #bc4904;
     font-size: 16px;
+    font-weight: bolder;
 }
 #nav-bar > ul > li > a:hover {
     color: Highlight;
@@ -8820,6 +8882,7 @@ i {
 #nav-bar #sub-nav a{
     color: black;
     font-size: 16px;
+    font-weight: bolder;
 }
 #nav-bar #sub-nav li:hover a {
     color: dodgerblue;
@@ -8835,7 +8898,7 @@ i {
     width: 180px;
 }
 #sub-nav > #subsub2 > a {
-    margin-left: 100px;
+    margin-left: 25px;
     width: 200px;
 }
 /**/
@@ -8853,3 +8916,8 @@ i {
 /*.question > #info-user{
     margin-left: 20px;
 }*/
+
+/*--------------------------------------------------------Gop Y duyet, noi bat------------------*/
+#tag-name{
+    float: right;
+}

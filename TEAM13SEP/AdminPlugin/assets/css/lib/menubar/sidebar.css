@@ -55,7 +55,7 @@
     font-size: 0.9em;
     height: 30px;
     line-height: 40px;
-    color: #03A9F5  ;
+    color: red  ;
     text-transform: uppercase;
     font-weight: normal;
 }
@@ -104,22 +104,22 @@ position: absolute;
 right: 45px;
 }
 
-.sidebar .nano-content > ul li:hover > a,
-.sidebar .nano-content > ul li.active > a,
-.sidebar .nano-content > ul li.open > a {
-    color: #03A9F5 ;
-    position: relative;
-}
+    .sidebar .nano-content > ul li:hover > a,
+    .sidebar .nano-content > ul li.active > a,
+    .sidebar .nano-content > ul li.open > a {
+        color: #bc4904;
+        position: relative;
+    }
 
-.sidebar .nano-content > ul li.active > a::before {
-    background: #03A9F5 ;
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 3px;
-}
+        .sidebar .nano-content > ul li.active > a::before {
+            background: #bc4904;
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 3px;
+        }
 
 .sidebar .nano-content > ul li.open > a > .sidebar-collapse-icon {
     -webkit-transform: rotate(-180deg);
@@ -608,7 +608,7 @@ html.rtl .sidebar-hide .sidebar.sidebar-shrink.sidebar-hide-to-small ~ .content-
 
 
 .hamburger .line {
-    background-color: #252525;
+    background-color: white;
     display: block;
     height: 3px;
     margin: 4px auto;

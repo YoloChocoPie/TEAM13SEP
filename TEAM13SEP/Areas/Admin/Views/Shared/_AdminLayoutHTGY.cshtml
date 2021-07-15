@@ -75,7 +75,7 @@
 
 <body>
     <!-- MOBILE MENU -->
-    <!--<section>
+    <section>
         <div class="ed-mob-menu">
             <div class="ed-mob-menu-con">
                 <div class="ed-mm-left">
@@ -96,9 +96,9 @@
                                 <li><a href="/">Trang chủ</a></li>
                             </ul>
                             <h4>Tài khoản</h4>
-                            <ul>-->
-    <!-- HTML login -->
-    <!--<li><a href="login.php">Đăng nhập</a></li>
+                            <ul>
+                                <!-- HTML login -->
+                                <li><a href="login.php">Đăng nhập</a></li>
                                 <li><a href="register.php">Đăng ký</a></li>
                             </ul>
                         </div>
@@ -106,32 +106,32 @@
                 </div>
             </div>
         </div>
-    </section>-->
+    </section>
 
     <header>
         <!-- <li><a href="~/User/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li> -->
         <!--HEADER SECTION-->
         <section>
             <!-- TOP BAR -->
-            <div class="ed-top_1">
+            <div class="ed-top">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="ed-com-t1-left">
                                 <ul>
                                     <li>
-                                        <div class="wed-logo-trang-chu">
+                                        <div class="wed-logo">
                                             <a href="~/User/GopY/Index2">
-                                                <img src="~/AdminPlugin/assets/images/logo-vlu_1.png" alt="" />
+                                                <img src="~/AdminPlugin/assets/images/Sep_vlogo.png" alt="" />
                                             </a>
                                         </div>
                                     </li>
                                     <li>
-                                        <a href=" http://cntt.vanlanguni.edu.vn" target="_blank"> Hộp thư Góp ý sinh viên Khoa Công nghệ thông tin</a>
+                                        <a href=" http://cntt.vanlanguni.edu.vn" target="_blank"> Hộp thư Góp ý Khoa Công nghệ thông tin</a>
                                     </li>
                                 </ul>
                             </div>
-
+                            
                         </div>
                     </div>
                 </div>
@@ -152,22 +152,26 @@
                 <div id="nav-bar">
                     <ul>
                         <li> @Html.ActionLink("Trang chủ", "Index2") </li>
-                        <li> @Html.ActionLink("Danh sách góp ý", "Index") </li>
-                        @*<li> @Html.ActionLink("Góp ý ẩn danh được trả lời", "Index4") </li>
-                            <li> @Html.ActionLink("Góp ý ẩn danh được duyệt", "Index3") </li>*@
+                        <li> @Html.ActionLink("Góp ý được duyệt", "Index") </li>
+                        @*   <li> @Html.ActionLink("Góp ý ẩn danh được trả lời", "Index4") </li>
+                <li> @Html.ActionLink("Góp ý ẩn danh được duyệt", "Index3") </li>*@
                         <li>
                             <a href="#"> Tạo góp ý <i class="ti-angle-double-down"></i></a>
                             <ul id="sub-nav">
-                                <li id="subsub1"> @Html.ActionLink("⭕Đặt góp ý ", "Create")</li>
-                                <li id="subsub2"> @Html.ActionLink(" ❌Đặt góp ý ẩn danh", "Create1")</li>
+                                <li id="subsub1"> @Html.ActionLink("⭕Đặt góp ý với MSSV", "Create") </li>
+                                <li id="subsub2"> @Html.ActionLink(" ❌Đặt góp ý ẩn danh", "Create1") </li>
+
                             </ul>
+
                         </li>
+
                     </ul>
+
                 </div>
-                <div class="login-section">
+                <div class="ed-com-t1-right">
                     <ul>
                         <li><a> Xin chào @Session["user-fullname1"] </a></li>
-                        <li><a href="~/User/Auth/Login" style="color:white"> Đăng xuất </a></li>
+                        <li><a href="~/User/Auth/Logout"> Đăng xuất </a></li>
                     </ul>
                 </div>
             </div>

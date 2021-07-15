@@ -36,8 +36,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CHUDE_ID, "Chủ đề", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("CHUDE_ID", new SelectList(ViewBag.chude_id, "ID", "CHUDE_NAME"))
-                @Html.ValidationMessageFor(model => model.CHUDE_ID, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.CHUDE_ID)
+                @Html.TextBoxFor(model => model.CHUDE.CHUDE_NAME, new { @class = "form-control", @readonly = "readonly" })
+         
             </div>
         </div>
 

@@ -8783,7 +8783,7 @@ hr {
     border-radius: 10px;
     margin-bottom: 100px;
     margin-left: 459.5px;
-    width: 527px;
+    width: 522px;
 }
 
 .login-form .btnlogin {
@@ -8809,10 +8809,10 @@ i {
 .register-form {
     background: #ffffff;
     padding: 30px 30px 20px;
-    border-radius: 10px;
+    border-radius: 50px;
     margin-bottom: 100px;
-    margin-left: 425px;
-    width: 615px;
+    margin-left: 256px;
+    width: 902px;
 }
 .register-form .col-md-2{
 }
@@ -8867,6 +8867,60 @@ i {
     padding: 0px 15px;
     margin-left: 7px;
 }
+/*----------------------------------------------------navigation--------------------------*/
+/*:root {
+    --underline-height: .5em;
+    --transition-duration: .5s;
+}
+#nav-bar{
+    display: inline-block;
+    background: gray;
+    font-family: system-ui, sans-serif;
+    min-height: 100vh;
+}
+#nav-bar > #nav{
+    position: relative;
+    white-space: nowrap;
+    background: white;
+    padding: var(--underline-height) 0;
+    margin: 2em 0;
+	box-shadow: 0 1em 2em black;
+}
+#nav-bar > #nav > #underline {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+    height: var(--underline-height);
+    width: 20%;
+    background: black;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    transition: transform var(--transition-duration) ease-in-out;
+
+    &:nth-child(1) {
+		background: yellow;
+		transition: calc(var(--transition-duration) * .8);
+	}
+	&:nth-child(2) {
+		background: cyan;
+		transition: calc(var(--transition-duration) * 1.2);
+	}
+	&:nth-child(3) {
+		background: magenta;
+	}
+}
+
+#nav-bar > #nav > #underline > a {
+	display: inline-block;
+	z-index: 10;
+	width: 20%;
+	padding: 1em 0;
+	text-align: center;
+	cursor: pointer;
+}*/
+
 
 /*-----------------------------------------------sub-nav----------------*/
 /*#sub{
@@ -8920,4 +8974,70 @@ i {
 /*--------------------------------------------------------Gop Y duyet, noi bat------------------*/
 #tag-name{
     float: right;
+}
+
+/*---------------------------------------------------back to top------------------------------------------------*/
+/* Back to top */
+#back-to-top {
+    line-height: 40px;
+    width: 80px;
+    height: 80px;
+    font-size: 21px;
+    transition: .3s;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    z-index: 12;
+    color: #ff1654;
+    box-shadow: 0px 0px 1px 0 rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: #ff1654;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+}
+
+#back-to-top:hover {
+    color: #fff;
+    background: #ff1654;
+    border-color: #ff1654;
+}
+/*---------------------------------------------------Create gop y------------------------------------------------*/
+.form-horizontal {
+    margin-right: 170px;
+    margin-left: 120px;
+}
+
+/*---------------------------------------------------Create gop y an danh------------------------------------------------*/
+#annoymous {
+    font-size: 16px;
+    margin-left: 0px;
+    line-height: 70px;
+}
+#annoymous:hover {
+    font-size: 20px;
+    margin-left: 10px;
+    color: chocolate;
+}
+#back {
+    font-size: 18px;
+    margin-left: 35px;
+}
+#back:hover{
+    font-size: 24px;
+    color: crimson;
+}
+#backgopy {
+    font-size: 20px;
+    margin-left: 35px;
+}
+#backgopy:hover {
+    font-size: 25px;
+    margin-left: 35px;
+    color: crimson;
+}
+#like{
+    margin-left: 15px;
 }

@@ -636,6 +636,7 @@
     <Content Include="AdminPlugin\assets\images\sep_logo_7.png" />
     <Content Include="AdminPlugin\assets\images\sep_logo_7a.png" />
     <Content Include="AdminPlugin\assets\images\Sep_vlogo.png" />
+    <Content Include="AdminPlugin\assets\js\main.js" />
     <Content Include="AdminPlugin\assets\less\advance-widget.less" />
     <Content Include="AdminPlugin\assets\less\badge.less" />
     <Content Include="AdminPlugin\assets\less\booking-system.less" />

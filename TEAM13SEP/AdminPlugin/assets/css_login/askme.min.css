@@ -178,33 +178,54 @@ article.question{
 }
 
 article.answer section.answer {
-    padding: 1em;
-    background-color: rgb(93 210 127 / 7%);
+    padding: 3.5em;
+    background-color: rgb(74 125 231 / 19%);
+    border-radius: 50px;
+    margin-left: 35px;
+    margin-right: 20px;
+    margin-bottom: 6px;
 }
 article.answer section.question {
-    padding: 1em;
+    padding: 2.5em;
 /*    background-color: rgb(156 201 221 / 18%);*/
 }
 article.answer {
-    border: 1px solid #00415e;
+    border: 2.5px solid #00415e;
     border-radius: 1.33333em;
     margin-bottom: 2em;
+    margin-left: 10em;
+    margin-right: 12em;
     padding-bottom: 5px;
 }
+article.answer:hover {
+    border-block-color: orangered;
+    border-block-end-color: orangered;
+    border-left-color: orangered;
+    border-right-color: orangered;
+    box-shadow: rgb(225 122 13 / 50%) 0px 0px 30px, rgb(239 131 15 / 50%) 0px 0px 20px;
+
+/*=-----------------------------------------------=*/
+
+
+/*    box-shadow: rgb(225 122 13 / 50%) 0px -7px 30px, rgb(239 131 15 / 50%) 0px 5px 30px;*/
+/*    box-shadow: rgba(239, 131, 15, 0.5) 0px 19px 38px, rgba(239, 131, 15, 0.5) 0px 15px 12px;*/
+}
+/*box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, 
+    rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, 
+    rgb(255, 85, 85) 0px 0px 0px 15px;*/
+
 /*article.question header{color:#00415e;border-bottom:rgba(0,65,94,.2) 1px solid;}*/
 /*article.question header .info{float:right;}*/
 /*article.answer section.question header{color:#00415e;border-bottom:rgba(0,65,94,.2) 1px solid;}*/
 /*article.answer section.question header .info{float:right;}*/
 /*article.answer section.answer header{color:#2c8f01;border-bottom:rgba(44,143,1,.2) 1px solid;}*/
 /*article.answer section.answer header .info{float:right;}*/
-
-
 .field-validation-error {
     color: red;
 }
 /*---------------heat------------------*/
 
 #heartbeat > a:link{
-    font-size: 20.5px;
-    margin-left: 10px;
+    font-size: 27.5px;
+    margin-left: 20px;
 }

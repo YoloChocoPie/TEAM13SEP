@@ -1291,9 +1291,19 @@ h6,
     font-size: 12px;
 }
 p {
+    width: 910px;
     margin: 0 0 10px;
-    margin-right: -53px;
+    margin-right: -40px;
+    word-wrap: break-word;
+    margin-left: 5px;
 }
+/*article.answer section.question p {
+    width: 910px;
+    margin: 0 0 10px;
+    margin-right: -40px;
+    word-wrap: break-word;
+    margin-left: 55px;
+}*/
 .lead {
     margin-bottom: 20px;
     font-size: 16px;

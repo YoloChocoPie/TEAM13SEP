@@ -26,32 +26,24 @@
                 <header>
                     <span style="font-size: 17px"> <i class="fa fa-commenting-o fa-2x" aria-hidden="true" style="color: darkslategrey"></i> </span>
                     <div id="tag-name">
-                        <span style="font-size: 16px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME</span>
+                        <span style="font-size: 16px"> <i class="fa fa-creative-commons" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME</span>
                     </div>
-                    <span style="font-size: 17px"> <i class="fa fa-user-o aria-hidden="true"></i> @item.SINHVIEN.HOTEN_SV </span> <br />
-                    <span style="font-size: 11.5px"> @item.DATE </span>
-                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
+                    <span style="font-size: 17px; font-family: Georgia, serif; font-weight: bolder; margin-left: 6px"> <i class="fa fa-user-o aria-hidden="true"></i> @item.SINHVIEN.HOTEN_SV </span> <br />
+                    <span style="font-size: 11.5px; font-style: oblique; margin-left: 54px"> @item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 25%; text-align: left; margin-left: 55px" />
 
-                    @*@item.CHUDE.CHUDE_NAME*@
-                    @* <i class="fas fa-calendar"></i> <time value=""></time>
-                        @if (!string.IsNullOrWhiteSpace(item.DisplayName))
-                        {
-                            <span><i class="fas fa-user"></i> @item.DisplayName</span>
-                        }*@
                 </header>
+
                 <div>
                     @MvcHtmlString.Create(item.NOIDUNG_GOPY)
                 </div>
-                <div>
-
-                </div>
+                <div></div>
             </section>
-
 
             <section class="answer">
                 <header>
-                    <span style="font-size:16px"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> @item.ADMIN.FULL_NAME </span>
-                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
+                    <span style="font-size:17px; font-family: Georgia, serif; font-weight: bolder"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> @item.ADMIN.FULL_NAME </span>
+                    <hr style="border-top:solid 0.5px gray; width: 30%; text-align: left; margin-left: 5px" />
                     @*<span class="info"> Người trả lời: @item.ADMIN.FULL_NAME </span>*@
                     @*<i class="fas fa-calendar"></i> <time value="@item."></time>*@
                 </header>
@@ -62,15 +54,19 @@
                 </footer>
             </section>
 
-            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
-            @if (item.daLike == false)
-            {
-                <span id="heartbeat"> @Html.ActionLink("🤍", "Like1", new { id = item.ID })</span>
-            }
-            else
-            {
-                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike1", new { id = item.ID }) </span>
-            }
+            <div id="like">
+                @if (item.daLike == false)
+                {
+                    <span id="heartbeat"> @Html.ActionLink("🤍", "Like1", new { id = item.ID })</span>
+                }
+                else
+                {
+                    <span id="heartbeat"> @Html.ActionLink("❤️", "unLike1", new { id = item.ID }) </span>
+                }
+                <span class="heartbip" style="margin-left: 1px; font-size: 20px"> @Html.DisplayFor(modelItem => item.nutLIKE)  </span>
+            </div>
+
+
 
         </article>
     }
@@ -86,13 +82,13 @@
         <article class="answer">
             <section class="question">
                 <header>
-                    <span style="font-size: 16px"> <i class="fa fa-comments-o fa-2x" aria-hidden="true" style="color: darkslategrey"> </i> </span>
+                    <span style="font-size: 17px"> <i class="fa fa-comments-o fa-2x" aria-hidden="true" style="color: darkslategrey"> </i> </span>
                     <div id="tag-name">
-                        <span style="font-size: 16px"> <i class="fa fa-cc" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
+                        <span style="font-size: 16px"> <i class="fa fa-creative-commons" aria-hidden="true"></i> Tên chủ đề :  @item.CHUDE.CHUDE_NAME </span>
                     </div>
-                    <span style="font-size: 16px"> <i class="fa fa-user-secret" aria-hidden="true"></i> Ẩn danh </span> <br />
-                    <span style="font-size: 11.5px">  @item.DATE </span>
-                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
+                    <span style="font-size: 17px; font-family: Georgia, serif; font-weight: bolder; margin-left: 6px"> <i class="fa fa-user-secret" aria-hidden="true"></i> Ẩn danh </span> <br />
+                    <span style="font-size: 11.5px; font-style: oblique; margin-left: 54px"> @item.DATE </span>
+                    <hr style="border-top:solid 0.5px gray; width: 25%; text-align: left; margin-left: 55px" />
 
 
                     @*@item.CHUDE.CHUDE_NAME*@
@@ -114,8 +110,8 @@
 
             <section class="answer">
                 <header>
-                    <span style="font-size:16px"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> @item.ADMIN.FULL_NAME </span>
-                    <hr style="border-top:solid 0.5px gray; width: 9%; text-align: left; margin-left: 5px" />
+                    <span style="font-size:17px; font-family: Georgia, serif; font-weight: bolder"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> @item.ADMIN.FULL_NAME </span>
+                    <hr style="border-top:solid 0.5px gray; width: 30%; text-align: left; margin-left: 5px" />
                 </header>
                 <div>
                     @MvcHtmlString.Create(item.TRALOI_GOPY)
@@ -125,15 +121,17 @@
 
             </section>
 
-            <span class="heartbip" style="margin-left: 10px; font-size: 14.5px"> @Html.DisplayFor(modelItem => item.nutLIKE) lượt thích </span> <br />
-            @if (item.daLike == false)
-            {
-                <span id="heartbeat"> @Html.ActionLink("🤍", "Like1", new { id = item.ID })</span>
-            }
-            else
-            {
-                <span id="heartbeat"> @Html.ActionLink("❤️", "unLike1", new { id = item.ID }) </span>
-            }
+            <div id="like">
+                @if (item.daLike == false)
+                {
+                    <span id="heartbeat"> @Html.ActionLink("🤍", "Like1", new { id = item.ID })</span>
+                }
+                else
+                {
+                    <span id="heartbeat"> @Html.ActionLink("❤️", "unLike1", new { id = item.ID }) </span>
+                }
+                <span class="heartbip" style="margin-left: 1px; font-size: 20px"> @Html.DisplayFor(modelItem => item.nutLIKE)  </span>
+            </div>
 
         </article>
     }

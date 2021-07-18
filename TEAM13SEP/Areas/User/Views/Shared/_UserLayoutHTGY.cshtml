@@ -59,6 +59,9 @@
     <link href="~/AdminPlugin/assets/vendor/slick/slick.css" rel="stylesheet" type="text/css">
     <link href="~/AdminPlugin/assets/vendor/slick/slick-theme.css" rel="stylesheet" type="text/css">
 
+    <!--Javascript-->
+    <link href="~/AdminPlugin/assets/js/main.js" rel="stylesheet" type="text/css">
+
     <!-- old code
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
                   integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
@@ -152,17 +155,27 @@
                 <div id="nav-bar">
                     <ul>
                         <li> @Html.ActionLink("Trang chủ", "Index2") </li>
-                        <li> @Html.ActionLink("Danh sách góp ý", "Index") </li>
-                        @*<li> @Html.ActionLink("Góp ý ẩn danh được trả lời", "Index4") </li>
-                            <li> @Html.ActionLink("Góp ý ẩn danh được duyệt", "Index3") </li>*@
-                        <li>
-                            <a href="#"> Tạo góp ý <i class="ti-angle-double-down"></i></a>
-                            <ul id="sub-nav">
-                                <li id="subsub1"> @Html.ActionLink("⭕Đặt góp ý ", "Create")</li>
-                                <li id="subsub2"> @Html.ActionLink(" ❌Đặt góp ý ẩn danh", "Create1")</li>
-                            </ul>
-                        </li>
+                        <li> @Html.ActionLink("Góp ý chờ trả lời", "Index") </li>
+                        <li> @Html.ActionLink("Tạo góp ý ", "Create") </li>
                     </ul>
+
+                    @*<nav>
+                                <div id="underline"></div>
+                                <a onclick="ul(0)"> @Html.ActionLink("Trang chủ", "Index2") </a>
+                                <a onclick="ul(1)"> @Html.ActionLink("Góp ý chờ trả lời", "Index") </a>
+                                <a onclick="ul(2)"> @Html.ActionLink("Tạo góp ý ", "Create") </a>
+                            </nav>
+
+                                <li> @Html.ActionLink("Góp ý ẩn danh được trả lời", "Index4") </li>
+                        <li> @Html.ActionLink("Góp ý ẩn danh được duyệt", "Index3") </li>
+                                <li>
+                                    <a href="#"> Tạo góp ý <i class="ti-angle-double-down"></i></a>
+                                    <ul id="sub-nav">
+                                        <li id="subsub1"> @Html.ActionLink("⭕Đặt góp ý ", "Create")</li>
+                                        <li id="subsub2"> @Html.ActionLink(" ❌Đặt góp ý ẩn danh", "Create1")</li>
+                                    </ul>
+                                </li>*@
+
                 </div>
                 <div class="login-section">
                     <ul>
@@ -228,7 +241,18 @@
             </div>
         </section>
     </footer>
+
+    <div id="back-to-top"><span class="fa fa-angle-up fa-3x"></span></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tilt.js@1.1.20/dest/tilt.jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="~/AdminPlugin/assets/js/main.js"></script>
+
 </body>
+
 </html>
 @RenderSection("scripts", required: false)
+
 

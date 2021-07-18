@@ -34,7 +34,7 @@ namespace TEAM13SEP.Areas.User.Controllers
                
 
 
-                return RedirectToAction("Index", "GopY");
+                return RedirectToAction("Index2", "GopY");
 
             }
             else

@@ -656,6 +656,7 @@
     <Content Include="AdminPlugin\assets\images\user.jpg" />
     <Content Include="AdminPlugin\assets\images\video-cam.png" />
     <Content Include="AdminPlugin\assets\images\vlu-header-footer.jpg" />
+    <Content Include="AdminPlugin\assets\js\main.js" />
     <Content Include="AdminPlugin\assets\less\advance-widget.less" />
     <Content Include="AdminPlugin\assets\less\badge.less" />
     <Content Include="AdminPlugin\assets\less\booking-system.less" />

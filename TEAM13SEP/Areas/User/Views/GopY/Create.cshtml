@@ -13,6 +13,7 @@
         <br />
         <h3> <i class="fa fa-user-o" aria-hidden="true" style="color:navy"></i> Đặt góp ý </h3>
         <hr />
+        <span> <a id="annoymous" href="/User/GopY/Create1"> Bấm vào đây nếu bạn muốn ẩn danh <i class="fa fa-user-secret" aria-hidden="true"></i></a> </span>
 
         @* Có trigger nên ko cần để -LTC*@
 
@@ -88,7 +89,7 @@
                 @Html.ValidationMessage("bug1", new { @class = "text-danger" })
                 @Html.ValidationMessage("bug2", new { @class = "text-danger" })
                 <br />
-                <p> <a href="~/User/GopY/Create1"> Nhấn vào đây nếu bạn muốn đăng ẩn danh</a></p>
+                @*<p> <a href="~/User/GopY/Create1"> Nhấn vào đây nếu bạn muốn đăng ẩn danh</a></p>*@
 
 
 
@@ -111,15 +112,19 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Đặt Góp Ý" class="btn btn-default" />
+                <span> <input type="submit" value="Đặt Góp Ý" class="btn btn-default" /> </span>
+
             </div>
         </div>
     </div>
 }
+@*@Html.ActionLink("Bấm vào đây nếu bạn muốn ẩn danh", "Create1")*@
 
 <div>
-    @Html.ActionLink("Quay về trang chủ", "Index")
+    @*@Html.ActionLink("Quay về trang chủ", "Index2")*@
+    <span><a id="back" href="/User/GopY/Index2"> Trở về trang chủ </a></span>
 </div>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>

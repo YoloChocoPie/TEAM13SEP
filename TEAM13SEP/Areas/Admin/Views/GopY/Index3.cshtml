@@ -44,14 +44,14 @@
                         <tr>
 
                             <th>
-                                Tên Góp Ý
+                                Tiêu đề
                             </th>
-                            <th>
-                                Tên chủ đề
-                            </th>
+                            @*           <th>
+            Chủ đề
+        </th>*@
                             @*   <th>
-                                    Tên người thực hiện
-                                </th>*@
+            Tên người thực hiện
+        </th>*@
 
                             <th>
                                 Tên sinh viên hỏi
@@ -60,14 +60,15 @@
                                 Nội dung
                             </th>
                             @*    <th>
-                                    Câu trả lời
-                                </th>*@
+            Câu trả lời
+        </th>*@
+                            <th>
+                               Lượt Tym
+                            </th>
                             <th>
                                 ngày tạo
                             </th>
-                            @*     <th>
-                                    Số lượng Like
-                                </th>*@
+                            @**@
 
 
                             <th>
@@ -80,47 +81,50 @@
 
                     @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 4))
                     {
-                        <tr>
+                <tr>
 
-                            <td>
-                                @Html.DisplayFor(modelItem => item.GOPY_TEN)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
-                            </td>
-                            @*   <td>
-                                    @Html.DisplayFor(modelItem => item.ADMIN.FULL_NAME)
-                                </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GOPY_TEN)
+                    </td>
+                    @*    <td>
+            @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
+        </td>*@
+                    @*   <td>
+            @Html.DisplayFor(modelItem => item.ADMIN.FULL_NAME)
+        </td>*@
 
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
-                            </td>
-                            <td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
+                    </td>
+                    <td>
 
-                                @MvcHtmlString.Create(item.NOIDUNG_GOPY)
+                        @MvcHtmlString.Create(item.NOIDUNG_GOPY)
 
-                            </td>
-                            @*    <td>
-                                    <div>
-                                        @MvcHtmlString.Create(item.TRALOI_GOPY)
-                                    </div>
+                    </td>
+                    @*    <td>
+            <div>
+                @MvcHtmlString.Create(item.TRALOI_GOPY)
+            </div>
 
-                                </td>*@
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DATE)
-                            </td>
-                            @* <td>
-                                    @Html.DisplayFor(modelItem => item.nutLIKE)
-                                </td>*@
+        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nutLIKE)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DATE)
+                    </td>
 
 
-                            <td>
 
-                                @Html.ActionLink("Chức năng", "Edit", new { id = item.ID }) <br /> || <br />
-                                @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@
-                                @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
-                            </td>
-                        </tr>
+                    <td>
+
+                        @Html.ActionLink("Duyệt Góp Ý", "Edit1", new { id = item.ID }) <br /> || <br />
+                  
+                        @Html.ActionLink("Trả lời góp ý", "Edit", new { id = item.ID }) <br /> || <br />
+                        @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
                     }
 
 

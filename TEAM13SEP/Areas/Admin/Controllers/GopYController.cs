@@ -142,21 +142,48 @@ namespace TEAM13SEP.Areas.Admin.Controllers
 
         }
 
-        [HttpGet]
+
+
         public ActionResult Delete(int id)
         {
-            var gopy = model.GOPies.FirstOrDefault(x => x.ID == id);
-            return View(gopy);
-        }
-        [HttpPost]
-        [ActionName("Delete")]
-        public ActionResult ComfirmDelete(int id)
-        {
-            var gopy = model.GOPies.FirstOrDefault(x => x.ID == id);
-            model.GOPies.Remove(gopy);
+           // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            model.GOPies.Remove(update);
             model.SaveChanges();
             return RedirectToAction("Index");
+
         }
-       
+        public ActionResult Edit1(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            update.GOPY_STATUS = 2;
+
+            model.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+        public ActionResult Pin1(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            update.GOPY_STATUS = 4;
+
+            model.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+        /*        [HttpPost]
+                [ActionName("Delete")]
+                public ActionResult ComfirmDelete(int id)
+                {
+                    var gopy = model.GOPies.FirstOrDefault(x => x.ID == id);
+                    model.GOPies.Remove(gopy);
+                    model.SaveChanges();
+                    return RedirectToAction("Index");
+                }*/
     }
 }

@@ -47,7 +47,7 @@
                         <tr>
                          
                             <th>
-                                Tên Góp Ý
+                                Tiêu đề
                             </th>
                       
                             @*   <th>
@@ -79,7 +79,7 @@
                     </thead>
 
 
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 1))
                     {
                         <tr>
                           
@@ -115,8 +115,9 @@
 
                         <td>
 
-                            @Html.ActionLink("Chức năng", "Edit", new { id = item.ID }) <br /> || <br />
-                            @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@
+                            @Html.ActionLink("Duyệt Góp Ý", "Edit1", new { id = item.ID }) <br /> || <br />
+                            @Html.ActionLink("Pin góp ý", "Pin1", new { id = item.ID })  <br /> || <br />
+                            @Html.ActionLink("Trả lời góp ý", "Edit", new { id = item.ID }) <br /> || <br />
                             @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
                         </td>
                         </tr>

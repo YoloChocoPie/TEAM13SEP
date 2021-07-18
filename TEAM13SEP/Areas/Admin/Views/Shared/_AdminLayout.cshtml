@@ -50,7 +50,7 @@
                 <br />
                 <ul>
 
-                   
+
                     @if ((int)Session["user-role"] == 1)
                     {
                         <li class="label">Mục Quản Lý</li>
@@ -63,7 +63,7 @@
                                 <li><a href="~/Admin/GopY/Index2">Quản lý góp ý đã được trả lời </a></li>
                                 <li><a href="~/Admin/GopY/Index3">Quản lý góp ý đang được pin </a></li>
                                 @*  <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
-                        <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
+                    <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
 
 
                             </ul>
@@ -107,12 +107,25 @@
                         <li class="label">Mục Quản Lý</li>
 
                         <li>
-                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý Góp ý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="~/Admin/GopY/Index">Quản lý góp ý chưa được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index1">Quản lý góp ý đã được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index2">Quản lý góp ý đã được trả lời </a></li>
+                                <li><a href="~/Admin/GopY/Index3">Quản lý góp ý đang được pin </a></li>
+                                @*  <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
+                    <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
+
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý chủ đề <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
 
                                 <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
-                                <li><a href="~/Admin/GopY">Quản lý góp ý</a></li>
-
+                                @*  <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
 
 
                             </ul>
@@ -122,7 +135,7 @@
                         <li>
                             <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Thống kê <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="chartjs.html">Thống kê chi tiết</a></li>
+                                <li><a href="~/Admin/GopY/ThongKe">Thống kê chi tiết</a></li>
 
 
                             </ul>
@@ -136,12 +149,14 @@
                         <li class="label">Mục Quản Lý</li>
 
                         <li>
-                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý Góp ý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-
-                                <li><a href="~/Admin/GopY">Quản lý góp ý</a></li>
-
-
+                                <li><a href="~/Admin/GopY/Index">Quản lý góp ý chưa được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index1">Quản lý góp ý đã được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index2">Quản lý góp ý đã được trả lời </a></li>
+                                <li><a href="~/Admin/GopY/Index3">Quản lý góp ý đang được pin </a></li>
+                                @*  <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
+                    <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
 
 
                             </ul>

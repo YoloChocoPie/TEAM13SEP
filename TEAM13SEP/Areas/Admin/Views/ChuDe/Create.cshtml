@@ -5,13 +5,13 @@
 
 <h2></h2>
 
-
+<br />
 @using (Html.BeginForm())
 {
 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
-                    <h4>Giao diện tạo chủ đề</h4>
+                    <h4>Giao diện thêm chủ đề mới</h4>
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 

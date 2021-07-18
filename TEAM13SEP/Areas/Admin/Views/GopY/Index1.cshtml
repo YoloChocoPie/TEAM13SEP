@@ -99,10 +99,11 @@
 
                     <td>
 
-                     
-                        @Html.ActionLink("Pin góp ý", "Pin1", new { id = item.ID })  <br /> || <br />
-                        @Html.ActionLink("Trả lời góp ý", "Edit", new { id = item.ID }) <br /> || <br />
-                        @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
+
+                        @Html.ActionLink("Duyệt", "EditDaDuyet1", new { id = item.ID }) <br /> || <br />
+                        @Html.ActionLink("Pin", "Pin1", new { id = item.ID })  <br /> || <br />
+                        @Html.ActionLink("Trả lời", "EditDaDuyet", new { id = item.ID }) <br /> || <br />
+                        @Html.ActionLink("Xoá", "Delete1", new { id = item.ID })
                     </td>
                 </tr>
                     }

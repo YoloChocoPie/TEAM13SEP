@@ -1,7 +1,7 @@
 ﻿﻿@model TEAM13SEP.Models.GOPY
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "EditDaDuyet";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -38,7 +38,7 @@
             <div class="col-md-10">
                 @Html.HiddenFor(model => model.CHUDE_ID)
                 @Html.TextBoxFor(model => model.CHUDE.CHUDE_NAME, new { @class = "form-control", @readonly = "readonly" })
-         
+
             </div>
         </div>
 
@@ -69,13 +69,13 @@
             @Html.LabelFor(model => model.NOIDUNG_GOPY, "Nội dung", htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
             <div class="col-md-10">
                 @Html.HiddenFor(model => model.NOIDUNG_GOPY)
-            
+
 
                 @MvcHtmlString.Create(Model.NOIDUNG_GOPY)
             </div>
         </div>
 
-        <div class="form-group " >
+        <div class="form-group ">
             @Html.LabelFor(model => model.TRALOI_GOPY, "Câu trả lời", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
@@ -106,7 +106,7 @@
 }
 
 <div>
-    @Html.ActionLink("Quay về trang chủ", "Index")
+    @Html.ActionLink("Trở về", "Index1")
 </div>
 
 @section Scripts {
@@ -122,9 +122,9 @@
     <script>
         tinymce.init({
             selector: 'textarea#NOIDUNG_GOPY',
-          
+
             menubar: false
         });
-      
+
     </script>
 }

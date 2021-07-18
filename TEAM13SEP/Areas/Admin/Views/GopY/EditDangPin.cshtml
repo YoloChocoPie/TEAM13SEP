@@ -1,0 +1,130 @@
+﻿﻿@model TEAM13SEP.Models.GOPY
+
+@{
+    ViewBag.Title = "EditDangPin";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2></h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Giao diện quản lý góp ý</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GOPY_CODE, "Mã góp ý", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.GOPY_CODE, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GOPY_TEN, "Tiêu đề", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.GOPY_TEN, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.GOPY_TEN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CHUDE_ID, "Chủ đề", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.CHUDE_ID)
+                @Html.TextBoxFor(model => model.CHUDE.CHUDE_NAME, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+        </div>
+
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.ADMIN_ID, "Người thực hiện", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ADMIN_ID, new { htmlAttributes = new { @Value = ViewBag.mssv, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.ADMIN_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nutLIKE, "Lượt Tym", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.nutLIKE, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SINHVIEN_ID, "Mã sinh viên", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SINHVIEN_ID, new { @class = "form-control", @readonly = "readonly" })
+
+            </div>
+        </div>
+
+        <div class="form-group ">
+            @Html.LabelFor(model => model.NOIDUNG_GOPY, "Nội dung", htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.NOIDUNG_GOPY)
+
+
+                @MvcHtmlString.Create(Model.NOIDUNG_GOPY)
+            </div>
+        </div>
+
+        <div class="form-group ">
+            @Html.LabelFor(model => model.TRALOI_GOPY, "Câu trả lời", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.TextAreaFor(model => model.TRALOI_GOPY, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TRALOI_GOPY, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GOPY_STATUS, "Trạng thái", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("GOPY_STATUS", new SelectList(ViewBag.status_id, "ID", "TRANGTHAI1"))
+                @Html.ValidationMessageFor(model => model.TRANGTHAI, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.HiddenFor(model => model.DATE)
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở về", "Index3")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#TRALOI_GOPY',
+            menubar: false
+        });
+    </script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#NOIDUNG_GOPY',
+
+            menubar: false
+        });
+
+    </script>
+}

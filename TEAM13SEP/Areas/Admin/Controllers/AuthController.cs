@@ -141,7 +141,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
 
         public void SendEmailToUser(string emailId, string activationCode)
         {
-            var GenarateUserVerificationLink = "/Admin/Auth/UserVerification/" + activationCode;
+            var GenarateUserVerificationLink = ":18080/SEP24Team13/Admin/Auth/UserVerification/" + activationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, GenarateUserVerificationLink);
 
             var fromMail = new MailAddress("htgyteam13@gmail.com", "TEAM13"); // set your email    

@@ -2667,8 +2667,13 @@ tbody tr td:last-child {
 .table > tfoot > tr > th,
 .table > thead > tr > td,
 .table > thead > tr > th {
-  line-height: 32px;
-  vertical-align: top;
+    line-height: 32px;
+    vertical-align: top;
+    width: 99vh;
+    margin: 0 0 10px;
+    margin-right: -40px;
+    word-wrap: break-word;
+    margin-left: 5px;
 }
 .table > thead > tr > th {
   border-bottom: 1px solid #e7e7e7;

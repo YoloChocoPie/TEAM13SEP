@@ -96,7 +96,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult EditChuaDuyet(int id)
         {
 
 
@@ -116,7 +116,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(
+        public ActionResult EditChuaDuyet(
                         GOPY gopy, int id)
 
         {
@@ -157,7 +157,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
-        public ActionResult Edit1(int id)
+        public ActionResult EditChuaDuyet1(int id)
         {
             // update delete click vào là xoá
 
@@ -168,7 +168,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
-        public ActionResult Pin1(int id)
+        public ActionResult Pin(int id)
         {
             // update delete click vào là xoá
 
@@ -179,14 +179,267 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
-        /*        [HttpPost]
-                [ActionName("Delete")]
-                public ActionResult ComfirmDelete(int id)
-                {
-                    var gopy = model.GOPies.FirstOrDefault(x => x.ID == id);
-                    model.GOPies.Remove(gopy);
-                    model.SaveChanges();
-                    return RedirectToAction("Index");
-                }*/
+
+
+        // giao diện quản lý góp ý đã được duyệt
+
+        [HttpGet]
+        public ActionResult EditDaDuyet(int id)
+        {
+
+
+
+
+            GOPY gopy = model.GOPies.Find(id);
+            if (gopy == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
+            ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            ViewBag.mssv = (int)Session["user-id"];
+            return View(gopy);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDaDuyet(
+                        GOPY gopy, int id)
+
+        {
+            ViewBag.mssv = (int)Session["user-id"];
+            ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
+            ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            if (ModelState.IsValid)
+            {
+                var gopy1 = model.GOPies.FirstOrDefault(x => x.ID == id);
+
+                gopy1.GOPY_TEN = gopy.GOPY_TEN;
+                gopy1.CHUDE_ID = gopy.CHUDE_ID;
+                gopy1.ADMIN_ID = gopy.ADMIN_ID;
+                gopy1.nutLIKE = gopy.nutLIKE;
+                gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
+                gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
+                gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
+                gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+                gopy1.DATE = gopy.DATE;
+
+                model.SaveChanges();
+                return RedirectToAction("Index1");
+            }
+            return View();
+
+        }
+
+
+
+        public ActionResult Delete1(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            model.GOPies.Remove(update);
+            model.SaveChanges();
+            return RedirectToAction("Index1");
+
+        }
+        public ActionResult EditDaDuyet1(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            update.GOPY_STATUS = 2;
+
+            model.SaveChanges();
+            return RedirectToAction("Index1");
+
+        }
+        public ActionResult Pin1(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            update.GOPY_STATUS = 4;
+
+            model.SaveChanges();
+            return RedirectToAction("Index1");
+
+        }
+
+        // Giao diện quản lý góp ý đã trả lời
+
+        [HttpGet]
+        public ActionResult EditDaTraLoi(int id)
+        {
+
+
+
+
+            GOPY gopy = model.GOPies.Find(id);
+            if (gopy == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
+            ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            ViewBag.mssv = (int)Session["user-id"];
+            return View(gopy);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDaTraLoi(
+                        GOPY gopy, int id)
+
+        {
+            ViewBag.mssv = (int)Session["user-id"];
+            ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
+            ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            if (ModelState.IsValid)
+            {
+                var gopy1 = model.GOPies.FirstOrDefault(x => x.ID == id);
+
+                gopy1.GOPY_TEN = gopy.GOPY_TEN;
+                gopy1.CHUDE_ID = gopy.CHUDE_ID;
+                gopy1.ADMIN_ID = gopy.ADMIN_ID;
+                gopy1.nutLIKE = gopy.nutLIKE;
+                gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
+                gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
+                gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
+                gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+                gopy1.DATE = gopy.DATE;
+
+                model.SaveChanges();
+                return RedirectToAction("Index2");
+            }
+            return View();
+
+        }
+
+
+
+        public ActionResult Delete2(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            model.GOPies.Remove(update);
+            model.SaveChanges();
+            return RedirectToAction("Index2");
+
+        }
+        public ActionResult EditDaTraLoi1(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            update.GOPY_STATUS = 2;
+
+            model.SaveChanges();
+            return RedirectToAction("Index2");
+
+        }
+        public ActionResult Pin2(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            update.GOPY_STATUS = 4;
+
+            model.SaveChanges();
+            return RedirectToAction("Index2");
+
+        }
+
+        // giao diện góp ý đang được pin 
+
+        [HttpGet]
+        public ActionResult EditDangPin(int id)
+        {
+
+
+
+
+            GOPY gopy = model.GOPies.Find(id);
+            if (gopy == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
+            ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            ViewBag.mssv = (int)Session["user-id"];
+            return View(gopy);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDangPin(
+                        GOPY gopy, int id)
+
+        {
+            ViewBag.mssv = (int)Session["user-id"];
+            ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
+            ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
+            ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            if (ModelState.IsValid)
+            {
+                var gopy1 = model.GOPies.FirstOrDefault(x => x.ID == id);
+
+                gopy1.GOPY_TEN = gopy.GOPY_TEN;
+                gopy1.CHUDE_ID = gopy.CHUDE_ID;
+                gopy1.ADMIN_ID = gopy.ADMIN_ID;
+                gopy1.nutLIKE = gopy.nutLIKE;
+                gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
+                gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
+                gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
+                gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+                gopy1.DATE = gopy.DATE;
+
+                model.SaveChanges();
+                return RedirectToAction("Index3");
+            }
+            return View();
+
+        }
+
+
+
+        public ActionResult Delete3(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            model.GOPies.Remove(update);
+            model.SaveChanges();
+            return RedirectToAction("Index3");
+
+        }
+        public ActionResult EditDangPin1(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            update.GOPY_STATUS = 2;
+
+            model.SaveChanges();
+            return RedirectToAction("Index3");
+
+        }
+        public ActionResult Pin3(int id)
+        {
+            // update delete click vào là xoá
+
+            GOPY update = model.GOPies.FirstOrDefault(x => x.ID == id);
+            update.GOPY_STATUS = 4;
+
+            model.SaveChanges();
+            return RedirectToAction("Index3");
+
+        }
     }
 }

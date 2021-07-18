@@ -970,7 +970,7 @@
     <Content Include="Areas\Admin\Views\Account\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Auth\Create.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\GopY\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\EditChuaDuyet.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\Index.cshtml" />
     <Content Include="Areas\User\Views\web.config" />
@@ -1024,6 +1024,10 @@
     <Content Include="Areas\Admin\Views\GopY\Index2.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\ThongKe.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayoutHTGY.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\EditDaDuyet.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\EditDaTraLoi.cshtml" />
+    <Content Include="Areas\Admin\Views\GopY\EditDangPin.cshtml" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

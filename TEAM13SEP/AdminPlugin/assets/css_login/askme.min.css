@@ -30,6 +30,11 @@
     font-size:90%;
     font-weight:bold;text-align:right;
 }*/
+.field-validation-error {
+    color: red;
+}
+
+
 body > nav {
     background-color: #00415e;
     color: #eee;

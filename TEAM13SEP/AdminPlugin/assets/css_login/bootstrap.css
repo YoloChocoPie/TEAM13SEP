@@ -1639,7 +1639,7 @@ h6,
 }
 
 p {
-    width: 132vh;
+    width: 100%;
     margin: 0 0 10px;
     margin-right: -40px;
     word-wrap: break-word;

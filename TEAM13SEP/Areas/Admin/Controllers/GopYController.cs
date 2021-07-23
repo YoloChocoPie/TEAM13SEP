@@ -8,6 +8,7 @@ using TEAM13SEP.Areas.Admin.Middleware;
 using TEAM13SEP.Models;
 
 
+
 namespace TEAM13SEP.Areas.Admin.Controllers
 {
    
@@ -111,6 +112,8 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
             ViewBag.mssv = (int)Session["user-id"];
+            var dulieu = @MvcHtmlString.Create(model.GOPies.FirstOrDefault(x => x.ID == id).NOIDUNG_GOPY);
+            ViewBag.noidung = dulieu;
             return View(gopy);
         }
         [HttpPost]
@@ -124,6 +127,8 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
             ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            var dulieu = @MvcHtmlString.Create(model.GOPies.FirstOrDefault(x => x.ID == id).NOIDUNG_GOPY);
+            ViewBag.noidung = dulieu;
             if (ModelState.IsValid)
             {
                 var gopy1 = model.GOPies.FirstOrDefault(x => x.ID == id);
@@ -136,6 +141,12 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
                 gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+                if (gopy1.GOPY_STATUS == 3 && gopy1.TRALOI_GOPY == null)
+                {
+
+                    ModelState.AddModelError("bug2", "Vui lòng nhập nội dung câu trả lời");
+                    return View();
+                }
                 gopy1.DATE = gopy.DATE;
 
                 model.SaveChanges();
@@ -199,6 +210,8 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
             ViewBag.mssv = (int)Session["user-id"];
+            var dulieu = @MvcHtmlString.Create(model.GOPies.FirstOrDefault(x => x.ID == id).NOIDUNG_GOPY);
+            ViewBag.noidung = dulieu;
             return View(gopy);
         }
         [HttpPost]
@@ -212,6 +225,8 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
             ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            var dulieu = @MvcHtmlString.Create(model.GOPies.FirstOrDefault(x => x.ID == id).NOIDUNG_GOPY);
+            ViewBag.noidung = dulieu;
             if (ModelState.IsValid)
             {
                 var gopy1 = model.GOPies.FirstOrDefault(x => x.ID == id);
@@ -224,6 +239,12 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
                 gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+                if (gopy1.GOPY_STATUS == 3 && gopy1.TRALOI_GOPY == null)
+                {
+
+                    ModelState.AddModelError("bug2", "Vui lòng nhập nội dung câu trả lời");
+                    return View();
+                }
                 gopy1.DATE = gopy.DATE;
 
                 model.SaveChanges();
@@ -286,6 +307,8 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
             ViewBag.mssv = (int)Session["user-id"];
+            var dulieu = @MvcHtmlString.Create(model.GOPies.FirstOrDefault(x => x.ID == id).NOIDUNG_GOPY);
+            ViewBag.noidung = dulieu;
             return View(gopy);
         }
         [HttpPost]
@@ -299,6 +322,8 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
             ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            var dulieu = @MvcHtmlString.Create(model.GOPies.FirstOrDefault(x => x.ID == id).NOIDUNG_GOPY);
+            ViewBag.noidung = dulieu;
             if (ModelState.IsValid)
             {
                 var gopy1 = model.GOPies.FirstOrDefault(x => x.ID == id);
@@ -311,6 +336,13 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
                 gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+
+                if (gopy1.GOPY_STATUS == 3 && gopy1.TRALOI_GOPY == null)
+                {
+
+                    ModelState.AddModelError("bug2", "Vui lòng nhập nội dung câu trả lời");
+                    return View();
+                }
                 gopy1.DATE = gopy.DATE;
 
                 model.SaveChanges();
@@ -372,7 +404,10 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
             ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+
             ViewBag.mssv = (int)Session["user-id"];
+            var dulieu = @MvcHtmlString.Create(model.GOPies.FirstOrDefault(x => x.ID == id).NOIDUNG_GOPY);
+            ViewBag.noidung = dulieu;
             return View(gopy);
         }
         [HttpPost]
@@ -386,6 +421,9 @@ namespace TEAM13SEP.Areas.Admin.Controllers
             ViewBag.chude_id = model.CHUDEs.OrderByDescending(a => a.ID).ToList();
             ViewBag.admin_id = model.ADMINs.OrderByDescending(b => b.ID).ToList();
             ViewBag.status_id = model.TRANGTHAIs.OrderByDescending(c => c.ID).ToList();
+            var dulieu = @MvcHtmlString.Create(model.GOPies.FirstOrDefault(x => x.ID == id).NOIDUNG_GOPY);
+            ViewBag.noidung = dulieu;
+
             if (ModelState.IsValid)
             {
                 var gopy1 = model.GOPies.FirstOrDefault(x => x.ID == id);
@@ -396,9 +434,19 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 gopy1.nutLIKE = gopy.nutLIKE;
                 gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
                 gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
+               
+     
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
                 gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+              
                 gopy1.DATE = gopy.DATE;
+                if (gopy1.GOPY_STATUS == 3 && gopy1.TRALOI_GOPY == null)
+                {
+                
+                    ModelState.AddModelError("bug2", "Vui lòng nhập nội dung câu trả lời");
+                 
+                    return View();
+                }
 
                 model.SaveChanges();
                 return RedirectToAction("Index3");

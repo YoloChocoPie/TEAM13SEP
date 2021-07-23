@@ -10209,7 +10209,7 @@ hr {
     border-radius: 10px;
     margin-bottom: 100px;
     margin-left: 459.5px;
-    width: 522px;
+    width: 555px;
 }
 
     .login-form .btnlogin {
@@ -10484,4 +10484,7 @@ i {
 
 #like {
     margin-left: 15px;
+}
+.field-validation-error {
+    color: red;
 }

@@ -69,9 +69,8 @@
             @Html.LabelFor(model => model.NOIDUNG_GOPY, "Nội dung", htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
             <div class="col-md-10">
                 @Html.HiddenFor(model => model.NOIDUNG_GOPY)
+                @ViewBag.noidung
 
-
-                @MvcHtmlString.Create(Model.NOIDUNG_GOPY)
             </div>
         </div>
 
@@ -80,7 +79,7 @@
             <div class="col-md-10">
 
                 @Html.TextAreaFor(model => model.TRALOI_GOPY, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.TRALOI_GOPY, "", new { @class = "text-danger" })
+                @Html.ValidationMessage("bug2", new { @class = "text-danger" })
             </div>
         </div>
 

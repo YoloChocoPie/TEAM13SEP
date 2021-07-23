@@ -5,7 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <!-- Styles -->
-
+<link href="@Url.Content("~/AdminPlugin/assets/css_login/style.css")" rel="stylesheet">
 
 
 
@@ -14,8 +14,9 @@
     <div class="col-lg-8 p-r-0 title-margin-right">
         <div class="page-header">
             <div class="page-title">
-                <h5 style="width:100% ; line-height:47px    ">Xin chào @Session["user-fullname"], Tới giao diện quản trị</h5>
+                <h5 style="width:100% ; line-height:47px; font-size:16px;"> Chào mừng tới trang quản trị</h5>
             </div>
+
         </div>
     </div>
     <!-- /# column -->
@@ -23,7 +24,7 @@
         <div class="page-header">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="~/Admin/GopY">Giao diện quản lý Góp ý đã trả lời</a></li>
+                    <li><a href="~/Admin/GopY" style="color: blue; font-size: 16px;"><b>Danh sách các góp ý đã trả lời</b></a></li>
 
                 </ol>
             </div>
@@ -44,17 +45,17 @@
                         <tr>
 
                             <th>
-                                Tiêu đề
+                                Chủ đề
                             </th>
                             @*       <th>
-            Tên chủ đề
-        </th>*@
+                                    Tên chủ đề
+                                </th>*@
                             @*   <th>
-            Tên người thực hiện
-        </th>*@
+                                    Tên người thực hiện
+                                </th>*@
 
                             <th>
-                                Tên sinh viên hỏi
+                                Tên sinh viên
                             </th>
                             <th>
                                 Nội dung
@@ -65,10 +66,10 @@
                             </th>
 
                             <th>
-                                Lượt Tym
+                                Lượt Tim
                             </th>
                             <th>
-                                ngày tạo
+                                Ngày tạo
                             </th>
                             @**@
 
@@ -83,50 +84,50 @@
 
                     @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 3))
                     {
-                <tr>
+                        <tr>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GOPY_TEN)
-                    </td>
-                    @* <td>
-            @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
-        </td>*@
-                    @*   <td>
-            @Html.DisplayFor(modelItem => item.ADMIN.FULL_NAME)
-        </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
+                            </td>
+                            @* <td>
+                                    @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
+                                </td>*@
+                            @*   <td>
+                                    @Html.DisplayFor(modelItem => item.ADMIN.FULL_NAME)
+                                </td>*@
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
-                    </td>
-                    <td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
+                            </td>
+                            <td>
 
-                        @MvcHtmlString.Create(item.NOIDUNG_GOPY)
+                                @MvcHtmlString.Create(item.NOIDUNG_GOPY)
 
-                    </td>
-                    <td>
-                        <div>
-                            @MvcHtmlString.Create(item.TRALOI_GOPY)
-                        </div>
+                            </td>
+                            <td>
+                                <div>
+                                    @MvcHtmlString.Create(item.TRALOI_GOPY)
+                                </div>
 
-                    </td>
+                            </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.nutLIKE)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DATE)
-                    </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nutLIKE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DATE)
+                            </td>
 
 
 
-                    <td>
+                            <td>
 
-                        @Html.ActionLink("Duyệt", "EditDaTraLoi1", new { id = item.ID }) <br /> || <br />
-                        @Html.ActionLink("Pin", "Pin2", new { id = item.ID })  <br /> || <br />
-                        @Html.ActionLink("Trả lời", "EditDaTraLoi", new { id = item.ID }) <br /> || <br />
-                        @Html.ActionLink("Xoá", "Delete2", new { id = item.ID })
-                    </td>
-                </tr>
+                          
+                            
+                                @Html.ActionLink("Chỉnh sửa", "EditDaTraLoi", new { id = item.ID }) <br /> || <br />
+                                @Html.ActionLink("Xoá", "Delete2", new { id = item.ID })
+                            </td>
+                        </tr>
                     }
 
 
@@ -141,12 +142,6 @@
     </div>
 </div>
 
-
-
-
-
-
-
 <div id="search">
     <button type="button" class="close">×</button>
     <form>
@@ -155,6 +150,12 @@
     </form>
 </div>
 
+<div id="back-to-top"><span class="fa fa-angle-up fa-3x"></span></div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/tilt.js@1.1.20/dest/tilt.jquery.min.js"></script>
+<script src="js/parallax.min.js"></script>
+<script src="~/AdminPlugin/assets/js/main.js"></script>
 
 

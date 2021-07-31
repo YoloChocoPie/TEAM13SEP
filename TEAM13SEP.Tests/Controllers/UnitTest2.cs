@@ -22,10 +22,7 @@ namespace TEAM13SEP.Tests.Controllers
 
 
             var GopY = db.GOPies.First();
-            var result = controller.EditChuaDuyet(GopY.ID) as ViewResult;
-            ViewBag.mssv = ;
-            var dulieu = @MvcHtmlString.Create(model.GOPies.FirstOrDefault(x => x.ID == id).NOIDUNG_GOPY);
-            ViewBag.noidung = dulieu;
+            var result = controller.Edit(GopY.ID) as ViewResult;
 
             var Models = result.Model as GOPY;
             Assert.IsNotNull(result);

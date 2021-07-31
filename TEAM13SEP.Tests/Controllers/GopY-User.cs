@@ -47,7 +47,7 @@ namespace TEAM13SEP.Tests.Controllers
             var db = new SEPEntities();
             Assert.AreEqual(db.GOPies.Count(), model.Count);
         }
-        public int id;
+     
         [TestMethod]
         public void TestEdit()
         {

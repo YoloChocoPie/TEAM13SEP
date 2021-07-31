@@ -1,0 +1,51 @@
+﻿@model TEAM13SEP.Models.ADMIN
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2></h2>
+
+<h3>Kiểm tra lại thông tin trước khi xoá</h3>
+<div>
+    <h4>Giao diện xoá tài khoản</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Email tài khoản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+      
+
+        <dt>
+            Họ và tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FULL_NAME)
+        </dd>
+
+        <dt>
+            Vai trò
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ROLE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" /> |
+            @Html.ActionLink("Quay về trang chủ", "Index")
+        </div>
+    }
+</div>

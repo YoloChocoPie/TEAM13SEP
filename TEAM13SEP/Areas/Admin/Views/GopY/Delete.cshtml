@@ -1,0 +1,98 @@
+﻿﻿@model TEAM13SEP.Models.GOPY
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2></h2>
+
+<h3>Kiểm tra lại thông tin trước khi xoá</h3>
+<div>
+    <h4>Giao diện xoá góp ý</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã Góp ý
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GOPY_CODE)
+        </dd>
+
+        <dt>
+            Tên góp ý
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GOPY_TEN)
+        </dd>
+
+        <dt>
+      Số lượng like
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nutLIKE)
+        </dd>
+
+        <dt>
+           Nội dung góp ý
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDUNG_GOPY)
+        </dd>
+
+        <dt>
+           Câu trả lời
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRALOI_GOPY)
+        </dd>
+
+        <dt>
+         Ngày đặt
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE)
+        </dd>
+
+        <dt>
+     Email người trả lời
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADMIN.EMAIL)
+        </dd>
+
+        <dt>
+           Mã chủ đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUDE.CHUDE_CODE)
+        </dd>
+
+        <dt>
+       Email sinh viên hỏi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SINHVIEN.EMAIL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" /> |
+            @Html.ActionLink("Quay về trang chủ", "Index")
+        </div>
+    }
+</div>

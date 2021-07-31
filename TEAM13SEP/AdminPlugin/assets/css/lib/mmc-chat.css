@@ -404,7 +404,7 @@
     color: #fff;
 }
 
-#mmc-chat.inbox .box .box-body .message-scrooler .messages .message .body .content .attachment .pdf {
+#mmc-chat.inbox .box .box-body .message-scrooler .messages .message .body .content .attachment  {
     background-color: #c44141;
 }
 
@@ -880,7 +880,7 @@ z-index: 10;
     color: #fff;
 }
 
-#mmc-chat .chat-box ul.boxs li.box .box-body .message-scrooler .messages .message .body .content .attachment .pdf {
+#mmc-chat .chat-box ul.boxs li.box .box-body .message-scrooler .messages .message .body .content .attachment  {
     background-color: #c44141;
 }
 

@@ -1,0 +1,44 @@
+﻿@model TEAM13SEP.Models.CHUDE
+
+@{ ViewBag.Title = "Delete";
+                Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2></h2>
+
+<h3>Hãy kiểm tra liệu chủ đề này còn nằm trong Góp Ý nào không nhé</h3>
+<div>
+    <h4>Giao diện xoá chủ đề</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã chủ đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUDE_CODE)
+        </dd>
+
+        <dt>
+            Tên chủ đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUDE_NAME)
+            @Html.ValidationMessage("bug1", new { @class = "text-danger" })
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-actions no-color">
+
+            <input type="submit" value="Xoá" class="btn btn-default" />
+            |
+            @Html.ActionLink("Quay về trang chủ", "Index")
+        </div>}
+ 
+</div>

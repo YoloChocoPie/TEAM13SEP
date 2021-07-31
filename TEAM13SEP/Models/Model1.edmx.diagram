@@ -4,8 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+
       <Diagram DiagramId="9a0b9fcd698d43dcbcb42c6440c9a247" Name="Diagram1">
         <EntityTypeShape EntityType="TEAM13SEPModel.ADMIN" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+
+
         <EntityTypeShape EntityType="TEAM13SEPModel.CHUDE" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TEAM13SEPModel.GOPY" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="TEAM13SEPModel.SINHVIEN" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
@@ -15,7 +18,9 @@
         <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_CHUDE" ManuallyRouted="false" />
         <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_SINHVIEN" ManuallyRouted="false" />
         <AssociationConnector Association="TEAM13SEPModel.FK_GOPY_TRANGTHAI" ManuallyRouted="false" />
+
         </Diagram>
+
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

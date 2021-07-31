@@ -20,7 +20,7 @@
         <div class="page-header">
 
             <div class="page-title">
-                <h5 style="width:100% ; line-height:47px; font-size: 16px;">Chào mừng tới trang quản trị</h5>
+                <h5 style="width:100% ; line-height:47px    ">Xin chào @Session["user-fullname"], Tới giao diện quản trị</h5>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="page-header">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="~/Admin/GopY" style="color: blue; font-size: 16px;"><b>Danh sách các góp ý chưa duyệt</b></a></li>
+                    <li><a href="~/Admin/GopY">Giao diện quản lý Góp ý Chưa được Duyệt</a></li>
 
                 </ol>
             </div>
@@ -50,7 +50,7 @@
                         <tr>
 
                             <th>
-                                Chủ đề
+                                Tiêu đề
                             </th>
 
                             @*   <th>
@@ -58,7 +58,7 @@
                                 </th>*@
 
                             <th>
-                                Tên sinh viên
+                                Tên sinh viên hỏi
                             </th>
                             <th>
                                 Nội dung
@@ -67,7 +67,7 @@
                                     Câu trả lời
                                 </th>*@
                             <th>
-                                Ngày tạo
+                                ngày tạo
                             </th>
                             @*     <th>
                                     Số lượng Like
@@ -87,7 +87,7 @@
                         <tr>
 
                             <td>
-                                @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
+                                @Html.DisplayFor(modelItem => item.GOPY_TEN)
                             </td>
 
                             @*   <td>
@@ -119,8 +119,8 @@
                             <td>
 
                                 @Html.ActionLink("Duyệt", "EditChuaDuyet1", new { id = item.ID }) <br /> || <br />
-                    
-                           
+                                @Html.ActionLink("Pin", "Pin", new { id = item.ID })  <br /> || <br />
+                                @Html.ActionLink("Trả lời", "EditChuaDuyet", new { id = item.ID }) <br /> || <br />
                                 @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
                             </td>
                         </tr>
@@ -138,6 +138,12 @@
     </div>
 </div>
 
+
+
+
+
+
+
 <div id="search">
     <button type="button" class="close">×</button>
     <form>
@@ -146,17 +152,6 @@
     </form>
 </div>
 
-
-<div id="back-to-top"><span class="fa fa-angle-up fa-3x"></span></div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/tilt.js@1.1.20/dest/tilt.jquery.min.js"></script>
-<script src="js/parallax.min.js"></script>
-<script src="~/AdminPlugin/assets/js/main.js"></script>
-
-<!-- Styles -->
-<link href="@Url.Content("~/AdminPlugin/assets/css_login/style.css")" rel="stylesheet">
 
 
 

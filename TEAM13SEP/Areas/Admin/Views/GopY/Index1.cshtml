@@ -4,13 +4,17 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<!-- Styles -->
+
+
+
 
 
 <div class="row">
     <div class="col-lg-8 p-r-0 title-margin-right">
         <div class="page-header">
             <div class="page-title">
-                <h5 style="width:100% ; line-height:47px; font-size: 16px;">Chào mừng tới trang quản trị</h5>
+                <h5 style="width:100% ; line-height:47px    ">Xin chào @Session["user-fullname"], Tới giao diện quản trị</h5>
             </div>
         </div>
     </div>
@@ -19,7 +23,7 @@
         <div class="page-header">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="~/Admin/GopY" style="color: blue; font-size: 16px;"><b>Danh sách các góp ý đã được duyệt</b></a></li>
+                    <li><a href="~/Admin/GopY">Giao diện quản lý Góp ý đã được Duyệt</a></li>
 
                 </ol>
             </div>
@@ -40,11 +44,11 @@
                         <tr>
 
                             <th>
-                                Chủ đề
+                                Tiêu đề
                             </th>
                             @*      <th>
-                                    Tên chủ đề
-                                </th>*@
+            Tên chủ đề
+        </th>*@
                             <th>
                                 Tên sinh viên
                             </th>
@@ -52,10 +56,10 @@
                                 Nội dung
                             </th>
                             <th>
-                                Lượt tim
+                                Lượt Tym
                             </th>
                             <th>
-                                Ngày tạo
+                                ngày tạo
                             </th>
 
                             <th>
@@ -67,41 +71,41 @@
 
                     @foreach (var item in Model.Where(w => w.TRANGTHAI.ID == 2))
                     {
-                        <tr>
+                <tr>
 
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
-                            </td>
-                            @*    <td>
-                                    @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
-                                </td>*@
-
-
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
-                            </td>
-                            <td>
-
-                                @MvcHtmlString.Create(item.NOIDUNG_GOPY)
-
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.nutLIKE)
-                            </td>
-
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DATE)
-                            </td>
-
-                            <td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GOPY_TEN)
+                    </td>
+                    @*    <td>
+            @Html.DisplayFor(modelItem => item.CHUDE.CHUDE_NAME)
+        </td>*@
 
 
-                                @*@Html.ActionLink("Duyệt", "EditDaDuyet1", new { id = item.ID }) <br /> || <br />*@
-                                @Html.ActionLink("Pin", "Pin1", new { id = item.ID })  <br /> || <br />
-                                @Html.ActionLink("Trả lời", "EditDaDuyet", new { id = item.ID }) <br /> || <br />
-                                @Html.ActionLink("Xoá", "Delete1", new { id = item.ID })
-                            </td>
-                        </tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SINHVIEN.HOTEN_SV)
+                    </td>
+                    <td>
+
+                        @MvcHtmlString.Create(item.NOIDUNG_GOPY)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nutLIKE)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DATE)
+                    </td>
+
+                    <td>
+
+
+                        @Html.ActionLink("Duyệt", "EditDaDuyet1", new { id = item.ID }) <br /> || <br />
+                        @Html.ActionLink("Pin", "Pin1", new { id = item.ID })  <br /> || <br />
+                        @Html.ActionLink("Trả lời", "EditDaDuyet", new { id = item.ID }) <br /> || <br />
+                        @Html.ActionLink("Xoá", "Delete1", new { id = item.ID })
+                    </td>
+                </tr>
                     }
 
 
@@ -116,6 +120,12 @@
     </div>
 </div>
 
+
+
+
+
+
+
 <div id="search">
     <button type="button" class="close">×</button>
     <form>
@@ -124,16 +134,6 @@
     </form>
 </div>
 
-<div id="back-to-top"><span class="fa fa-angle-up fa-3x"></span></div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/tilt.js@1.1.20/dest/tilt.jquery.min.js"></script>
-<script src="js/parallax.min.js"></script>
-<script src="~/AdminPlugin/assets/js/main.js"></script>
-
-<!-- Styles -->
-<link href="@Url.Content("~/AdminPlugin/assets/css_login/style.css")" rel="stylesheet">
 
 
 

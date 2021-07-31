@@ -34,9 +34,6 @@
 
     <link href="@Url.Content("~/AdminPlugin/assets/css/lib/data-table/buttons.bootstrap.min.css")" rel="stylesheet" />
 
-    <!--Javascript-->
-    <link href="~/AdminPlugin/assets/js/main.js" rel="stylesheet" type="text/css">
-
 
 
 
@@ -47,11 +44,6 @@
 <body>
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
-        <div class="hamburger sidebar-toggle">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-        </div>
         <div class="nano">
             <div class="nano-content">
 
@@ -65,20 +57,24 @@
                         <li class="label">Mục Quản Lý</li>
 
                         <li>
-                            <a class="sidebar-sub-toggle"><i class="ti-email"></i>Quản lý Góp ý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý Góp ý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="~/Admin/GopY/Index">Góp ý chưa duyệt <i class="ti-file"></i></a></li>
-                                <li><a href="~/Admin/GopY/Index1">Góp ý đã duyệt <i class="ti-check-box"></i></a></li>
-                                <li><a href="~/Admin/GopY/Index2">Góp ý đã trả lời <i class="ti-comment-alt"></i></a></li>
-                                <li><a href="~/Admin/GopY/Index3">Góp ý đang được pin <i class="ti-pin-alt"></i></a></li>
+                                <li><a href="~/Admin/GopY/Index">Quản lý góp ý chưa được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index1">Quản lý góp ý đã được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index2">Quản lý góp ý đã được trả lời </a></li>
+                                <li><a href="~/Admin/GopY/Index3">Quản lý góp ý đang được pin </a></li>
+                                @*  <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
+                    <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
+
+
                             </ul>
                         </li>
 
                         <li>
-                            <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i>Quản lý chủ đề <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý chủ đề <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
 
-                                <li><a href="~/Admin/ChuDe">Danh sách chủ đề</a></li>
+                                <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
                                 @*  <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
 
 
@@ -89,7 +85,7 @@
                             <ul>
 
 
-                                <li><a href="~/Admin/Account">Phân quyền</a></li>
+                                <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>
 
 
                             </ul>
@@ -97,7 +93,7 @@
 
                         <li class="label">Mục thống kê</li>
                         <li>
-                            <a class="sidebar-sub-toggle"><i class="ti-bar-chart"></i>Thống kê <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Thống kê <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
                                 <li><a href="~/Admin/GopY/ThongKe">Thống kê chi tiết</a></li>
 
@@ -114,18 +110,22 @@
                         <li>
                             <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý Góp ý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="~/Admin/GopY/Index">Góp ý chưa duyệt <i class="ti-file"></i></a></li>
-                                <li><a href="~/Admin/GopY/Index1">Góp ý đã duyệt <i class="ti-check-box"></i></a></li>
-                                <li><a href="~/Admin/GopY/Index2">Góp ý đã trả lời <i class="ti-comment-alt"></i></a></li>
-                                <li><a href="~/Admin/GopY/Index3">Góp ý đang được pin <i class="ti-pin-alt"></i></a></li>
+                                <li><a href="~/Admin/GopY/Index">Quản lý góp ý chưa được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index1">Quản lý góp ý đã được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index2">Quản lý góp ý đã được trả lời </a></li>
+                                <li><a href="~/Admin/GopY/Index3">Quản lý góp ý đang được pin </a></li>
+                                @*  <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
+                    <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
+
+
                             </ul>
                         </li>
 
                         <li>
-                            <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i>Quản lý chủ đề <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý chủ đề <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
 
-                                <li><a href="~/Admin/ChuDe">Danh sách chủ đề</a></li>
+                                <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
                                 @*  <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
 
 
@@ -134,7 +134,7 @@
 
                         <li class="label">Mục thống kê</li>
                         <li>
-                            <a class="sidebar-sub-toggle"><i class="ti-bar-chart"></i>Thống kê <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Thống kê <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
                                 <li><a href="~/Admin/GopY/ThongKe">Thống kê chi tiết</a></li>
 
@@ -152,10 +152,14 @@
                         <li>
                             <a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Quản lý Góp ý <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
                             <ul>
-                                <li><a href="~/Admin/GopY/Index">Góp ý chưa duyệt <i class="ti-file"></i></a></li>
-                                <li><a href="~/Admin/GopY/Index1">Góp ý đã duyệt <i class="ti-check-box"></i></a></li>
-                                <li><a href="~/Admin/GopY/Index2">Góp ý đã trả lời <i class="ti-comment-alt"></i></a></li>
-                                <li><a href="~/Admin/GopY/Index3">Góp ý đang được pin <i class="ti-pin-alt"></i></a></li>
+                                <li><a href="~/Admin/GopY/Index">Quản lý góp ý chưa được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index1">Quản lý góp ý đã được duyệt</a></li>
+                                <li><a href="~/Admin/GopY/Index2">Quản lý góp ý đã được trả lời </a></li>
+                                <li><a href="~/Admin/GopY/Index3">Quản lý góp ý đang được pin </a></li>
+                                @*  <li><a href="~/Admin/ChuDe">Quản lý chủ đề</a></li>
+                    <li><a href="~/Admin/Account">Quản lý phân quyền</a></li>*@
+
+
                             </ul>
                         </li>
 
@@ -163,35 +167,52 @@
                     @if ((int)Session["user-role"] == 4)
                     {
 
+
+
                     }
 
-                    <li><a href="~/Admin/Auth/Logout" class="nav-link "><i class="ti-power-off"></i> Đăng xuất</a></li>
+
+
+
+
+
+
+
+
+
+                    <li><a href="~/Admin/Auth/Logout" class="nav-link "><i class="ti-close"></i> Đăng xuất</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <!-- /# sidebar -->
-
+    
     <div class="header">
-        <img src="~/AdminPlugin/assets/images/logo-vlu.png" style=" height: 100px; width: 220px; max-width: 75%; margin-left: 42px" />
+
+
+
         <div class="pull-left">
+            <div class="logo">
+                <img src="~/AdminPlugin/assets/images/logo-vlu.png" style=" height: 80px; width: 180px; max-width: 75% " />
 
-            @*<div class="logo">
-                    <img src="~/AdminPlugin/assets/images/logo-vlu.png" style=" height: 80px; width: 180px; max-width: 75% " />
-                </div>*@
-            @*<div class="hamburger sidebar-toggle">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </div>*@
-=======
 
+
+
+            </div>
+
+
+            <div class="hamburger sidebar-toggle">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
         </div>
-
+ 
         <div class="pull-right p-r-15">
             <ul>
+
                 <li class="header-icon dib">
-                    <i class="fa fa-user" aria-hidden="true"> </i> <span class="user-avatar" style="font-size: 20px">@Session["user-fullname"] @*<i class="ti-angle-down f-s-10"></i>*@</span>
+                    <i class="fa fa-user" aria-hidden="true"> </i> <span class="user-avatar">@Session["user-fullname"] <i class="ti-angle-down f-s-10"></i></span>
 
                 </li>
             </ul>
@@ -1062,7 +1083,8 @@
 =======
     <!-- scripit init-->
 
+
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>
-@RenderSection("scripts", required: false)

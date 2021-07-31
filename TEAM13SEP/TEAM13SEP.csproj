@@ -192,10 +192,8 @@
     <Compile Include="Models\CHUDE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-
     <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\encryptPassword.cs" />
-
     <Compile Include="Models\GOPY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -961,7 +959,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-
     <Content Include="Areas\Admin\Views\ChuDe\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ChuDe\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ChuDe\Edit.cshtml" />
@@ -983,7 +980,6 @@
     <Content Include="Areas\User\Views\GopY\Index2.cshtml" />
     <Content Include="Areas\User\Views\GopY\Create.cshtml" />
     <Content Include="Areas\User\Views\Shared\_UserLayout.cshtml" />
-
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -991,7 +987,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Auth\Test.cshtml" />
@@ -1033,7 +1028,6 @@
     <Content Include="Areas\Admin\Views\GopY\EditDaTraLoi.cshtml" />
     <Content Include="Areas\Admin\Views\GopY\EditDangPin.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
-
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

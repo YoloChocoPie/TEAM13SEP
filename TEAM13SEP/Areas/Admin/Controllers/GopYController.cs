@@ -238,7 +238,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
                 gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
-                gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+                gopy1.GOPY_STATUS = 3;
                 if (gopy1.GOPY_STATUS == 3 && gopy1.TRALOI_GOPY == null)
                 {
 
@@ -335,7 +335,7 @@ namespace TEAM13SEP.Areas.Admin.Controllers
                 gopy1.SINHVIEN_ID = gopy.SINHVIEN_ID;
                 gopy1.NOIDUNG_GOPY = gopy.NOIDUNG_GOPY;
                 gopy1.TRALOI_GOPY = gopy.TRALOI_GOPY;
-                gopy1.GOPY_STATUS = gopy.GOPY_STATUS;
+                gopy1.GOPY_STATUS = 3;
 
                 if (gopy1.GOPY_STATUS == 3 && gopy1.TRALOI_GOPY == null)
                 {

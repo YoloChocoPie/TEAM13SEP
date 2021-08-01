@@ -51,7 +51,7 @@
                             </th>
 
                             <th>
-
+                                @Html.ActionLink("Thêm chủ đề mới", "Create")
                             </th>
                         </tr>
                     </thead>
@@ -66,19 +66,21 @@
                             </td>
 
                             <td>
-                                @Html.ActionLink("Thêm chủ đề mới", "Create") |
+
                                 @Html.ActionLink("Thay đổi", "Edit", new { id = item.ID }) |
                                 @* @Html.ActionLink("Details", "Details", new { id = item.ID }) *@|
                                 @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
                             </td>
                         </tr>
                     }
-
+                    
+                  
 
 
 
 
                 </table>
+  
             </div>
             <!-- /.table-responsive -->
         </div>
